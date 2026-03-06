@@ -1,0 +1,4155 @@
+[{
+    "nl": "matches either the character \"à\" (a with grave accent) or \"á\" (a with acute accent)",
+    "regex": "[\\u00E0\\u00E1]",
+    "matches": [
+        "à",
+        "á"
+    ],
+    "non_matches": [
+        "12345",
+        "こんにちは",
+        "Привет,",
+        "мир!",
+        "你好，世界",
+        "สวัสดีครับ",
+        "Καλημέρα!"
+    ],
+    "note": null,
+    "id": 1,
+    "attemptRegex": "[àá]"
+},{
+    "nl": "match a character with all letters (including chinese) and some chosen punctuations (also including chinese)\n",
+    "regex": "(:|[A-Z]|_|[a-z]|[\\xC0-\\xD6]|[\\xD8-\\xF6]|[\\xF8-\\u02FF]|[\\u0370-\\u037D]|[\\u037F-\\u1FFF]|[\\u200C-\\u200D]|[\\u2070-\\u218F]|[\\u2C00-\\u2FEF]|[\\u3001-\\uD7FF]|[\\uF900-\\uFDCF]|[\\uFDF0-\\uFFFD]|[\\u10000-\\uEFFFF])",
+    "matches": [
+        "�",
+        "_",
+        "b",
+        "Ͱ",
+        "῿",
+        "豈"
+    ],
+    "non_matches": [
+        "!",
+        "#",
+        "$",
+        "%",
+        "&",
+        "*"
+    ],
+    "note": null,
+    "id": 2,
+    "attemptRegex": "[\\p{L}_\\u3000-\\u303F\\uFF00-\\uFFEF]"
+},{
+    "nl": "match some different dash types and hyphen types minus signs etc.etc",
+    "regex": "\\u2212|\\u002D|\\u05BE|\\u2011|\\u2012|\\u2013|\\u2014|\\u2015|\\u207B|\\u208B|\\u2212|\\uFE58|\\uFE63|\\uFF0D",
+    "matches": [
+        "—",
+        "⁻",
+        "₋",
+        "−",
+        "﹘",
+        "﹣"
+    ],
+    "non_matches": [
+        "12345",
+        "こんにちは",
+        "Привет,",
+        "мир!",
+        "你好，世界",
+        "สวัสดีครับ",
+        "Καλημέρα!"
+    ],
+    "note": null,
+    "id": 3,
+    "attemptRegex": "[—⁻₋−﹘﹣]"
+},{
+    "nl": "match any sequence of \"א\" (aleph) or \"ן\"characters that repeat two or more times consecutively in the text",
+    "regex": "(?:[\\\\u05d0\\\\u05df]){2,}",
+    "matches": [
+        "ןאאאן",
+        "ןאןןן",
+        "ןןןןןןן",
+        "ןאן",
+        "ןןןןןןןןןןןןןןןן",
+        "אאאאאא"
+    ],
+    "non_matches": [
+        "สวัสดีค",
+        "こんに",
+        "ちは",
+        "สวัสดีครับ",
+        "Καλημέρα!",
+        "έρα!"
+    ],
+    "note": null,
+    "id": 4,
+    "attemptRegex": "[אן]{2,}"
+},{
+    "nl": "match \\u05db\\u05d3\\u05d5\\u05e8\\u05d2\\u05dc in the string",
+    "regex": "\\u05db\\u05d3\\u05d5\\u05e8\\u05d2\\u05dc",
+    "matches": [
+        "כדורגל"
+    ],
+    "non_matches": [
+        "สวัสดีค",
+        "こんに",
+        "ちは",
+        "สวัสดีครับ",
+        "Καλημέρα!",
+        "έρα!"
+    ],
+    "note": null,
+    "id": 5,
+    "attemptRegex": "כדורגל"
+},{
+    "nl": "match chinese characters",
+    "regex": "(?:[\\u4E00-\\u9FCC\\u3400-\\u4DB5\\uFA0E\\uFA0F\\uFA11\\uFA13\\uFA14\\uFA1F\\uFA21\\uFA23\\uFA24\\uFA27-\\uFA29]|[\\ud840-\\ud868][\\udc00-\\udfff]|\\ud869[\\udc00-\\uded6\\udf00-\\udfff]|[\\ud86a-\\ud86c][\\udc00-\\udfff]|\\ud86d[\\udc00-\\udf34\\udf40-\\udfff]|\\ud86e[\\udc00-\\udc1d])+",
+    "matches": [
+        "我",
+        "的",
+        "中",
+        "文",
+        "不",
+        "好"
+    ],
+    "non_matches": [
+        "สวัสดีค",
+        "こんに",
+        "ちは",
+        "สวัสดีครับ",
+        "Καλημέρα!",
+        "έρα!"
+    ],
+    "note": null,
+    "id": 6,
+    "attemptRegex": "[\\u4e00-\\u9fff]"
+},{
+    "nl": "match numbers between two unicode characters \\u{2022}.",
+    "regex": "\\u2022(\\d*)\\u2022",
+    "matches": [
+        "•12345•",
+        "•1•",
+        "•3•",
+        "•34•",
+        "•915•",
+        "•6•"
+    ],
+    "non_matches": [
+        "12345",
+        "こんにちは",
+        "Привет,",
+        "мир!",
+        "你好，世界",
+        "สวัสดีครับ",
+        "Καλημέρα!"
+    ],
+    "note": null,
+    "id": 7,
+    "attemptRegex": "\\u{2022}\\d+\\u{2022}"
+},{
+    "nl": "matches one or more consecutive digits in the range of U+0966 to U+096F in Unicode",
+    "regex": "[\\u0966-\\u096F]+",
+    "matches": [
+        "९",
+        "०",
+        "६६६",
+        "८",
+        "५"
+    ],
+    "non_matches": [
+        "12345",
+        "こんにちは",
+        "Привет,",
+        "мир!",
+        "你好，世界",
+        "สวัสดีครับ",
+        "Καλημέρα!"
+    ],
+    "note": null,
+    "id": 8,
+    "attemptRegex": "[\\u0966-\\u096F]+"
+},{
+    "nl": "matches one or more consecutive digits in the range of U+0E50 to U+0E59 in Unicode.",
+    "regex": "[\\u0E50-\\u0E59]+",
+    "matches": [
+        "๖",
+        "๘",
+        "๕๔",
+        "๐๗",
+        "๗",
+        "๙"
+    ],
+    "non_matches": [
+        "12345",
+        "こんにちは",
+        "Привет,",
+        "мир!",
+        "你好，世界",
+        "สวัสดีครับ",
+        "Καλημέρα!"
+    ],
+    "note": null,
+    "id": 9,
+    "attemptRegex": "[\\u0E50-\\u0E59]+"
+},{
+    "nl": "match any sequence of one or more consecutive digits from the Latin script (0-9), Devanagari script (०-९), or Thai script (๐-๙).",
+    "regex": "[\\d\\u0966-\\u096F\\u0E50-\\u0E59]+",
+    "matches": [
+        "०",
+        "९",
+        "๐",
+        "๙",
+        "२२",
+        "1"
+    ],
+    "non_matches": [
+        "12345",
+        "こんにちは",
+        "Привет,",
+        "мир!",
+        "你好，世界",
+        "สวัสดีครับ",
+        "Καλημέρα!"
+    ],
+    "note": null,
+    "id": 10,
+    "attemptRegex": "[0-9०-९๐-๙]+"
+},{
+    "nl": "match numbers in different scripts and formats, including full-width digits commonly used in East Asian languages and include an optional plus sign at the beginning, Integer or decimal values and a minimum of 5 digits (0-9 or full-width digits).",
+    "regex": "[+0-9\\uFF10-\\uFF19]+(?:\\.[0-9\\uFF10-\\uFF19]*)?[0-9\\uFF10-\\uFF19]{5,}",
+    "matches": [
+        "22.011111111",
+        "+.55555",
+        "+.644444",
+        "５６685.９6２４9２4８",
+        "6.２１８５2７０５",
+        "22.01111"
+    ],
+    "non_matches": [
+        "12345",
+        "こんにちは",
+        "Привет,",
+        "мир!",
+        "你好，世界",
+        "สวัสดีครับ",
+        "Καλημέρα!"
+    ],
+    "note": null,
+    "id": 11,
+    "attemptRegex": "^[+]?(?=.*[\\d０-９].*[\\d０-９].*[\\d０-９].*[\\d０-９].*[\\d０-９])[\\d０-９]*\\.?[\\d０-９]*$"
+},{
+    "nl": "match the symbol (°)",
+    "regex": "\\u00B0",
+    "matches": [
+        "°"
+    ],
+    "non_matches": [
+        "12345",
+        "こんにちは",
+        "Привет,",
+        "мир!",
+        "你好，世界",
+        "สวัสดีครับ",
+        "Καλημέρα!"
+    ],
+    "note": null,
+    "id": 12,
+    "attemptRegex": "°"
+},{
+    "nl": "match an ASCII plus sign or its Japanese Halfwidth equivalent, followed by one or more digits from a few different writing systems",
+    "regex": "[+\\uFF0B][0-9\\uFF10-\\uFF19\\u0660-\\u0669\\u06F0-\\u06F9]+",
+    "matches": [
+        "＋0",
+        "＋１",
+        "＋00",
+        "＋３１7٦3",
+        "+۲8٥",
+        "+۷۶"
+    ],
+    "non_matches": [
+        "12345",
+        "こんにちは",
+        "Привет,",
+        "мир!",
+        "你好，世界",
+        "สวัสดีครับ",
+        "Καλημέρα!"
+    ],
+    "note": null,
+    "id": 13,
+    "attemptRegex": "[+＋][0-9０-９۰-۹٠-٩]+"
+},{
+    "nl": "match the character 쎩  and the character é",
+    "regex": "\\uC3A9\\xe9",
+    "matches": [
+        "쎩é"
+    ],
+    "non_matches": [
+        "สวัสดี",
+        "こんにちは",
+        "Привет,мир!",
+        "你好，世界",
+        "สวัสดีครับ",
+        "Καλημέρα!"
+    ],
+    "note": null,
+    "id": 14,
+    "attemptRegex": "쎩é"
+},{
+    "nl": "match any characters which is not included ASCII characters.",
+    "regex": "[^\\u0000-\\u007F]+",
+    "matches": [
+        "身份",
+        "󔬑",
+        "򉅇򉅇",
+        "๐๗",
+        "๗",
+        "๙"
+    ],
+    "non_matches": [
+        "Hello",
+        "12345",
+        "English",
+        "!@#",
+        "Hello",
+        ","
+    ],
+    "note": null,
+    "id": 15,
+    "attemptRegex": "[^\\x00-\\x7F]+"
+},{
+    "nl": "match the letter and latin characters",
+    "regex": "[A-Za-z\\u00C0-\\u00FF]+",
+    "matches": [
+        "hipopó",
+        "tamo",
+        "vv",
+        "Ø",
+        "rr",
+        "áT"
+    ],
+    "non_matches": [
+        "12345",
+        "こんにちは",
+        "Привет,",
+        "мир!",
+        "你好，世界",
+        "สวัสดีครับ",
+        "Καλημέρα!"
+    ],
+    "note": null,
+    "id": 16,
+    "attemptRegex": "^[a-zA-ZÀ-ÿĀ-žØøÐðÞþ]+$"
+},{
+    "nl": "match emoji using Unicode blocks and ES6.",
+    "regex": "[\\u{1f300}-\\u{1f5ff}\\u{1f900}-\\u{1f9ff}\\u{1f600}-\\u{1f64f}\\u{1f680}-\\u{1f6ff}\\u{2600}-\\u{26ff}\\u{2700}-\\u{27bf}\\u{1f1e6}-\\u{1f1ff}\\u{1f191}-\\u{1f251}\\u{1f004}\\u{1f0cf}\\u{1f170}-\\u{1f171}\\u{1f17e}-\\u{1f17f}\\u{1f18e}\\u{3030}\\u{2b50}\\u{2b55}\\u{2934}-\\u{2935}\\u{2b05}-\\u{2b07}\\u{2b1b}-\\u{2b1c}\\u{3297}\\u{3299}\\u{303d}\\u{00a9}\\u{00ae}\\u{2122}\\u{23f3}\\u{24c2}\\u{23e9}-\\u{23ef}\\u{25b6}\\u{23f8}-\\u{23fa}]",
+    "matches": [
+        "🌍💰🕧👨👩",
+        "👧🤔🈂️",
+        "😘",
+        "☃♨️🗺️📄🐥⚒️🌀",
+        "🦁🈷️🈵🆚🀄",
+        "⭐️❤️➡️➰️⤴️➿️⭕️㊙️",
+        "🀄🃏🅱️🆎〰️⤵️⬜️〽️⭐️🆒⏩️©️Ⓜ️☪️☕️⏺️▶️®️™️⏳️"
+    ],
+    "non_matches": [
+        "Hello",
+        "12345",
+        "こんにちは",
+        "Привет,",
+        "мир!",
+        "สวัสดีครับ",
+        "Καλημέρα!"
+    ],
+    "note": null,
+    "id": 17,
+    "attemptRegex": "[\\u{1F600}-\\u{1F64F}\\u{1F300}-\\u{1F5FF}\\u{1F680}-\\u{1F6FF}\\u{1F1E0}-\\u{1F1FF}\\u{2600}-\\u{26FF}\\u{2700}-\\u{27BF}\\u{1F900}-\\u{1F9FF}\\u{1F018}-\\u{1F270}\\u{238C}-\\u{2454}\\u{20D0}-\\u{20FF}\\u{FE0F}\\u{200D}]+"
+},{
+    "nl": "match a character ►",
+    "regex": "\\u25BA",
+    "matches": [
+        "►"
+    ],
+    "non_matches": [
+        "Hello",
+        "12345",
+        "こんにちは",
+        "Привет,",
+        "мир!",
+        "สวัสดีครับ",
+        "Καλημέρα!"
+    ],
+    "note": null,
+    "id": 18,
+    "attemptRegex": "►"
+},{
+    "nl": "match the unicode characters between U+30A0…U+30FF",
+    "regex": "[\\u30a0-\\u30ff]",
+    "matches": [
+        "ポ",
+        "ョ",
+        "ヤ",
+        "ポヤ",
+        "゠",
+        "キ"
+    ],
+    "non_matches": [
+        "Hello",
+        "12345",
+        "こんにちは",
+        "Привет,",
+        "мир!",
+        "สวัสดีครับ",
+        "Καλημέρα!"
+    ],
+    "note": null,
+    "id": 19,
+    "attemptRegex": "[\\u30A0-\\u30FF]+"
+},{
+    "nl": "use the Hexadecimal Unicode to match A,B,C,a",
+    "regex": "[\\u0041-\\u0043a]",
+    "matches": [
+        "ABCa",
+        "a",
+        "C",
+        "B",
+        "aA",
+        "aC"
+    ],
+    "non_matches": [
+        "Hello",
+        "12345",
+        "こんにちは",
+        "Привет,",
+        "мир!",
+        "สวัสดีครับ",
+        "Καλημέρα!"
+    ],
+    "note": null,
+    "id": 20,
+    "attemptRegex": "[\\x41-\\x43\\x61]"
+},{
+    "nl": "matches the character •",
+    "regex": "\\u2022",
+    "matches": [
+        "•"
+    ],
+    "non_matches": [
+        "Hello",
+        "12345",
+        "こんにちは",
+        "Привет,",
+        "мир!",
+        "สวัสดีครับ",
+        "Καλημέρα!"
+    ],
+    "note": null,
+    "id": 21,
+    "attemptRegex": "•"
+},{
+    "nl": "match the digit between two same characters 銈",
+    "regex": "\\u9288\\d+\\u9288",
+    "matches": [
+        "銈123銈",
+        "銈9銈",
+        "銈8銈",
+        "銈77483536銈",
+        "銈536銈",
+        "銈451銈"
+    ],
+    "non_matches": [
+        "Hello",
+        "12345",
+        "こんにちは",
+        "Привет,",
+        "мир!",
+        "สวัสดีครับ",
+        "Καλημέρα!"
+    ],
+    "note": null,
+    "id": 22,
+    "attemptRegex": "銈\\d+銈"
+},{
+    "nl": "matches various hyphen-like and dash-like characters from different scripts and languages, including Latin, Armenian, Hebrew, Canadian Syllabics, Mongolian, and others.",
+    "regex": "[\\u002D\\u058A\\u05BE\\u1400\\u1806\\u2010\\u2011\\u2012\\u2013\\u2014\\u2015\\u2053\\u207B\\u208B\\u2212\\u2E17\\u2E1A\\u2E3A\\u2E3B\\u2E40\\u301C\\u3030\\u30A0\\uFE31\\uFE32\\uFE58\\uFE63\\uFF0D]",
+    "matches": [
+        "-",
+        "‐",
+        "–",
+        "—",
+        "‒",
+        "―",
+        "−"
+    ],
+    "non_matches": [
+        "Hello",
+        "12345",
+        "こんにちは",
+        "Привет,",
+        "мир!",
+        "สวัสดีครับ",
+        "Καλημέρα!"
+    ],
+    "note": null,
+    "id": 23,
+    "attemptRegex": "[\\-\\u2010\\u2013\\u2014\\u2012\\u2015\\u2212]"
+},{
+    "nl": "match the text which is surrounded with double square brackets (aka wikilinks) for JAPANESE text.",
+    "regex": "\\[\\[[\\u3040-\\u309F]+\\]\\]",
+    "matches": [
+        "[[ひらがな]]",
+        "[[れれ]]",
+        "[[こここ]]",
+        "[[せりがりいえふぴぜ]]",
+        "[[いえふぴぜ]]",
+        "[[ぴぜ]]"
+    ],
+    "non_matches": [
+        "Hello",
+        "12345",
+        "こんにちは",
+        "Привет,",
+        "мир!",
+        "สวัสดีครับ",
+        "Καλημέρα!"
+    ],
+    "note": null,
+    "id": 24,
+    "attemptRegex": "\\[\\[[\\u3040-\\u309F]+\\]\\]"
+},{
+    "nl": "matches the character …",
+    "regex": "[\\u2026]",
+    "matches": [
+        "…"
+    ],
+    "non_matches": [
+        "Hello",
+        "12345",
+        "こんにちは",
+        "Привет,",
+        "мир!",
+        "สวัสดีครับ",
+        "Καλημέρα!"
+    ],
+    "note": null,
+    "id": 25,
+    "attemptRegex": "…"
+},{
+    "nl": "match the CJK Unified Ideographs",
+    "regex": "[\\u4E00-\\u9FCC]",
+    "matches": [
+        "秂",
+        "鄷",
+        "愅",
+        "仠",
+        "廠",
+        "鿌"
+    ],
+    "non_matches": [
+        "Hello",
+        "12345",
+        "こんにちは",
+        "Привет,",
+        "мир!",
+        "Καλημέρα!",
+        "สวัสดีครับ"
+    ],
+    "note": null,
+    "id": 26,
+    "attemptRegex": "[\\u4E00-\\u9FFF]"
+},{
+    "nl": "match the CJK Unified Ideographs Extension A",
+    "regex": "[\\u3400-\\u4DB5]",
+    "matches": [
+        "㭴",
+        "䴖",
+        "䢵",
+        "㐀",
+        "䶵",
+        "㑰"
+    ],
+    "non_matches": [
+        "Hello",
+        "12345",
+        "こんにちは",
+        "Привет,",
+        "мир!",
+        "你好，世界",
+        "วัสดีครับ"
+    ],
+    "note": null,
+    "id": 27,
+    "attemptRegex": "[\\u3400-\\u4DBF]"
+},{
+    "nl": "match a character within the CJK Compatibility Ideographs (F900-FA6D/FA70-FAD9) but which are actually CJK unified ideographs",
+    "regex": "[\\uFA0E\\uFA0F\\uFA11\\uFA13\\uFA14\\uFA1F\\uFA21\\uFA23\\uFA24\\uFA27-\\uFA29]",
+    "matches": [
+        "﨡",
+        "﨧",
+        "﨟",
+        "﨎",
+        "﨏",
+        "﨑"
+    ],
+    "non_matches": [
+        "Hello",
+        "12345",
+        "こんにちは",
+        "Привет,",
+        "мир!",
+        "你好，世界",
+        "สวัสดีครับ"
+    ],
+    "note": null,
+    "id": 28,
+    "attemptRegex": "[\\uF900-\\uFA6D\\uFA70-\\uFAD9]"
+},{
+    "nl": "match strings that consist of a combination of characters from the Unicode code points U+0000 to U+024F (including Latin characters and some extended characters) and numbers (0-9).",
+    "regex": "^[\\u0000-\\u024F0-9]+$",
+    "matches": [
+        "ý",
+        "Ƣ",
+        "ǌx",
+        "0",
+        "4",
+        "ɍ"
+    ],
+    "non_matches": [
+        "こんにちは",
+        "Привет,",
+        "мир!",
+        "你好，世界",
+        "สวัสดีครับ",
+        "Καλημέρα!",
+        "!@#特殊字符"
+    ],
+    "note": null,
+    "id": 29,
+    "attemptRegex": "^[\\u0000-\\u024F0-9]+$"
+},{
+    "nl": "match any letter plus unicode characters from 00c0 to 017e (use charmap to find unicode characters range you need)",
+    "regex": "^[\\w][\\u00c0-\\u017e]$",
+    "matches": [
+        "aÀ",
+        "už",
+        "eÊ",
+        "uź",
+        "iŊ",
+        "bߊ"
+    ],
+    "non_matches": [
+        "Hello",
+        "12345",
+        "こんにちは",
+        "Привет,",
+        "мир!",
+        "你好，世界",
+        "สวัสดีครับ"
+    ],
+    "note": null,
+    "id": 30,
+    "attemptRegex": "^[a-zA-Z][\\u00c0-\\u017e]$"
+},{
+    "nl": "match a range of Unicode characters. The unicode range is 00d8-00f6",
+    "regex": "[\\u00d8-\\u00f6]+",
+    "matches": [
+        "ê",
+        "Ü",
+        "ó",
+        "Ø",
+        "ö",
+        "ð"
+    ],
+    "non_matches": [
+        "Hello",
+        "12345",
+        "English",
+        "こんにちは",
+        "Привет",
+        "你好"
+    ],
+    "note": null,
+    "id": 31,
+    "attemptRegex": "[\\u00d8-\\u00f6]"
+},{
+    "nl": "match the language of Bengali.",
+    "regex": "[\\u0980-\\u09FF]+",
+    "matches": [
+        "এর",
+        "জন্য",
+        "বু",
+        "দ্ধির",
+        "঑",
+        "ী঱৑ও"
+    ],
+    "non_matches": [
+        "Hello",
+        "12345",
+        "English",
+        "こんにちは",
+        "123தமிழ்456",
+        "Привет"
+    ],
+    "note": null,
+    "id": 32,
+    "attemptRegex": "^[\\u0980-\\u09FF]+$"
+},{
+    "nl": "matches the character က",
+    "regex": "\\u1000",
+    "matches": [
+        "က"
+    ],
+    "non_matches": [
+        "1x2",
+        "12x4",
+        "3×5",
+        "2x2inch",
+        "1234",
+        "x",
+        "5678",
+        "8×8pixels"
+    ],
+    "note": null,
+    "id": 33,
+    "attemptRegex": "က"
+},{
+    "nl": " matches a wide range of punctuation and special characters commonly used in text, along with certain spacing characters from various Unicode blocks",
+    "regex": "[\\u2000-\\u206F\\u2E00-\\u2E7F\\\\'!\"#$%&()*+,\\-.\\/:;<=>?@\\[\\]^_`{|}~]",
+    "matches": [
+        "!",
+        "#",
+        "$",
+        "%",
+        "&",
+        "("
+    ],
+    "non_matches": [
+        "AlphaNumeric",
+        "ThisIsAString",
+        "123456",
+        "whitespace",
+        "emailexamplecom",
+        "ymbol"
+    ],
+    "note": null,
+    "id": 34,
+    "attemptRegex": "[\\p{P}\\p{S}\\p{Z}&&[^\\p{L}\\p{N}]]"
+},{
+    "nl": "match any string, or line without a line break, not containing the (sub)string 'hede'",
+    "regex": "^((?!hede).)*$",
+    "matches": [
+        "1234",
+        "abc",
+        "qwer",
+        "asd",
+        "4568",
+        ".,fg"
+    ],
+    "non_matches": [
+        "hede",
+        "hede123",
+        "123hede",
+        "abchede",
+        ".,hede",
+        "hedehede"
+    ],
+    "note": null,
+    "id": 35,
+    "attemptRegex": "^(?!.*hede).*$"
+},{
+    "nl": "match a password contains minimum eight characters, at least one letter and one number",
+    "regex": "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$",
+    "matches": [
+        "axc123sd",
+        "asder452",
+        "67ghbe45",
+        "ghy78mnh9",
+        "sxdfb56fg5",
+        "667gcvdj89"
+    ],
+    "non_matches": [
+        "111",
+        "sdf",
+        "123dsa",
+        "4532758432",
+        "shfjxbnshj",
+        "7777777777"
+    ],
+    "note": null,
+    "id": 36,
+    "attemptRegex": "^(?=.*[a-zA-Z])(?=.*\\d).{8,}$"
+},{
+    "nl": "match a password contains minimum eight characters, at least one letter, one number and one special character",
+    "regex": "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$",
+    "matches": [
+        "drt543@!",
+        "@!#wsd1234",
+        "kjfcui&323",
+        "&*ws23dkf",
+        "qwe123456!",
+        "Njk1her$sa"
+    ],
+    "non_matches": [
+        "123234",
+        "sdqasd",
+        "!!qwesddc",
+        "453dfgsrtce",
+        "7786346$6",
+        "hj12@"
+    ],
+    "note": null,
+    "id": 37,
+    "attemptRegex": "^(?=.*[a-zA-Z])(?=.*\\d)(?=.*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?]).{8,}$"
+},{
+    "nl": "match a password contains minimum eight characters, at least one uppercase letter, one lowercase letter and one number",
+    "regex": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{8,}$",
+    "matches": [
+        "asdASD123",
+        "4567AAlkfg67",
+        "fhj567hHVrf6y",
+        "hjnf3t6QWdf",
+        "65gv6A555r5",
+        "RGdw46f6d3D"
+    ],
+    "non_matches": [
+        "123234",
+        "sdqasd",
+        "!!qwesddc",
+        "453dfgsrtce",
+        "7786346$6",
+        "hj12@"
+    ],
+    "note": null,
+    "id": 38,
+    "attemptRegex": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[A-Za-z\\d]{8,}$"
+},{
+    "nl": "match a password contains minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character:",
+    "regex": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$",
+    "matches": [
+        "Ascf!@212",
+        "BJbh!@qw12",
+        "12ASqw@sax",
+        "23%$gxyAG",
+        "Hyqy%$a13",
+        "sguGJ5&by"
+    ],
+    "non_matches": [
+        "123234",
+        "sdqasd",
+        "!!qwesddc",
+        "453dfgsrtce",
+        "7786346$6",
+        "hj12@"
+    ],
+    "note": null,
+    "id": 39,
+    "attemptRegex": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?]).{8,}$"
+},{
+    "nl": "match a password contains minimum eight and maximum 10 characters, at least one uppercase letter, one lowercase letter, one number and one special character",
+    "regex": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,10}$",
+    "matches": [
+        "Ascf!@212",
+        "BJbh!@qw1",
+        "12ASqw@sax",
+        "23%$gxyAG",
+        "Hyqy%$a13",
+        "sguGJ5&by"
+    ],
+    "non_matches": [
+        "123234",
+        "sdqasd",
+        "!!qwesddc",
+        "453dfgsrtce",
+        "7786346$6",
+        "hj12@"
+    ],
+    "note": null,
+    "id": 40,
+    "attemptRegex": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?])[A-Za-z\\d!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?]{8,10}$"
+},{
+    "nl": "match a password with less than eight characters OR anything with no numbers OR anything with no uppercase OR or anything with no lowercase OR anything with no special characters.",
+    "regex": "^(.{0,7}|[^0-9]*|[^A-Z]*|[^a-z]*|[a-zA-Z0-9]*)$",
+    "matches": [
+        "hjknug",
+        "jkfuird",
+        "1239374",
+        "AHSJXHU",
+        "hsjSHZ1",
+        "jf34UId"
+    ],
+    "non_matches": [
+        "761GUhw7*&",
+        "12ASqw@sax",
+        "dfy28&J8ed",
+        "7G^&he82",
+        "jdi*62hjdsW",
+        "HDFhw772^2"
+    ],
+    "note": null,
+    "id": 41,
+    "attemptRegex": "^(.{0,7}|[^0-9]*|[^A-Z]*|[^a-z]*|[^!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?]*)$"
+},{
+    "nl": "matches everything until the first occurrence of a specific character, say a \";\" - a semicolon.",
+    "regex": "^(.*?);",
+    "matches": [
+        "jkfuird;",
+        "1239374;",
+        "AHSJXHU;",
+        "hsjSHZ1;",
+        "jf34UId;",
+        "123;"
+    ],
+    "non_matches": [
+        "jkfuird",
+        "1239374",
+        "AHSJXHU",
+        "hsjSHZ1",
+        "jf34UId",
+        "SDFW213"
+    ],
+    "note": null,
+    "id": 42,
+    "attemptRegex": "^[^;]*;"
+},{
+    "nl": "match a password contains 8 characters length, 2 letters in Upper Case, 1 Special Character (!@#$&*), 2 numerals (0-9) and 3 letters in Lower Case",
+    "regex": "^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}",
+    "matches": [
+        "AA!23asd",
+        "JU#3s5wd",
+        "xhU&hW23",
+        "jUIws#12",
+        "#34dteQW",
+        "Suws76$Q"
+    ],
+    "non_matches": [
+        "jkfuird",
+        "1239374",
+        "AHSJXHU",
+        "hsjSHZ1",
+        "jf34UId",
+        "qwdfasfc"
+    ],
+    "note": null,
+    "id": 43,
+    "attemptRegex": "^(?=.*[A-Z].*[A-Z])(?=.*[a-z].*[a-z].*[a-z])(?=.*[0-9].*[0-9])(?=.*[!@#$&*]).{8}$"
+},{
+    "nl": "match a password contains 8 or more characters length, 2 letters in Upper Case, special characters (% ^,-_+!@#$&*.) and 2 numerals (0-9) and 3 letters in Lower Case",
+    "regex": "^(?=(.*[a-z]){3,})(?=(.*[A-Z]){2,})(?=(.*[0-9]){2,})(?=(.*[!@#$%^&*()\\-__+.]){1,}).{8,}$",
+    "matches": [
+        "AA!23asd",
+        "JU#3s5wd",
+        "xhU&hW23",
+        "jUIws#12",
+        "#34dteQW",
+        "Suws76$Q"
+    ],
+    "non_matches": [
+        "jkfuird",
+        "1239374",
+        "AHSJXHU",
+        "hsjSHZ1",
+        "jf34UId",
+        "qwdfasfc"
+    ],
+    "note": null,
+    "id": 44,
+    "attemptRegex": "^(?=.*[A-Z].*[A-Z])(?=.*[a-z].*[a-z].*[a-z])(?=.*[0-9].*[0-9])(?=.*[%^,\\-_+!@#$&*.]).{8,}$"
+},{
+    "nl": "match all of the anchor tags and extract anchor text and URL",
+    "regex": "[^<]*(<a href=\"([^\"]+)\">([^<]+)<\\/a>)",
+    "matches": [
+        "<a href=\"123\">1</a>",
+        "<a href=\"asdc\">1</a>",
+        "<a href=\"asdc\">qefcv</a>",
+        "<a href=\"fd2df\">qefcv</a>",
+        "<a href=\"90sdqcv\">qefcv</a>",
+        "<a href=\"90sdqcv\">3411</a>"
+    ],
+    "non_matches": [
+        "jkfuird",
+        "1239374",
+        "AHSJXHU",
+        "hsjSHZ1",
+        "jf34UId",
+        "qwdfasfc"
+    ],
+    "note": null,
+    "id": 45,
+    "attemptRegex": "<a href=\"([^\"]*)\"[^>]*>([^<]*)</a>"
+},{
+    "nl": "match only when the contained string is all numbers",
+    "regex": "^\\d+$",
+    "matches": [
+        "1",
+        "123124",
+        "1324345",
+        "5623452",
+        "63867852",
+        "2562"
+    ],
+    "non_matches": [
+        "wdfqwe",
+        "we1r3e",
+        "f123f",
+        "3rfqwe",
+        "@#4rqf3",
+        "WQEr313"
+    ],
+    "note": null,
+    "id": 46,
+    "attemptRegex": "^\\d+$"
+},{
+    "nl": "match only when the contained string is all number and can contains decimal point and thousand marker",
+    "regex": "^-?[0-9][0-9,\\.]+$",
+    "matches": [
+        "1.3",
+        "123124.1123",
+        "1324345.3",
+        "-1.3",
+        "5623452",
+        "63867852.2"
+    ],
+    "non_matches": [
+        "2",
+        "-1",
+        "4",
+        "fe",
+        "efw21",
+        "34-"
+    ],
+    "note": null,
+    "id": 47,
+    "attemptRegex": "^-?\\d{1,3}(?:,\\d{3})*(?:\\.\\d+)?$"
+},{
+    "nl": "match the numbers with integers and decimal numbers. It doesn't match if the number has the coma thousand separator",
+    "regex": "^-?\\d*(\\.\\d+)?$",
+    "matches": [
+        "1.3",
+        "123124.1123",
+        "1324345.3",
+        "-1.3",
+        "5623452",
+        "63867852.2"
+    ],
+    "non_matches": [
+        "fe",
+        "efw21",
+        "34-",
+        "12w",
+        "1.23.",
+        "123w"
+    ],
+    "note": null,
+    "id": 48,
+    "attemptRegex": "^-?\\d+(?:\\.\\d+)?$"
+},{
+    "nl": "matches words with at least 3 characters, and uses groups to separate the first three letters.",
+    "regex": "\\b(\\S)(\\S)(\\S)(\\S*)\\b",
+    "matches": [
+        "2342",
+        "WETfw",
+        "wors",
+        "cefwe",
+        "Word",
+        "fooo"
+    ],
+    "non_matches": [
+        "12",
+        "sd",
+        "$#d2",
+        "@!23",
+        "a2",
+        "4@"
+    ],
+    "note": null,
+    "id": 49,
+    "attemptRegex": "^(\\w{3})(\\w*)$"
+},{
+    "nl": "match five or more characters contains letters or digits",
+    "regex": "^([a-z0-9]{5,})$",
+    "matches": [
+        "12341",
+        "qwefxfq",
+        "df321e",
+        "qw34esrf",
+        "ef234r5",
+        "24f22e"
+    ],
+    "non_matches": [
+        "12",
+        "sd",
+        "$#d2",
+        "@!23",
+        "a2",
+        "4@"
+    ],
+    "note": null,
+    "id": 50,
+    "attemptRegex": "^[a-zA-Z0-9]{5,}$"
+},{
+    "nl": "validate North American phone numbers, including the United States and Canada, along with optional extensions.",
+    "regex": "^(?:(?:\\+?1\\s*(?:[.-]\\s*)?)?(?:\\(\\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\\s*\\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\\s*(?:[.-]\\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\\s*(?:[.-]\\s*)?([0-9]{4})(?:\\s*(?:#|x\\.?|ext\\.?|extension)\\s*(\\d+))?$",
+    "matches": [
+        "(234) 567-8901",
+        "345.678.9012",
+        "456-789-0123",
+        "5678901234",
+        "678-9012",
+        "ext. 3456 800-1234"
+    ],
+    "non_matches": [
+        "12341",
+        "qwefxfq",
+        "df321e",
+        "qw34esrf",
+        "ef234r5",
+        "24f22e"
+    ],
+    "note": null,
+    "id": 51,
+    "attemptRegex": "^(?:\\+?1[-.\\s]?)?(?:\\(?[2-9]\\d{2}\\)?[-.\\s]?[2-9]\\d{2}[-.\\s]?\\d{4}|[2-9]\\d{2}[-.\\s]?\\d{4})(?:\\s?(?:ext\\.?|x)\\s?\\d{1,5})?$"
+},{
+    "nl": "uses positive lookaheads to check for the presence of multiple words (\"word1,\" \"word2,\" and \"word3\") in a string. ",
+    "regex": "^(?=.*word1)(?=.*word2)(?=.*word3).*$",
+    "matches": [
+        "这是word1的文本，也包含word2和word3。",
+        "word2在这个句子中是第二个，word1和word3也在其中。",
+        "word1,word2,和word3都在这个段落中。",
+        "这句话包含了word3和word2，然后才是word1。",
+        "word3、word1和word2都在这个文本中。",
+        "word2，word3，word1，还有其他一些文字。"
+    ],
+    "non_matches": [
+        "word1word2",
+        "There is only word1 in this text.",
+        "word3 and word1 are here, but not word.",
+        "word1 word3",
+        "word1word2word1word",
+        "No words are present in this text"
+    ],
+    "note": null,
+    "id": 52,
+    "attemptRegex": "^(?=.*word1)(?=.*word2)(?=.*word3).*$"
+},{
+    "nl": "match paragraphs of text that contain ALL of a certain phrase (\"word1,\" \"word2,\" and \"word3\"), but in no particular order. And make sure matching whole words and not just fragments of longer words.",
+    "regex": "^(?=.*\\bword1\\b)(?=.*\\bword2\\b)(?=.*\\bword3\\b).*$",
+    "matches": [
+        "这是word1的文本，也包含word2和word3。",
+        "word2在这个句子中是第二个，word1和word3也在其中。",
+        "word1,word2,和word3都在这个段落中。",
+        "这句话包含了word3和word2，然后才是word1。",
+        "word3、word1和word2都在这个文本中。",
+        "word2，word3，word1，还有其他一些文字。"
+    ],
+    "non_matches": [
+        "word1word2",
+        "There is only word1 in this text.",
+        "word3 and word1 are here, but not word.",
+        "word1 word3",
+        "word1word2word1word",
+        "No words are present in this text"
+    ],
+    "note": null,
+    "id": 53,
+    "attemptRegex": "^(?=.*\\bword1\\b)(?=.*\\bword2\\b)(?=.*\\bword3\\b).*$"
+},{
+    "nl": "match any single character at the beginning of a string, except a, b, or c.",
+    "regex": "^[^abc]",
+    "matches": [
+        "D",
+        "X",
+        "1",
+        "Z",
+        "Y",
+        "1"
+    ],
+    "non_matches": [
+        "abcdef",
+        "anana",
+        "cat",
+        "a",
+        "b",
+        "c"
+    ],
+    "note": null,
+    "id": 54,
+    "attemptRegex": "^[^abc]"
+},{
+    "nl": "matches strings that do not contain the substring \"bar\" anywhere within them.",
+    "regex": "^(?!.*?bar).*",
+    "matches": [
+        "foo",
+        "baz",
+        "qux",
+        "quux",
+        "foobaz",
+        "quxquux"
+    ],
+    "non_matches": [
+        "bar",
+        "barbar",
+        "bara",
+        "abracadabara",
+        "foobara",
+        "foobarbara"
+    ],
+    "note": null,
+    "id": 55,
+    "attemptRegex": "^(?!.*bar).*$"
+},{
+    "nl": "matches strings that do not contain the substring \"bar\" anywhere within them, using a negative lookbehind to ensure that \"bar\" is not immediately before any character in the string.",
+    "regex": "^(.(?<!bar))*?$",
+    "matches": [
+        "foo",
+        "baz",
+        "qux",
+        "quux",
+        "foobaz",
+        "quxquux"
+    ],
+    "non_matches": [
+        "bar",
+        "barbar",
+        "bara",
+        "abracadabara",
+        "foobara",
+        "foobarbara"
+    ],
+    "note": null,
+    "id": 56,
+    "attemptRegex": "^(?!.*bar).*$"
+},{
+    "nl": "match strings that consist entirely of alphanumeric characters (letters and digits) along with underscores.",
+    "regex": "^[a-zA-Z0-9_]*$",
+    "matches": [
+        "HelloWorld",
+        "Example123",
+        "user_name",
+        "12345",
+        "My_Password_123",
+        "NoSpecialCharacters"
+    ],
+    "non_matches": [
+        "Hello World",
+        "user@example.com",
+        "$pecialChar",
+        "-12345",
+        "name with space",
+        "word_with-underscore"
+    ],
+    "note": null,
+    "id": 57,
+    "attemptRegex": "^[a-zA-Z0-9_]+$"
+},{
+    "nl": "match the string that the first 1 or 2 characters are digits",
+    "regex": "^[0-9]{1,2}",
+    "matches": [
+        "5",
+        "42",
+        "0",
+        "99",
+        "7",
+        "10"
+    ],
+    "non_matches": [
+        "Hello World",
+        "user@example.com",
+        "$pecialChar",
+        "-12345",
+        "name with space",
+        "word_with-underscore"
+    ],
+    "note": null,
+    "id": 58,
+    "attemptRegex": "^\\d{1,2}$"
+},{
+    "nl": "match strings that consist of sequences, where each sequence starts with an uppercase letter followed by one or more digits.",
+    "regex": "^([A-Z][0-9]+)+$",
+    "matches": [
+        "A123",
+        "B4567",
+        "C89",
+        "D12345",
+        "E6789",
+        "F0"
+    ],
+    "non_matches": [
+        "Y45Z",
+        "12345",
+        "AB",
+        "1C2D3",
+        "WXYZ",
+        "$pecial"
+    ],
+    "note": null,
+    "id": 59,
+    "attemptRegex": "^[A-Z]\\d+$"
+},{
+    "nl": "match strings that start with a forward slash, followed by a sequence of lowercase letters and/or digits, as long as the string after the forward slash is not one of the specified \"ignoreme\" strings. ",
+    "regex": "^/(?!ignoreme)([a-z0-9]+)$ ",
+    "matches": [
+        "/example",
+        "/test123",
+        "/anotherexample",
+        "/123test",
+        "/goodexample",
+        "/user123"
+    ],
+    "non_matches": [
+        "/ignoreme",
+        "/ignoreme2",
+        "/ignoremeN",
+        "/ignoreme123",
+        "/test_ignoreme",
+        "/Example"
+    ],
+    "note": null,
+    "id": 60,
+    "attemptRegex": "^\\/(?!ignoreme)([a-z0-9]+)$"
+},{
+    "nl": "match all lines starting with white space and ending with carriage return (in this case a windows crlf)",
+    "regex": "^[ \\t]*$\\r?\\n",
+    "matches": [
+        "\\r\\n",
+        "\\t\\r\\n",
+        "\\t",
+        "\\t\\r\\n",
+        "\\t\\t\\t\\t\\r\\n",
+        "\\t",
+        "\\t",
+        "\\t\\r\\n",
+        "\\t",
+        "\\t",
+        "\\t",
+        "\\r\\n"
+    ],
+    "non_matches": [
+        "abc",
+        "123\\r\\n",
+        "\\tabc\\r\\n",
+        "\\r\\n\\r\\n",
+        "\\t",
+        "\\t",
+        "\\t",
+        "\\r\\nabc",
+        "\\t\\r\\n\\t\\r\\n"
+    ],
+    "note": null,
+    "id": 61,
+    "attemptRegex": "^[ \\t]*\\r\\n$"
+},{
+    "nl": "match a string from beginning of string, then one or more of anything except < and >, then the end of the string.",
+    "regex": "^.*[^<>]+.*$",
+    "matches": [
+        "HelloWorld",
+        "12345",
+        "This_is_a_test",
+        "special_characters_!",
+        "no_angle_brackets",
+        "only_letters"
+    ],
+    "non_matches": [
+        "<html>",
+        "1<3<>",
+        "<div",
+        "class=\"test\">",
+        "<script>alert(\"Hello\")</script>",
+        "<<<<<<<<<<<<<<"
+    ],
+    "note": null,
+    "id": 62,
+    "attemptRegex": "^[^<>]+$"
+},{
+    "nl": "matches valid IP addresses",
+    "regex": "^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$",
+    "matches": [
+        "192.168.1.1",
+        "10.0.0.1",
+        "172.16.0.255",
+        "255.255.255.255",
+        "0.0.0.0",
+        "123.45.67.89"
+    ],
+    "non_matches": [
+        "256.0.0.1",
+        "192.168.1",
+        "192.168.1.300",
+        "123.45.67.89.",
+        "12.34.567.89",
+        "1.2.3.4.5"
+    ],
+    "note": null,
+    "id": 63,
+    "attemptRegex": "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
+},{
+    "nl": "match valid host names",
+    "regex": "^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\\-]*[a-zA-Z0-9])\\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\\-]*[A-Za-z0-9])$",
+    "matches": [
+        "example.com",
+        "subdomain.example.co.uk",
+        "www.openai.com",
+        "1234567890.com",
+        "test-domain.org",
+        "my-example-site.info"
+    ],
+    "non_matches": [
+        "-example.com",
+        "subdomain-.example.co.uk",
+        ".www.openai.com",
+        "example..com",
+        "test_domain.org",
+        "s.x.-y.z"
+    ],
+    "note": null,
+    "id": 64,
+    "attemptRegex": "^[a-zA-Z0-9]([a-zA-Z0-9-]*[a-zA-Z0-9])?(\\.[a-zA-Z0-9]([a-zA-Z0-9-]*[a-zA-Z0-9])?)*$"
+},{
+    "nl": "match strings that follow the standard UUID format, which consists of five groups of hexadecimal characters separated by hyphens",
+    "regex": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+    "matches": [
+        "01234567-89ab-cdef-0123-456789abcdef",
+        "ffffffff-ffff-ffff-ffff-ffffffffffff",
+        "12345678-1234-5678-1234-567812345678",
+        "abcdefab-cdef-abcd-efab-cdefabcdefab",
+        "00000000-0000-0000-0000-000000000000",
+        "deadbeef-1337-1337-1337-133713371337"
+    ],
+    "non_matches": [
+        "0123456789abcdef0123456789abcdef",
+        "01234567-89ab-cdef-0123-456789abcdefg",
+        "ffffffff-ffff-ffff-ffff-ffffffffffffff",
+        "abcd-abcd-abcd-abcd-abcdabcdabcd",
+        "00000000-0000-0000-0000-00000000000",
+        "deadbeef-1337-1337-1337-13371337133713"
+    ],
+    "note": null,
+    "id": 65,
+    "attemptRegex": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+},{
+    "nl": "match YouTube URL",
+    "regex": "^.*((youtu.be\\/)|(v\\/)|(\\/u\\/\\w\\/)|(embed\\/)|(watch\\?))\\??v?=?([^#&?]*).*",
+    "matches": [
+        "https://www.youtube.com/watch?v=abcd1234",
+        "http://youtu.be/xyz5678",
+        "https://www.youtube.com/embed/efg9876",
+        "http://www.youtube.com/v/wxyz4321",
+        "https://www.youtube.com/u/username/v/ijkl8765",
+        "https://www.youtube.com/watch?v=mnop7890&feature=related"
+    ],
+    "non_matches": [
+        "http://example.com/xyz5678",
+        "https://www.youtube.com/u/username/",
+        "https://www.youtube.com/",
+        "https://wwwple.com/wat",
+        "http://www.examplom/wxyz4321",
+        "https://www.youtube.comuvwxyz5678?versn=3&autohide=1&start=1"
+    ],
+    "note": null,
+    "id": 66,
+    "attemptRegex": "^https?://(www\\.)?(youtube\\.com/(watch\\?v=|embed/|v/|u/.+/v/)|youtu\\.be/)[a-zA-Z0-9_-]+(\\S*)?$"
+},{
+    "nl": "match one of three words.(cathy,cat.catch)",
+    "regex": "\\b(?:cathy|cat|catch)\\b",
+    "matches": [
+        "cathy",
+        "cat",
+        "catch"
+    ],
+    "non_matches": [
+        "cathycat",
+        "category",
+        "catfish",
+        "scatter",
+        "aCATastrophe",
+        "catching"
+    ],
+    "note": null,
+    "id": 67,
+    "attemptRegex": "\\b(cathy|cat|catch)\\b"
+},{
+    "nl": "matches strings that contain both \"Jack\" and \"James\" as whole words, regardless of their order within the string.",
+    "regex": "^(?=.*\\bJack\\b)(?=.*\\bJames\\b).*$",
+    "matches": [
+        "Jack and James are friends.",
+        "James, John, and Jack went to the park.",
+        "Jack is taller than James.",
+        "James and Jack are the best.",
+        "Jack and James.",
+        "Hello, my name is James, and this is Jack."
+    ],
+    "non_matches": [
+        "jack's friend is not James.",
+        "john and Jill went to the store, not james and Jack.",
+        "jackie is not James or jack.",
+        "JJames and Jack.",
+        "JackandJames.",
+        "No names mentioned."
+    ],
+    "note": null,
+    "id": 68,
+    "attemptRegex": "^(?=.*\\bJack\\b)(?=.*\\bJames\\b).*$"
+},{
+    "nl": "match a number allowed decimal with a precision of 2",
+    "regex": "^(\\d+(\\.\\d{0,2})?|\\.?\\d{1,2})$",
+    "matches": [
+        "123",
+        "12.34",
+        ".56",
+        "0.6",
+        "7.00",
+        "0.05"
+    ],
+    "non_matches": [
+        "ABC",
+        "12.3456",
+        ".",
+        "12.345.67",
+        "12..34",
+        "12.345."
+    ],
+    "note": null,
+    "id": 69,
+    "attemptRegex": "^(\\d+(\\.\\d{1,2})?|\\.\\d{1,2})$"
+},{
+    "nl": "match a number allowed decimal with a precision of 2",
+    "regex": "^\\d+(\\.\\d{1,2})?$",
+    "matches": [
+        "123",
+        "12.34",
+        "1.56",
+        "0.6",
+        "7.00",
+        "0.05"
+    ],
+    "non_matches": [
+        "ABC",
+        "12.3456",
+        ".56",
+        "12.345.67",
+        "12..34",
+        "12.345."
+    ],
+    "note": null,
+    "id": 70,
+    "attemptRegex": "^\\d+(\\.\\d{1,2})?$"
+},{
+    "nl": "match anything not ending with an a",
+    "regex": ".*(?<!a)$",
+    "matches": [
+        "Hello",
+        "World",
+        "This",
+        "is",
+        "test",
+        "Example",
+        "sentence",
+        "OpenAI",
+        "Regex"
+    ],
+    "non_matches": [
+        "banana",
+        "pizza",
+        "alpha",
+        "data",
+        "idea",
+        "umbrella"
+    ],
+    "note": null,
+    "id": 71,
+    "attemptRegex": "^.*[^a]$"
+},{
+    "nl": "match anything not ending with an a",
+    "regex": ".*[^a]$",
+    "matches": [
+        "Hello",
+        "World",
+        "This",
+        "is",
+        "test",
+        "Example",
+        "sentence",
+        "OpenAI",
+        "Regex"
+    ],
+    "non_matches": [
+        "banana",
+        "pizza",
+        "alpha",
+        "data",
+        "idea",
+        "umbrella"
+    ],
+    "note": null,
+    "id": 72,
+    "attemptRegex": "^.*[^a]$"
+},{
+    "nl": "match a bunch of tables and ignore ones that start with the label \"tbd_\".",
+    "regex": "^(?!tbd_).+",
+    "matches": [
+        "example",
+        "test123",
+        "something_else",
+        "not_tbd_",
+        "value123",
+        "12345"
+    ],
+    "non_matches": [
+        "tbd_example",
+        "tbd_test123",
+        "tbd_something_else",
+        "tbd_not_tbd_",
+        "tbd_value123",
+        "tbd_12345"
+    ],
+    "note": null,
+    "id": 73,
+    "attemptRegex": "^(?!tbd_).*"
+},{
+    "nl": "matches strings that either are 1 to 3 characters long, or are 4 or more characters long but do not start with \"tbd_\".",
+    "regex": "(^.{1,3}$|^.{4}(?<!tbd_).*)",
+    "matches": [
+        "abc",
+        "123",
+        "XYZ",
+        "1234",
+        "xyzw",
+        "abcd"
+    ],
+    "non_matches": [
+        "tbd_abc",
+        "tbd_123",
+        "tbd_XYZ",
+        "tbd_1234",
+        "tbd_xyzw",
+        "tbd_abcd"
+    ],
+    "note": null,
+    "id": 74,
+    "attemptRegex": "^(?:.{1,3}|(?!tbd_).{4,})$"
+},{
+    "nl": "matches strings that do not start with \"tbd_\" but allow for any other characters at the beginning. ",
+    "regex": "^([^t]|t($|[^b]|b($|[^d]|d($|[^_])))).*",
+    "matches": [
+        "abc",
+        "123",
+        "XYZ",
+        "1234",
+        "xyzw",
+        "abcd"
+    ],
+    "non_matches": [
+        "tbd_abc",
+        "tbd_123",
+        "tbd_XYZ",
+        "tbd_1234",
+        "tbd_xyzw",
+        "tbd_abcd"
+    ],
+    "note": null,
+    "id": 75,
+    "attemptRegex": "^(?!tbd_).*"
+},{
+    "nl": "match validated email address in JavaScript",
+    "regex": "^(([^<>()[\\]\\\\.,;:\\s@\"]+(\\.[^<>()[\\]\\\\.,;:\\s@\"]+)*)|.(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$",
+    "matches": [
+        "example@example.com",
+        "john.doe@example.co.uk",
+        "alice.smith123@gmail.com",
+        "contact@domain.com",
+        "info@subdomain.example.org",
+        "user_name@my-website.net"
+    ],
+    "non_matches": [
+        "invalid.email",
+        "missingat@examplecom",
+        "@domain.com",
+        "user@subdomain",
+        "user@.com",
+        "user@website."
+    ],
+    "note": null,
+    "id": 76,
+    "attemptRegex": "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+},{
+    "nl": "match a string which does not contain the multi-character sequence ab",
+    "regex": "^(?:(?!ab).)+$",
+    "matches": [
+        "hello",
+        "world",
+        "openai",
+        "regex",
+        "exclude",
+        "sample"
+    ],
+    "non_matches": [
+        "abracadabra",
+        "cab",
+        "abc",
+        "abracadabrabracadabra",
+        "abracadabraabracadabra",
+        "abcdefg"
+    ],
+    "note": null,
+    "id": 77,
+    "attemptRegex": "^(?!.*ab).*$"
+},{
+    "nl": "match strings that consist of a combination of letters (both uppercase and lowercase), digits, underscores, and spaces.",
+    "regex": "^[a-zA-Z0-9_ ]*$",
+    "matches": [
+        "abracadabra",
+        "cab",
+        "abc",
+        "abracadabrabracadabra",
+        "abracadabraabracadabra",
+        "abcdefg"
+    ],
+    "non_matches": [
+        "special-character!",
+        "字符串含有中文",
+        "email@example.com",
+        "1,000,000",
+        "-123",
+        "tab\\tseparated"
+    ],
+    "note": null,
+    "id": 78,
+    "attemptRegex": "^[a-zA-Z0-9_ ]+$"
+},{
+    "nl": "matches strings that represent a sequence of words where each word consists of alphanumeric characters and underscores, and the words are separated by spaces.",
+    "regex": "^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$",
+    "matches": [
+        "HelloWorld123",
+        "openAI",
+        "is",
+        "great",
+        "user_name",
+        "alpha_BETA",
+        "12_34_56",
+        "a",
+        "b",
+        "c"
+    ],
+    "non_matches": [
+        "special-character!",
+        "字符串含有中文",
+        "email@example.com",
+        "1,000,000",
+        "-123",
+        "tab\\tseparated"
+    ],
+    "note": null,
+    "id": 79,
+    "attemptRegex": "^[a-zA-Z0-9_]+( [a-zA-Z0-9_]+)*$"
+},{
+    "nl": "matches strings that represent a sequence of words where each word consists of one or more word characters (letters, digits, or underscores), and the words are separated by spaces. ",
+    "regex": "^\\w+( +\\w+)*$",
+    "matches": [
+        "HelloWorld123",
+        "openAI",
+        "is",
+        "great",
+        "user_name",
+        "alpha_BETA",
+        "12_34_56",
+        "a",
+        "b",
+        "c"
+    ],
+    "non_matches": [
+        "special-character!",
+        "字符串含有中文",
+        "email@example.com",
+        "1,000,000",
+        "-123",
+        "tab\\tseparated"
+    ],
+    "note": null,
+    "id": 80,
+    "attemptRegex": "^\\w+( \\w+)*$"
+},{
+    "nl": "matches strings that represent a sequence of words where each word consists of one or more word characters, and the words are separated by spaces or other whitespace characters.",
+    "regex": "^\\w+(\\s+\\w+)*$",
+    "matches": [
+        "HelloWorld123",
+        "openAI",
+        "is",
+        "great",
+        "user_name",
+        "alpha_BETA",
+        "12_34_56",
+        "a b c"
+    ],
+    "non_matches": [
+        "special-character!",
+        "字符串含有中文",
+        "email@example.com",
+        "1,000,000",
+        "-123",
+        "tab\\tseparated"
+    ],
+    "note": null,
+    "id": 81,
+    "attemptRegex": "^(\\w+(\\s+\\w+)*)$"
+},{
+    "nl": "match lowercase letters and up to 10 characters. ",
+    "regex": "^[a-z]{0,10}$",
+    "matches": [
+        "hello",
+        "world",
+        "abcdefghij",
+        "openai",
+        "a",
+        "b"
+    ],
+    "non_matches": [
+        "special-character!",
+        "字符串含有中文",
+        "email@example.com",
+        "1,000,000",
+        "-123",
+        "tab\\tseparated"
+    ],
+    "note": null,
+    "id": 82,
+    "attemptRegex": "^[a-z]{1,10}$"
+},{
+    "nl": "match lowercase letters",
+    "regex": "^[a-z]+$",
+    "matches": [
+        "hello",
+        "world",
+        "abcdefghij",
+        "openai",
+        "a",
+        "b"
+    ],
+    "non_matches": [
+        "special-character!",
+        "字符串含有中文",
+        "email@example.com",
+        "1,000,000",
+        "-123",
+        "tab\\tseparated"
+    ],
+    "note": null,
+    "id": 83,
+    "attemptRegex": "^[a-z]+$"
+},{
+    "nl": "match email addresses with the format \"local@domain.tld.\" It allows for a wide range of characters in the local part and domain name while ensuring a valid TLD format.",
+    "regex": "^([\\w\\.\\-]+)@([\\w\\-]+)((\\.(\\w){2,3})+)$",
+    "matches": [
+        "example@example.com",
+        "john.doe@example.co.uk",
+        "alice.smith123@gmail.com",
+        "contact@domain.com",
+        "admin@1234567890.com",
+        "user_name@my-website.net"
+    ],
+    "non_matches": [
+        "invalid.email",
+        "missingat@examplecom",
+        "@domain.com",
+        "user@subdomain",
+        "user@.com",
+        "user@website."
+    ],
+    "note": null,
+    "id": 84,
+    "attemptRegex": "^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+},{
+    "nl": "Regex to validate date formats dd/mm/YYYY, dd-mm-YYYY, dd.mm.YYYY, dd mmm YYYY, dd-mmm-YYYY, dd/mmm/YYYY, dd.mmm.YYYY with Leap Year Support",
+    "regex": "^(?:(?:31(\\/|-|\\.)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/|-|\\.)(?:0?[13-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/|-|\\.)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(\\/|-|\\.)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$",
+    "matches": [
+        "31/12/2021",
+        "29-02-2000",
+        "30.04.1999",
+        "01/01/1900",
+        "15-05-2022",
+        "20.11.1985"
+    ],
+    "non_matches": [
+        "32/12/2021",
+        "29-02-1900",
+        "00/01/1900",
+        "15-15-2022",
+        "20.13.1985",
+        "05-08-20000"
+    ],
+    "note": null,
+    "id": 85,
+    "attemptRegex": "^(?:(?:0[1-9]|[12][0-9]|3[01])[-/.](0[1-9]|1[0-2])[-/.](\\d{4})|(?:0[1-9]|[12][0-9]|3[01])[-/.\\s](?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[-/.\\s](\\d{4}))$"
+},{
+    "nl": "match strings representing time in the format of \"HH:MM,\" where HH represents the hour and MM represents the minutes.",
+    "regex": "^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$",
+    "matches": [
+        "00:00",
+        "01:23",
+        "09:45",
+        "12:00",
+        "17:30",
+        "20:59"
+    ],
+    "non_matches": [
+        "24:00",
+        "00:60",
+        "01:5",
+        "10-20",
+        "09:abc",
+        "123:45"
+    ],
+    "note": null,
+    "id": 86,
+    "attemptRegex": "^([01][0-9]|2[0-3]):[0-5][0-9]$"
+},{
+    "nl": "match strings representing time in the 12-hour clock format (with optional leading zero for single-digit hours) in the format of \"hh:mm,\" where hh represents the hour and mm represents the minutes.",
+    "regex": "^(0?[1-9]|1[0-2]):[0-5][0-9]$",
+    "matches": [
+        "01:00",
+        "02:30",
+        "09:45",
+        "12:00",
+        "11:11",
+        "10:05"
+    ],
+    "non_matches": [
+        "00:00",
+        "13:30",
+        "01:5",
+        "10-20",
+        "09:abc",
+        "123:45"
+    ],
+    "note": null,
+    "id": 87,
+    "attemptRegex": "^(0[1-9]|1[0-2]):[0-5][0-9]$"
+},{
+    "nl": "match strings representing time in the 24-hour clock format in the format of \"hh:mm,\" where hh represents the hour and mm represents the minutes.",
+    "regex": "^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$",
+    "matches": [
+        "01:00",
+        "02:30",
+        "09:45",
+        "12:00",
+        "11:11",
+        "10:05"
+    ],
+    "non_matches": [
+        "01:5",
+        "10-20",
+        "09:abc",
+        "123:45",
+        "24:00",
+        "00:60"
+    ],
+    "note": null,
+    "id": 88,
+    "attemptRegex": "^([01][0-9]|2[0-3]):[0-5][0-9]$"
+},{
+    "nl": "match strings representing time in the 24-hour clock format in the \"hh:mm\" format, where hh represents the hour and mm represents the minutes. ",
+    "regex": "^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$",
+    "matches": [
+        "01:00",
+        "02:30",
+        "09:45",
+        "12:00",
+        "11:11",
+        "10:05"
+    ],
+    "non_matches": [
+        "01:5",
+        "10-20",
+        "09:abc",
+        "123:45",
+        "24:00",
+        "00:60"
+    ],
+    "note": null,
+    "id": 89,
+    "attemptRegex": "^([01][0-9]|2[0-3]):[0-5][0-9]$"
+},{
+    "nl": "if the start of a string contains either http:// or https:// it should match it.",
+    "regex": "^https?://.*",
+    "matches": [
+        "http://",
+        "https://"
+    ],
+    "non_matches": [
+        "www.",
+        "ftp://",
+        "htts://",
+        "http:/",
+        "htp://",
+        "http:"
+    ],
+    "note": null,
+    "id": 90,
+    "attemptRegex": "^https?://"
+},{
+    "nl": "if the start of a string contains either http:// or https:// it should match it.",
+    "regex": "^(http|https)://.*",
+    "matches": [
+        "http://",
+        "https://"
+    ],
+    "non_matches": [
+        "www.",
+        "ftp://",
+        "htts://",
+        "http:/",
+        "htp://",
+        "http:"
+    ],
+    "note": null,
+    "id": 91,
+    "attemptRegex": "^https?://"
+},{
+    "nl": "parse the following kind of string: [key:\"val\" key2:\"val2\"] where there are arbitrary key:\"val\" pairs inside. And grab the value.",
+    "regex": "^\\[(?:(.+?):\"(.+?)\"\\s*)+\\]$",
+    "matches": [
+        "[\"key1\":\"value1\", \"key2\":\"value2\"]",
+        "[\"name\":\"John\", \"age\":\"30\"]",
+        "[\"city\":\"New York\", \"country\":\"USA\"]",
+        "[\"color\":\"red\", \"size\":\"small\"]",
+        "[\"item\":\"apple\", \"quantity\":\"5\"]",
+        "[\"name\":\"Alice\", \"score\":\"95\"]"
+    ],
+    "non_matches": [
+        "[{\"key1\":\"value1\", \"key2\":\"value2\"}]",
+        "[{\"name\":\"John\", \"age\":\"30\"}]",
+        "[{\"city\":\"New York\", \"country\":\"USA\"}]",
+        "[{\"color\":\"red\", \"size\":\"small\"}]",
+        "[{\"item\":\"apple\", \"quantity\":\"5\"}]",
+        "[{\"name\":\"Alice\", \"score\":\"95\"}]"
+    ],
+    "note": null,
+    "id": 92,
+    "attemptRegex": "\\[(?:\"([^\"]+)\":\"([^\"]+)\"(?:,\\s*\"([^\"]+)\":\"([^\"]+)\")*)\\]"
+},{
+    "nl": "match valid UK postal codes in various formats, including the standard UK postal code format and the specific format for Gibraltar.",
+    "regex": "^([A-Za-z][A-Ha-hJ-Yj-y]?[0-9][A-Za-z0-9]? ?[0-9][A-Za-z]{2}|[Gg][Ii][Rr] ?0[Aa]{2})$",
+    "matches": [
+        "EC1A 1BB",
+        "SW1W 0NY",
+        "M1 1AE",
+        "B33 8TH",
+        "CR2 6XH",
+        "DN55 1PT"
+    ],
+    "non_matches": [
+        "12345",
+        "AB12",
+        "9AB 1CD",
+        "XYZ",
+        "123 45678",
+        "9AB X12 34Y"
+    ],
+    "note": null,
+    "id": 93,
+    "attemptRegex": "^[A-Z]{1,2}[0-9R][0-9A-Z]? [0-9][A-BD-HJLNP-UW-Z]{2}$"
+},{
+    "nl": "match valid UK postal codes in various formats, including the standard UK postal code format and the specific format for Gibraltar. ",
+    "regex": "^([A-Z][A-HJ-Y]?[0-9][A-Z0-9]? ?[0-9][A-Z]{2}|GIR ?0A{2})$",
+    "matches": [
+        "EC1A 1BB",
+        "SW1W 0NY",
+        "M1 1AE",
+        "B33 8TH",
+        "CR2 6XH",
+        "DN55 1PT"
+    ],
+    "non_matches": [
+        "12345",
+        "AB12",
+        "9AB 1CD",
+        "XYZ",
+        "123 45678",
+        "9AB X12 34Y"
+    ],
+    "note": null,
+    "id": 94,
+    "attemptRegex": "^[A-Z]{1,2}[0-9R][0-9A-Z]? [0-9][A-BD-HJLNP-UW-Z]{2}$"
+},{
+    "nl": "match valid UK postal codes in various formats, including the standard UK postal code format and the specific format for Gibraltar. It allows for optional spaces within the postal codes and is case-sensitive for letters.",
+    "regex": "^([A-Z][A-HJ-Y]?\\d[A-Z\\d]? ?\\d[A-Z]{2}|GIR ?0A{2})$",
+    "matches": [
+        "EC1A 1BB",
+        "SW1W 0NY",
+        "M1 1AE",
+        "B33 8TH",
+        "CR2 6XH",
+        "DN55 1PT"
+    ],
+    "non_matches": [
+        "12345",
+        "AB12",
+        "9AB 1CD",
+        "XYZ",
+        "123 45678",
+        "9AB X12 34Y"
+    ],
+    "note": null,
+    "id": 95,
+    "attemptRegex": "^[A-Z]{1,2}[0-9][A-Z0-9]?\\s?[0-9][A-Z]{2}$"
+},{
+    "nl": "match North American phone numbers in various formats.",
+    "regex": "^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]\\d{3}[\\s.-]\\d{4}$",
+    "matches": [
+        "(123) 456-7890",
+        "555-555-5555",
+        "+1 555-123-4567",
+        "555.555.5555",
+        "+12 (555) 678-9012",
+        "(987) 654.3210"
+    ],
+    "non_matches": [
+        "1234567890",
+        "555_555_5555",
+        "(555-123-4567)",
+        "555.5555.5555",
+        "+12 (555) 678-90123",
+        "(987-654-3210)"
+    ],
+    "note": null,
+    "id": 96,
+    "attemptRegex": "^(\\+1\\d?\\s?)?\\(?(\\d{3})\\)?[\\s\\.-](\\d{3})[\\s\\.-](\\d{4})$"
+},{
+    "nl": "match North American phone numbers in various formats, including those with or without international dialing codes, with or without parentheses around the area code, and with different separators. ",
+    "regex": "^(\\+0?1\\s)?\\(?\\d{3}\\)?[\\s.-]\\d{3}[\\s.-]\\d{4}$",
+    "matches": [
+        "(123) 456-7890",
+        "555-555-5555",
+        "+1 555-123-4567",
+        "555.555.5555",
+        "+12 (555) 678-9012",
+        "(987) 654.3210"
+    ],
+    "non_matches": [
+        "1234567890",
+        "555_555_5555",
+        "(555-123-4567)",
+        "555.5555.5555",
+        "+12 (555) 678-90123",
+        "(987-654-3210)"
+    ],
+    "note": null,
+    "id": 97,
+    "attemptRegex": "^(\\+1[2]?\\s?)?(\\([0-9]{3}\\)\\s?|[0-9]{3}[\\s\\.-])[0-9]{3}[\\s\\.-][0-9]{4}$"
+},{
+    "nl": "matching on unformatted numbers just make the separator character class optional as [\\s.-]?",
+    "regex": "^(\\+\\d{1,2}\\s?)?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$",
+    "matches": [
+        "(123) 456-7890",
+        "555-555-5555",
+        "+1 555-123-4567",
+        "555.555.5555",
+        "+12 (555) 678-9012",
+        "(987) 654.3210"
+    ],
+    "non_matches": [
+        "abc-def-ghij",
+        "555_555_5555",
+        "(555-123-4567)",
+        "555.5555.5555",
+        "+12 (555) 678-90123",
+        "(987-654-3210)"
+    ],
+    "note": null,
+    "id": 98,
+    "attemptRegex": "^(\\+\\d{1,2}\\s?)?\\(?(\\d{3})\\)?[\\s.-]?(\\d{3})[\\s.-]?(\\d{4})$"
+},{
+    "nl": "match the line does not contain red, green or blue anywhere in it.",
+    "regex": "^(?!.*(red|green|blue))",
+    "matches": [
+        "yellow",
+        "orange",
+        "purple",
+        "pink",
+        "black",
+        "white"
+    ],
+    "non_matches": [
+        "red",
+        "green",
+        "blue",
+        "greenery",
+        "reddish",
+        "blueberry"
+    ],
+    "note": null,
+    "id": 99,
+    "attemptRegex": "^(?!.*\\b(?:red|green|blue)\\b).*$"
+},{
+    "nl": "match the line does not contain red, green or blue anywhere in it but contains the word \"engine\" but without any of those colors",
+    "regex": "^(?!.*(red|green|blue)).*engine",
+    "matches": [
+        "search",
+        "engine",
+        "game",
+        "engine",
+        "jet",
+        "engine",
+        "steam",
+        "engine",
+        "car",
+        "engine",
+        "rocket",
+        "engine"
+    ],
+    "non_matches": [
+        "red",
+        "green",
+        "blue",
+        "greenery",
+        "reddish",
+        "blueberry"
+    ],
+    "note": null,
+    "id": 100,
+    "attemptRegex": "^(?!.*\\b(?:red|green|blue)\\b).*\\bengine\\b.*$"
+},{
+    "nl": "match a string that only has alphabetic characters, and that alone.",
+    "regex": "^[A-Za-z]+$",
+    "matches": [
+        "Hello",
+        "World",
+        "OpenAI",
+        "GPT",
+        "Example",
+        "Text"
+    ],
+    "non_matches": [
+        "12345",
+        "Hello123",
+        "Mixed123Text",
+        "special-character!",
+        "email@example.com",
+        "ThisIsCamelCase1"
+    ],
+    "note": null,
+    "id": 101,
+    "attemptRegex": "^[a-zA-Z]+$"
+},{
+    "nl": "match Unicode characters",
+    "regex": "^\\p{L}+$",
+    "matches": [
+        "Hello",
+        "Привет",
+        "こんにちは",
+        "Bonjour",
+        "Cześć",
+        "Χαίρετε"
+    ],
+    "non_matches": [
+        "12345",
+        "Hello123",
+        "Mixed123Text",
+        "special-character!",
+        "email@example.com",
+        "ThisIsCamelCase1"
+    ],
+    "note": null,
+    "id": 102,
+    "attemptRegex": "^[\\p{L}]+$"
+},{
+    "nl": "match strings that are composed entirely of alphabetic characters, whether they are uppercase or lowercase, from the beginning to the end of the string.",
+    "regex": "\\A[[:alpha:]]+\\z",
+    "matches": [
+        "Hello",
+        "World",
+        "OpenAI",
+        "GPT",
+        "Example",
+        "Text"
+    ],
+    "non_matches": [
+        "12345",
+        "Hello123",
+        "Mixed123Text",
+        "special-character!",
+        "email@example.com",
+        "ThisIsCamelCase"
+    ],
+    "note": null,
+    "id": 103,
+    "attemptRegex": "^[a-zA-Z]+$"
+},{
+    "nl": "match strings that consist of zero or more non-whitespace characters from the beginning of the string. ",
+    "regex": "^\\S*",
+    "matches": [
+        "Hello",
+        "World",
+        "3.12345",
+        "ThisIsAString",
+        "123_ABC",
+        "特殊字符!"
+    ],
+    "non_matches": [
+        "\\r\\n",
+        "\\t\\r\\n",
+        "\\t",
+        "\\t\\r\\n",
+        "\\t\\t\\t\\t\\r\\n",
+        "\\t",
+        "\\t",
+        "\\t\\r\\n",
+        "\\t",
+        "\\t",
+        "\\t",
+        "\\r\\n"
+    ],
+    "note": null,
+    "id": 104,
+    "attemptRegex": "^\\S*$"
+},{
+    "nl": "capture the first sequence of non-whitespace characters at the beginning of the string.",
+    "regex": "^([\\S]+)",
+    "matches": [
+        "Hello",
+        "World",
+        "3.12345",
+        "ThisIsAString",
+        "123_ABC",
+        "特殊字符!"
+    ],
+    "non_matches": [
+        "\\r\\n",
+        "\\t\\r\\n",
+        "\\t",
+        "\\t\\r\\n",
+        "\\t\\t\\t\\t\\r\\n",
+        "\\t",
+        "\\t",
+        "\\t\\r\\n",
+        "\\t",
+        "\\t",
+        "\\t",
+        "\\r\\n"
+    ],
+    "note": null,
+    "id": 105,
+    "attemptRegex": "^\\S+"
+},{
+    "nl": " capture the content of a line that begins with \"User Comments:\" while allowing for leading whitespace.",
+    "regex": "^\\s*User Comments:\\s*(.*)",
+    "matches": [
+        "User Comments: This is a comment.",
+        "User Comments: Here's another comment.",
+        "User Comments: 12345",
+        "User Comments: Special characters: !@#",
+        "User Comments:",
+        "User Comments: This is a long comment that goes on and on."
+    ],
+    "non_matches": [
+        "Hello",
+        "World",
+        "3.12345",
+        "ThisIsAString",
+        "123_ABC",
+        "特殊字符!"
+    ],
+    "note": null,
+    "id": 106,
+    "attemptRegex": "^\\s*User Comments:\\s*(.*)$"
+},{
+    "nl": "match first and last name and support international names with super sweet unicode",
+    "regex": "^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$",
+    "matches": [
+        "Hello,",
+        "World",
+        "Café",
+        "Björn",
+        "Żółć",
+        "José"
+    ],
+    "non_matches": [
+        "12345",
+        "Special!",
+        "email@example.com",
+        "This_is_text",
+        "你好",
+        "word_with_underscore"
+    ],
+    "note": null,
+    "id": 107,
+    "attemptRegex": "^[\\p{L}]+$"
+},{
+    "nl": "match strings that start with a specific set of characters (word characters, single quote, hyphen, comma, or period) and are followed by two or more characters that are not in a specified set of characters.",
+    "regex": "^[\\w'\\-,.][^0-9_!¡?÷?¿/\\\\+=@#$%ˆ&*(){}|~<>;:[\\]]{2,}$",
+    "matches": [
+        "Hello",
+        "World",
+        "Mary's",
+        "This,",
+        "is",
+        "a",
+        "sentence.",
+        "Special-characters-allowed",
+        "Non-English-text-ČŠŽ"
+    ],
+    "non_matches": [
+        "12345",
+        "Hello!",
+        "Email@domain.com",
+        "This_Is_Text",
+        "Special#Characters",
+        "/Path/To/File"
+    ],
+    "note": null,
+    "id": 108,
+    "attemptRegex": "^[\\w',.-][^\\s!@#$%^&*()_+={}[\\]|\\\\:\";/<>?~`]{2,}$"
+},{
+    "nl": "match first and last name. It is possibile of **'** or **-** for double barreled and hyphenated surnames. It is possibile of a second surname.",
+    "regex": "^([a-zA-Z]{2,}\\s[a-zA-Z]{1,}'?-?[a-zA-Z]{2,}\\s?([a-zA-Z]{1,})?)",
+    "matches": [
+        "John Smith",
+        "Maria Garc",
+        "Elisa Johnson",
+        "Yu Xin",
+        "Paul D'Amico Alice",
+        "Johnson Brown"
+    ],
+    "non_matches": [
+        "O'Connor Robert",
+        "Jean-Paul",
+        "Sophia M.",
+        "Brown",
+        "12345",
+        "John",
+        "Mary-Ann",
+        "FirstName"
+    ],
+    "note": null,
+    "id": 109,
+    "attemptRegex": "^[A-Za-z]+(?:[''-][A-Za-z]+)?\\s+[A-Za-z]+(?:[''-][A-Za-z]+)?(?:\\s+[A-Za-z]+(?:[''-][A-Za-z]+)?)?$"
+},{
+    "nl": "match only lines beginning with stop",
+    "regex": "^stop.*",
+    "matches": [
+        "stop",
+        "stopsign",
+        "stopwatch",
+        "stoplight",
+        "stopandgo",
+        "stopmotion"
+    ],
+    "non_matches": [
+        "it",
+        "now",
+        "here",
+        "the",
+        "car",
+        "sign"
+    ],
+    "note": null,
+    "id": 110,
+    "attemptRegex": "^stop"
+},{
+    "nl": "match lines beginning with the word stop followed by a space",
+    "regex": "^stop\\s",
+    "matches": [
+        "stop",
+        "stop\\r",
+        "stop\\n",
+        "stop\\t",
+        "stop\\f",
+        "stop\\v"
+    ],
+    "non_matches": [
+        "\"start",
+        "stopping\"",
+        "\"stopping\"",
+        "\"stops\"",
+        "\"stoppable\"",
+        "\"stopped\"",
+        "\"stopit\""
+    ],
+    "note": null,
+    "id": 111,
+    "attemptRegex": "^stop\\s"
+},{
+    "nl": "match lines beginning with the word stop, but followed by either a space or any other non-word character you can use ",
+    "regex": "^stop\\W",
+    "matches": [
+        "stop!",
+        "stop,",
+        "stop?",
+        "stop.",
+        "stop:",
+        "stop;"
+    ],
+    "non_matches": [
+        "stopword",
+        "stoplight",
+        "stoppable",
+        "stop123",
+        "stop",
+        "sign",
+        "stop_here"
+    ],
+    "note": null,
+    "id": 112,
+    "attemptRegex": "^stop(?=\\W)"
+},{
+    "nl": "matches a word at the beginning of a string on most regex flavors",
+    "regex": "^\\w.*",
+    "matches": [
+        "w",
+        "1",
+        "_",
+        "W",
+        "s",
+        "a"
+    ],
+    "non_matches": [
+        "-hyphen",
+        "!exclamation",
+        "?question",
+        "$dollar",
+        "*asterisk",
+        "@at_symbol"
+    ],
+    "note": null,
+    "id": 113,
+    "attemptRegex": "^\\w"
+},{
+    "nl": "match strings that start with one or more alphanumeric characters and extend from the beginning to the end of the string.",
+    "regex": "^[a-zA-Z0-9]+",
+    "matches": [
+        "Hello123",
+        "42Example",
+        "AbCdEf",
+        "123456",
+        "XYZ789",
+        "Test001"
+    ],
+    "non_matches": [
+        "!NotMatch",
+        "-NoMatch",
+        "*NoMatch",
+        "!Space",
+        "Not",
+        "Match",
+        "$NoMatch",
+        "%No"
+    ],
+    "note": null,
+    "id": 114,
+    "attemptRegex": "^[a-zA-Z0-9]+$"
+},{
+    "nl": "match valid IPv4 addresses in the format \"xxx.xxx.xxx.xxx,\" where each \"xxx\" represents a number between 0 and 255.",
+    "regex": "^((25[0-5]|(2[0-4]|1\\d|[1-9]|)\\d)\\.?\\b){4}$",
+    "matches": [
+        "192.168.0.1",
+        "255.255.255.0",
+        "10.0.0.1",
+        "172.16.1.1",
+        "0.0.0.0",
+        "123.45.67.89"
+    ],
+    "non_matches": [
+        "256.0.0.1",
+        "192.168.0.256",
+        "10.0.0.01",
+        "1.2.3.4.5",
+        "192.168.1",
+        "300.300.300.300"
+    ],
+    "note": null,
+    "id": 115,
+    "attemptRegex": "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
+},{
+    "nl": "match valid IPv4 addresses in the format \"xxx.xxx.xxx.xxx,\" where each \"xxx\" represents a number between 0 and 255.",
+    "regex": "^((25[0-5]|(2[0-4]|1\\d|[1-9]|)\\d)(\\.(?!$)|$)){4}$",
+    "matches": [
+        "192.168.0.1",
+        "255.255.255.0",
+        "10.0.0.1",
+        "172.16.1.1",
+        "0.0.0.0",
+        "123.45.67.89"
+    ],
+    "non_matches": [
+        "256.0.0.1",
+        "192.168.0.256",
+        "10.0.0.01",
+        "1.2.3.4.5",
+        "192.168.1",
+        "300.300.300.300"
+    ],
+    "note": null,
+    "id": 116,
+    "attemptRegex": "^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
+},{
+    "nl": "match valid IPv4 addresses that consist of four octets separated by periods. Each octet must be a number between 0 and 255, and the expression handles cases with or without trailing dots. ",
+    "regex": "^((25[0-5]|(2[0-4]|1[0-9]|[1-9]|)[0-9])(\\.(?!$)|$)){4}$",
+    "matches": [
+        "192.168.0.1",
+        "255.255.255.0",
+        "10.0.0.1",
+        "172.16.1.1",
+        "0.0.0.0",
+        "123.45.67.89"
+    ],
+    "non_matches": [
+        "256.0.0.1",
+        "192.168.0.256",
+        "10.0.0.01",
+        "1.2.3.4.5",
+        "192.168.1",
+        "300.300.300.300"
+    ],
+    "note": null,
+    "id": 117,
+    "attemptRegex": "^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
+},{
+    "nl": "match valid IPv4 addresses that consist of four octets separated by periods. Each octet must be a number between 0 and 255, and the expression handles cases with or without trailing dots. ",
+    "regex": "^(?:(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])(\\.(?!$)|$)){4}$",
+    "matches": [
+        "192.168.0.1",
+        "255.255.255.0",
+        "10.0.0.1",
+        "172.16.1.1",
+        "0.0.0.0",
+        "123.45.67.89"
+    ],
+    "non_matches": [
+        "256.0.0.1",
+        "192.168.0.256",
+        "10.0.0.01",
+        "1.2.3.4.5",
+        "192.168.1",
+        "300.300.300.300"
+    ],
+    "note": null,
+    "id": 118,
+    "attemptRegex": "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
+},{
+    "nl": "match valid IPv4 addresses that consist of four octets separated by periods. Each octet must be a number between 0 and 255, and the expression handles cases with or without trailing dots. ",
+    "regex": "^(?:(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])(\\.(?!$)|$)){4}$",
+    "matches": [
+        "192.168.0.1",
+        "255.255.255.0",
+        "10.0.0.1",
+        "172.16.1.1",
+        "0.0.0.0",
+        "123.45.67.89"
+    ],
+    "non_matches": [
+        "256.0.0.1",
+        "192.168.0.256",
+        "10.0.0.01",
+        "1.2.3.4.5",
+        "192.168.1",
+        "300.300.300.300"
+    ],
+    "note": null,
+    "id": 119,
+    "attemptRegex": "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
+},{
+    "nl": "match valid IPv4 addresses in the format \"xxx.xxx.xxx.xxx.\" Each octet is matched individually, and the expression ensures that each octet contains a valid numeric value between 0 and 255. ",
+    "regex": "^((25[0-5]|(2[0-4]|1\\d|[1-9]|)\\d)\\.){3}(25[0-5]|(2[0-4]|1\\d|[1-9]|)\\d)$",
+    "matches": [
+        "192.168.0.1",
+        "255.255.255.0",
+        "10.0.0.1",
+        "172.16.1.1",
+        "0.0.0.0",
+        "123.45.67.89"
+    ],
+    "non_matches": [
+        "256.0.0.1",
+        "192.168.0.256",
+        "10.0.0.01",
+        "1.2.3.4.5",
+        "192.168.1",
+        "300.300.300.300"
+    ],
+    "note": null,
+    "id": 120,
+    "attemptRegex": "^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
+},{
+    "nl": "Validating IPv4 addresses with regex. it doesn't accept things like 000.021.01.0. it seems like most other answers here do and require additional regex to reject cases similar to that one - i.e. 0 starting numbers and an ip that ends with a .",
+    "regex": "^(?:(?:25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\\.){3}(?:25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])$",
+    "matches": [
+        "192.168.0.1",
+        "255.255.255.0",
+        "10.0.0.1",
+        "172.16.1.1",
+        "0.0.0.0",
+        "123.45.67.89"
+    ],
+    "non_matches": [
+        "256.0.0.1",
+        "192.168.0.256",
+        "10.0.0.01",
+        "1.2.3.4.5",
+        "192.168.1",
+        "300.300.300.300"
+    ],
+    "note": null,
+    "id": 121,
+    "attemptRegex": "^(?:(?:25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\\.){3}(?:25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])$"
+},{
+    "nl": "matches strings that consist of consecutive lowercase letters where the same letter is repeated three or more times in a row. ",
+    "regex": "^([a-z]){1,}\\1{2}$",
+    "matches": [
+        "aaa",
+        "bbb",
+        "ccc",
+        "eeeee",
+        "qqqq",
+        "ttttt"
+    ],
+    "non_matches": [
+        "ab",
+        "abc",
+        "abcd",
+        "123",
+        "!!",
+        "Aaa"
+    ],
+    "note": null,
+    "id": 122,
+    "attemptRegex": "^([a-z])\\1{2,}$"
+},{
+    "nl": "matches a string that consists of a comma-separated list of unique numbers between 1 and 20. ",
+    "regex": "^(?:(0[1-9]|[1-9]|1[0-9]|20),(?!.*\\b\\1\\b))*(?:0[1-9]|[1-9]|1[0-9]|20)$",
+    "matches": [
+        "1,2,3,4",
+        "9,8,7,6,5,4,3,2,1",
+        "5,15,10,20",
+        "6",
+        "20",
+        "11,12,13,14,15,16,17,18,19,20"
+    ],
+    "non_matches": [
+        "1,2,3,3,4",
+        "10,10,20,30",
+        "5,15,10,20,5",
+        "0",
+        "21",
+        "1,2,2,3,4,5,6,7,8,9,10"
+    ],
+    "note": null,
+    "id": 123,
+    "attemptRegex": "^(?=^(?:(?:1[0-9]|20|[1-9])(?:,(?:1[0-9]|20|[1-9]))*)?$)(?!.*\\b(\\d+)\\b.*\\b\\1\\b)(?:1[0-9]|20|[1-9])(?:,(?:1[0-9]|20|[1-9]))*$"
+},{
+    "nl": "match strings where there are two identical sequences of digits separated by commas and optional whitespace. ",
+    "regex": "\\b(\\d+(?:,\\d+)*)\\s*,\\s*\\1\\b",
+    "matches": [
+        "1,2,3,4,1,2,3,4",
+        "10,20,30,10,20,30",
+        "5,15,10,20,5,15,10,20",
+        "6,6",
+        "20,20",
+        "11,12,13,14,15,11,12,13,14,15"
+    ],
+    "non_matches": [
+        "1,2,4",
+        "20,30,10",
+        "1,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10",
+        "0,",
+        "21,2",
+        "1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,1"
+    ],
+    "note": null,
+    "id": 124,
+    "attemptRegex": "^(\\d+(?:,\\s*\\d+)*),\\s*\\1$"
+},{
+    "nl": "all characters are allowed, but every \"a\" must be followed three characters later with a \"b\". ",
+    "regex": "^([^a]|a(?=..b))*$",
+    "matches": [
+        "axdb",
+        "ay3b",
+        "az2b",
+        "ac1b",
+        "adcb",
+        "abbbb"
+    ],
+    "non_matches": [
+        "aaab",
+        "aa",
+        "aab",
+        "aabb",
+        "abba",
+        "cab"
+    ],
+    "note": null,
+    "id": 125,
+    "attemptRegex": "^(?!.*a(?!...b))[^a]*(?:a...b[^a]*)*$"
+},{
+    "nl": "match anything not starting with \"foo\"",
+    "regex": "^(?!foo).*$",
+    "matches": [
+        "bar",
+        "baz",
+        "qux",
+        "hello",
+        "world",
+        "test",
+        "this",
+        "is",
+        "a",
+        "long",
+        "sentence",
+        "without",
+        "foo"
+    ],
+    "non_matches": [
+        "foo",
+        "foobar",
+        "foofoo",
+        "foobar",
+        "foobaz",
+        "fooa"
+    ],
+    "note": null,
+    "id": 126,
+    "attemptRegex": "^(?!foo).*"
+},{
+    "nl": "match the empty string at the beginning of the line when the first string is not the \"foo\"",
+    "regex": "^(?!foo).*",
+    "matches": [
+        "bar",
+        "bazqux",
+        "hello",
+        "world",
+        "test",
+        "this is a long sentence without foo"
+    ],
+    "non_matches": [
+        "foo",
+        "foobar",
+        "foo123",
+        "food",
+        "foo",
+        "fooa"
+    ],
+    "note": "部分匹配",
+    "id": 127,
+    "attemptRegex": "^(?!foo)"
+},{
+    "nl": "match the empty string at the end of the line when the last string is not the \"world.\"",
+    "regex": ".*(?<!world\\.)$",
+    "matches": [
+        "hello",
+        "test",
+        "this is a sentence",
+        "example",
+        "foo",
+        "bar"
+    ],
+    "non_matches": [
+        "world.",
+        "hello world.",
+        "test.world.",
+        "this is a sentence world.",
+        "example.world.",
+        "foo.world."
+    ],
+    "note": "部分匹配",
+    "id": 128,
+    "attemptRegex": "(?<!world\\.)$"
+},{
+    "nl": "match anything not ending with \"world.\"",
+    "regex": "^.*(?<!world\\.)$",
+    "matches": [
+        "hello",
+        "test",
+        "this is a sentence",
+        "example",
+        "foo",
+        "bar"
+    ],
+    "non_matches": [
+        "world.",
+        "hello world.",
+        "test.world.",
+        "this is a sentence world.",
+        "example.world.",
+        "foo.world."
+    ],
+    "note": null,
+    "id": 129,
+    "attemptRegex": "^(?!.*world\\.$).*$"
+},{
+    "nl": "match anything not ending with \"world.\"",
+    "regex": "^(?!.*world\\.$).*",
+    "matches": [
+        "hello",
+        "test",
+        "this is a sentence",
+        "example",
+        "foo",
+        "bar"
+    ],
+    "non_matches": [
+        "world.",
+        "hello world.",
+        "test.world.",
+        "this is a sentence world.",
+        "example.world.",
+        "foo.world."
+    ],
+    "note": "部分匹配",
+    "id": 130,
+    "attemptRegex": "^(?!.*world\\.$).*$"
+},{
+    "nl": "match the empty string at the end of the line when the last string is not the \"world.\"",
+    "regex": "^(?!.*world\\.$)",
+    "matches": [
+        "hello",
+        "test",
+        "this is a sentence",
+        "example",
+        "foo",
+        "bar"
+    ],
+    "non_matches": [
+        "world.",
+        "hello world.",
+        "test.world.",
+        "this is a sentence world.",
+        "example.world.",
+        "foo.world."
+    ],
+    "note": "部分匹配",
+    "id": 131,
+    "attemptRegex": "(?<!world\\.)$"
+},{
+    "nl": "not match a string having foo and match the anchor point at the beginning",
+    "regex": "^(?!.*foo).*",
+    "matches": [
+        "hello",
+        "test",
+        "world",
+        "example",
+        "bar",
+        "123"
+    ],
+    "non_matches": [
+        "foo",
+        "foofoo",
+        "foobar",
+        "afoo",
+        "fooa",
+        "foo123"
+    ],
+    "note": null,
+    "id": 132,
+    "attemptRegex": "^(?!.*foo).*"
+},{
+    "nl": "not match a string having foo",
+    "regex": "^(?!.*foo).*$",
+    "matches": [
+        "hello",
+        "test",
+        "world",
+        "example",
+        "bar",
+        "123"
+    ],
+    "non_matches": [
+        "foo",
+        "foofoo",
+        "foobar",
+        "afoo",
+        "fooa",
+        "foo123"
+    ],
+    "note": null,
+    "id": 133,
+    "attemptRegex": "^(?!.*foo).*$"
+},{
+    "nl": "match any 'r' that is preceded by two different vowels using (?<=...)r.",
+    "regex": "(?<=a[eiou]|e[aiou]|i[aeou]|o[aeiu]|u[aeio])r",
+    "matches": [
+        "aer",
+        "eir",
+        "eroar",
+        "our",
+        "uor",
+        "aroar"
+    ],
+    "non_matches": [
+        "car",
+        "bar",
+        "far",
+        "door",
+        "drum",
+        "bat"
+    ],
+    "note": "部分匹配",
+    "id": 134,
+    "attemptRegex": "(?<=[aeiou][aeiou])r"
+},{
+    "nl": "match any 'r' that is preceded by two different vowels and quickly exclude \"r\" not preceded by two vowels",
+    "regex": "r(?<=[aeiou][aeiou]r)(?<=a[eiou]r|e[aiou]r|i[aeou]r|o[aeiu]r|u[aeio]r)",
+    "matches": [
+        "aur",
+        "eir",
+        "ior",
+        "iar",
+        "oer",
+        "uir"
+    ],
+    "non_matches": [
+        "aar",
+        "eer",
+        "iir",
+        "oor",
+        "uur",
+        "arar"
+    ],
+    "note": "部分匹配",
+    "id": 135,
+    "attemptRegex": "(?<=[aeiou][aeiou](?<!\\1))r"
+},{
+    "nl": "match the characters between commas",
+    "regex": "(?<=,)([^,]*)(?=,)",
+    "matches": [
+        ",apple,",
+        ",banana,",
+        ",cherry,",
+        ",date,",
+        ",elderberry,",
+        ",fig,"
+    ],
+    "non_matches": [
+        "apple",
+        "banana,cherry",
+        ",date",
+        "elderberry,fig,grape",
+        "honeydew,",
+        ",,"
+    ],
+    "note": "部分匹配",
+    "id": 136,
+    "attemptRegex": ",([^,]+),"
+},{
+    "nl": "match foo…bar with no nested foo or bar ",
+    "regex": "foo(?:(?!foo|bar).)*bar",
+    "matches": [
+        "fooxyzbar",
+        "foobazquxbar",
+        "foopqrxyzbar",
+        "foo1234bar",
+        "foo-bar",
+        "foo$%^&*()bar"
+    ],
+    "non_matches": [
+        "barbar",
+        "fobarfoo",
+        "barfoo",
+        "fooqux",
+        "bar",
+        "foofoo"
+    ],
+    "note": null,
+    "id": 137,
+    "attemptRegex": "foo(?:(?!foo|bar).)*bar"
+},{
+    "nl": "match a word char that's not a digit",
+    "regex": "\\w(?<!\\d)",
+    "matches": [
+        "a",
+        "A",
+        "b",
+        "B",
+        "_",
+        "x"
+    ],
+    "non_matches": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+    ],
+    "note": null,
+    "id": 138,
+    "attemptRegex": "[a-zA-Z_]"
+},{
+    "nl": "match hello(without #) from #hello#",
+    "regex": "(?<=#)hello(?=#)",
+    "matches": [
+        "#hello#"
+    ],
+    "non_matches": [
+        "hello",
+        "#hello",
+        "world#hello",
+        "#world#hello",
+        "#foo#hell",
+        "#hello123#"
+    ],
+    "note": null,
+    "id": 139,
+    "attemptRegex": "(?<=#)hello(?=#)"
+},{
+    "nl": "match a password must have 2 digits,2 letters or more with any other character",
+    "regex": "^(?=(?:.*\\d){2})(?:.*[a-z]){2}",
+    "matches": [
+        "22aassc",
+        "abcd1234ef",
+        "a1b2c3d4e",
+        "1234abcd",
+        "1a2b3c4d",
+        "a2b3c4d5e6f7g8h9i10j11k12l13m14n15o16p17q18r19s20t21u22v23w24x25y26z"
+    ],
+    "non_matches": [
+        "abcd",
+        "123",
+        "1234",
+        "abcdefgh",
+        "!@#$%^&*()",
+        "1a"
+    ],
+    "note": null,
+    "id": 140,
+    "attemptRegex": "^(?=(?:[^0-9]*[0-9]){2})(?=(?:[^a-zA-Z]*[a-zA-Z]){2}).+$"
+},{
+    "nl": "checks that a password has at least one lowercase, one uppercase, one numeric, and one symbol character, and is at least 8 characters in length",
+    "regex": "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9]).{8,}$",
+    "matches": [
+        "Abc123!@#",
+        "P@ssw0rd",
+        "StrongP@ssw0rd",
+        "#Secure&123",
+        "H@ppyD@ys1",
+        "Th1sIs@LongP@ssw0rd"
+    ],
+    "non_matches": [
+        "password",
+        "weak123",
+        "12345678",
+        "ABCDEFGH",
+        "Abcdefg!",
+        "Abc123"
+    ],
+    "note": null,
+    "id": 141,
+    "attemptRegex": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?]).{8,}$"
+},{
+    "nl": "match the number before \"Red Balloons\"",
+    "regex": "\\d+.*(?=Red Balloons)",
+    "matches": [
+        "123 Red Balloons",
+        "42 Red Balloons",
+        "7 Red Balloons",
+        "100 Red Balloons",
+        "999999 Red Balloons",
+        "1 Red Balloons"
+    ],
+    "non_matches": [
+        "Red Balloons",
+        "123BlueBalloons",
+        "RedBalloons",
+        "123 Red Balloon and More",
+        "Red Balloons123",
+        "12 3 Red Balloon"
+    ],
+    "note": null,
+    "id": 142,
+    "attemptRegex": "\\b(\\d+)\\s+Red\\s+Balloons\\b"
+},{
+    "nl": "match characters(word character or digit) before \"(...)\"",
+    "regex": "[\\w\\d]+(?=\\(.*\\))",
+    "matches": [
+        "abc123(abc)",
+        "xyz(123)",
+        "test(456)",
+        "1234(5678)",
+        "example(12345)",
+        "hello123(world)"
+    ],
+    "non_matches": [
+        "(1010)",
+        "(123)",
+        "match99999ABC)",
+        "(5678)",
+        "(12345)",
+        "helloworld)"
+    ],
+    "note": "部分匹配",
+    "id": 143,
+    "attemptRegex": "[\\w\\d]+(?=\\([^)]*\\))"
+},{
+    "nl": "matching ABD, ADC and so on but not ABC",
+    "regex": "^(?!ABC)A..$",
+    "matches": [
+        "A12",
+        "A34",
+        "Axy",
+        "ABB",
+        "A00",
+        "Aab"
+    ],
+    "non_matches": [
+        "ABC",
+        "ABCD",
+        "ABC12",
+        "ABCE",
+        "123ABC",
+        "XABC"
+    ],
+    "note": null,
+    "id": 144,
+    "attemptRegex": "^A(?!BC)[A-Za-z0-9]{2}$"
+},{
+    "nl": "matching where MCV appears and the number component ranges from 1-196",
+    "regex": "^(?:\\s*MCV(?:00[1-9]|0[1-9][0-9]|1[0-8][0-9]|19[0-6])\\b)+$",
+    "matches": [
+        "MCV001",
+        "MCV002",
+        "MCV005",
+        "MCV100",
+        "MCV150",
+        "MCV196"
+    ],
+    "non_matches": [
+        "MCV000",
+        "MCV197",
+        "MCV200",
+        "MCV",
+        "999",
+        "MCV",
+        "0197",
+        "MCV-001"
+    ],
+    "note": null,
+    "id": 145,
+    "attemptRegex": "^MCV(00[1-9]|0[1-9][0-9]|1[0-9][0-9]|196)$"
+},{
+    "nl": "match if bar is not preceded by foo",
+    "regex": "\\w*(?<!foo)bar",
+    "matches": [
+        "barbar",
+        "abar",
+        "cbar",
+        "abar",
+        "123bar",
+        "wordbar"
+    ],
+    "non_matches": [
+        "foobar",
+        "foo",
+        "foo_b",
+        "foo_b_baz",
+        "afoobar",
+        "arfoo"
+    ],
+    "note": null,
+    "id": 146,
+    "attemptRegex": "(?<!foo)bar"
+},{
+    "nl": "match if bar is not preceded by foo",
+    "regex": "\\w*bar(?<!foobar)",
+    "matches": [
+        "barbar",
+        "abar",
+        "cbar",
+        "abar",
+        "123bar",
+        "wordbar"
+    ],
+    "non_matches": [
+        "foobar",
+        "foo",
+        "foo_b",
+        "foo_b_baz",
+        "afoobar",
+        "arfoo"
+    ],
+    "note": null,
+    "id": 147,
+    "attemptRegex": "(?<!foo)bar"
+},{
+    "nl": "match \"a_b\" and use lookaround to check there is \"_\" on the right of \"a\"",
+    "regex": "a(?=_)_b",
+    "matches": [
+        "a_b"
+    ],
+    "non_matches": [
+        "ab",
+        "a__b",
+        "ab_c",
+        "a__",
+        "_a_",
+        "abc"
+    ],
+    "note": null,
+    "id": 148,
+    "attemptRegex": "a(?=_)_b"
+},{
+    "nl": "match \"aaabbb\" followed by \"ccc\" and match \"ccc\"",
+    "regex": "aaa(?(?=...ccc)bbb|zzz)",
+    "matches": [
+        "aaabbbccc"
+    ],
+    "non_matches": [
+        "ab",
+        "a__b",
+        "ab_c",
+        "a__",
+        "_a_",
+        "abc"
+    ],
+    "note": null,
+    "id": 149,
+    "attemptRegex": "aaabbbccc|ccc"
+},{
+    "nl": "match \"aaabbb\" followed by \"ccc\" and match \"ccc\". And capture \"bbb\" or \"ccc\".",
+    "regex": "aaa(?(?=...ccc)(bbb|zzz)) ",
+    "matches": [
+        "aaabbbccc"
+    ],
+    "non_matches": [
+        "ab",
+        "a__b",
+        "ab_c",
+        "a__",
+        "_a_",
+        "abc"
+    ],
+    "note": null,
+    "id": 150,
+    "attemptRegex": "aaa(bbb)ccc|(ccc)"
+},{
+    "nl": "match the left and right position of the \".\"",
+    "regex": "(?=\\.)|(?<=\\.)",
+    "matches": [
+        "Hello.world",
+        "This.is.a.test",
+        "123.456",
+        "I.have.a.dot.in.my.email@example.com",
+        "www.example.com",
+        "IP address: 192.168.1.1"
+    ],
+    "non_matches": [
+        "NoDots",
+        "12345A",
+        "dot at the end",
+        "dotot",
+        "otAtStart",
+        "Multipledotsinarow"
+    ],
+    "note": "部分匹配",
+    "id": 151,
+    "attemptRegex": "(?=.*\\.).*"
+},{
+    "nl": "matches anything up to and including the last a (it's greedy).",
+    "regex": ".*a(?=.*)",
+    "matches": [
+        "a",
+        "banana",
+        "ca",
+        "alpha",
+        "Alaska",
+        "aardva"
+    ],
+    "non_matches": [
+        "b",
+        "c",
+        "12345",
+        "xyz",
+        "pplpie",
+        "bmn"
+    ],
+    "note": null,
+    "id": 152,
+    "attemptRegex": ".*a"
+},{
+    "nl": "matches only apple or banana if it’s preceded by 123- and followed by -456, or it matches the empty string if it’s preceded by 123- and followed by 456.",
+    "regex": "(?<=123-)((apple|banana)(?=-456)|(?=456))",
+    "matches": [
+        "123-apple-456",
+        "123-banana-456"
+    ],
+    "non_matches": [
+        "123-apples-456",
+        "1234567",
+        "123-banana",
+        "123-xyz",
+        "123-abc",
+        "456-123-xyz"
+    ],
+    "note": null,
+    "id": 153,
+    "attemptRegex": "^123-(apple|banana)-456$"
+},{
+    "nl": "matches \"123-apple-456\", \"123-banana-456\" or 123-apple-456",
+    "regex": "(?<=123-)((apple|banana)(?=-456)|(?=456))",
+    "matches": [
+        "123-apple-456",
+        "123-banana-456"
+    ],
+    "non_matches": [
+        "123-apples-456",
+        "1234567",
+        "123-banana",
+        "123-xyz",
+        "123-abc",
+        "456-123-xyz"
+    ],
+    "note": null,
+    "id": 154,
+    "attemptRegex": "^123-(apple|banana)-456$"
+},{
+    "nl": "match apple, banana, or a blank string, and following it there will be a 0 or 1 hyphens.",
+    "regex": "123-(?:(apple|banana|)-|)456",
+    "matches": [
+        "123-apple-456",
+        "123-banana-456",
+        "123--456",
+        "123-456"
+    ],
+    "non_matches": [
+        "123-oranges-456",
+        "123-abc-456",
+        "123-apples-456",
+        "123--fruit-456",
+        "123-banana",
+        "123456-789"
+    ],
+    "note": null,
+    "id": 155,
+    "attemptRegex": "^.*-(apple|banana|)-?.*$"
+},{
+    "nl": "match string with C or c not followed by + and also including the one located at the end of the string.",
+    "regex": "\\b[Cc]\\b(?![\\+\\.])",
+    "matches": [
+        "C",
+        "c"
+    ],
+    "non_matches": [
+        "C+",
+        "c+",
+        "C.",
+        "c.",
+        "A",
+        "cat",
+        "cats"
+    ],
+    "note": null,
+    "id": 156,
+    "attemptRegex": "[Cc](?!\\+)"
+},{
+    "nl": "match string with C or c not followed by + and also including the one located at the end of the string.",
+    "regex": "\\b[Cc]\\b(?!\\+)",
+    "matches": [
+        "C",
+        "c"
+    ],
+    "non_matches": [
+        "C+",
+        "c+",
+        "C.",
+        "c.",
+        "A",
+        "cat",
+        "cats"
+    ],
+    "note": null,
+    "id": 157,
+    "attemptRegex": "[Cc](?!\\+)"
+},{
+    "nl": " match the string which doesn't contain the word myName",
+    "regex": "^(?!myName).*$",
+    "matches": [
+        "My name is John.",
+        "Her name is Alice.",
+        "His name is Bob.",
+        "The name is James.",
+        "My name is not relevant.",
+        "You name is Peter."
+    ],
+    "non_matches": [
+        "myName is Tom.",
+        "myName is.",
+        "myName is important.",
+        "myName myName is myName.",
+        "myName is not relevant.",
+        "myNamenameismyName."
+    ],
+    "note": null,
+    "id": 158,
+    "attemptRegex": "^(?!.*\\bmyName\\b).*$"
+},{
+    "nl": "match the text between \"1***\" and \"2***\".",
+    "regex": "(?<=1\\*\\*\\*\\s).*(?=\\s2\\*\\*\\*)",
+    "matches": [
+        "1*** Matched Text 2***",
+        "1*** This is a test 2***",
+        "1*** 12345 2***",
+        "1*** ABCDEFGHI 2***",
+        "1*** Another example 2***",
+        "1*** With multiple lines And text 2***"
+    ],
+    "non_matches": [
+        "Hello,World",
+        "This_is_a_test",
+        "123-456",
+        "XYZ_123",
+        "Word!word",
+        "abcd#1234"
+    ],
+    "note": null,
+    "id": 159,
+    "attemptRegex": "1\\*\\*\\*(.*?)2\\*\\*\\*"
+},{
+    "nl": "match the text between \"1***\" and \"2***\" or \"3***\" and \"4***\"",
+    "regex": "(?<=[13]\\*\\*\\*)\\s*(.*?)(?=\\s*[24]\\*\\*\\*)",
+    "matches": [
+        "1*** Text between 1*** and 2***",
+        "3*** Some more text 4***",
+        "3***ABC12345DEF4***",
+        "3***Text with 1*** And 4***",
+        "3***Text with spaces 2***",
+        "1*** Matched Text 2***"
+    ],
+    "non_matches": [
+        "2*** Not a match",
+        "This is a test 4***",
+        "1****** N ending pattern",
+        "3**ncomplet mat 4*** in the text",
+        "Only starts with 1**",
+        "Only ends with 4***"
+    ],
+    "note": null,
+    "id": 160,
+    "attemptRegex": "(?:1\\*\\*\\*.*?2\\*\\*\\*|3\\*\\*\\*.*?4\\*\\*\\*)"
+},{
+    "nl": "match the text between \"d***\" and \"d***\". D is the digit which can be 1-9.",
+    "regex": "(?<=[1-9]\\*\\*\\*)\\s*(.*?)(?=\\s*[1-9]\\*\\*\\*)",
+    "matches": [
+        "1*** \\sMatched Text 2***",
+        "1*** This is a test 2***",
+        "1*** 12345 2***",
+        "1*** ABC\\sDEF\\sGHI 2***",
+        "1*** Anothe example 2***"
+    ],
+    "non_matches": [
+        "2*** Not a match",
+        "This is a test 4***",
+        "1****** No ending pattern",
+        "3**ncomplete mat 4*** in the text",
+        "Only starts with 1**"
+    ],
+    "note": null,
+    "id": 161,
+    "attemptRegex": "(?<=\\d\\*\\*\\*\\s).*?(?=\\s\\d\\*\\*\\*)"
+},{
+    "nl": "match the text between \"1***\" and \"2***\" or \"3***\" and \"4***\"",
+    "regex": "(?<=1\\*\\*\\*\\s).*(?=\\s2\\*\\*\\*)|(?<=3\\*\\*\\*\\s).*(?=\\s4\\*\\*\\*)",
+    "matches": [
+        "1*** Text between 1*** and 2***",
+        "3** Some more text 4***",
+        "1*** This is a test 2***",
+        "3*** ABC12345DEF 4***",
+        "1*** Multiple lines of text\\nAnd more lines 2***",
+        "3*** Text with 1***\\nAnd 4***patterns"
+    ],
+    "non_matches": [
+        "0*** Not a match",
+        "10*** Not a match",
+        "This is a test 1***",
+        "Only starts with 1***",
+        "Only ends with 4***",
+        "No pattern present in the text"
+    ],
+    "note": null,
+    "id": 162,
+    "attemptRegex": "1\\*\\*\\*.*?2\\*\\*\\*|3\\*\\*\\*.*?4\\*\\*\\*"
+},{
+    "nl": "match the text between \"d***\" and \"d***\". D is the digit which can be 1-4.",
+    "regex": "(?<=1\\*\\*\\*\\s)(.*)(?=\\s2\\*\\*\\*).*?(?<=3\\*\\*\\*\\s)(.*)(?=\\s4\\*\\*\\*)",
+    "matches": [
+        "1*** Text between 1*** and 2***",
+        "3*** Some more text 4***",
+        "1*** This is a test 2***",
+        "3*** ABC12345DEF 4***",
+        "1*** Multiple lines of text\\nAnd more lines 2***",
+        "3*** Text with 1***\\nAnd 4***patterns"
+    ],
+    "non_matches": [
+        "0*** Not a match",
+        "10*** Not a match",
+        "This is a test 1***",
+        "Only starts with 1***",
+        "Only ends with 4***",
+        "No pattern present in the text"
+    ],
+    "note": null,
+    "id": 163,
+    "attemptRegex": "(?<=\\b[1-4]\\*\\*\\*\\s).*?(?=\\s[1-4]\\*\\*\\*)"
+},{
+    "nl": "match ONLY the part of the word after a qu",
+    "regex": "(?<=\\bqu).*?\\b",
+    "matches": [
+        "quick",
+        "quite",
+        "quench",
+        "query",
+        "quicksand",
+        "quarterly"
+    ],
+    "non_matches": [
+        "Quickest way to the city",
+        "She was inquisitive",
+        "I am not acquainted with that Quantum physics",
+        "Equator is an imaginary line",
+        "Quit smoking"
+    ],
+    "note": null,
+    "id": 164,
+    "attemptRegex": "(?<=qu)\\w+"
+},{
+    "nl": "match the literal (128 Kbps) where it is not followed by (128 Kbps) anywhere after it",
+    "regex": "\\(128 Kbps\\)(?!.*\\(128 Kbps\\))",
+    "matches": [
+        "Audio quality: (128 Kbps)",
+        "Song bitrate: (128 Kbps)",
+        "Video codec: H.264, Audio codec: (128 Kbps)",
+        "(128 Kbps) Stereo sound",
+        "Music (128 Kbps) format",
+        "(128 Kbps) audio stream"
+    ],
+    "non_matches": [
+        "(128 Kbs) (128 Kps)",
+        "(128 bps) music",
+        "(128 Kbps",
+        "(128 bps) and (256 Kbps)",
+        "(256 Kbps) audio quality",
+        "(192 Kbps) song",
+        "(128 Kps) and (192 Kbps) video"
+    ],
+    "note": null,
+    "id": 165,
+    "attemptRegex": "\\(128 Kbps\\)(?!.*\\(128 Kbps\\))"
+},{
+    "nl": "matching the characters that are between the two lookarounds ((?<=class-) and (?=_sample)). And the extract characters is not a _ (based on the example) preceded by class- and succeded by _sample.",
+    "regex": "(?<=class-)[^_]+(?=_sample)",
+    "matches": [
+        "class-example_sample",
+        "class-test_sample",
+        "class-123_sample",
+        "class-abcd_sample",
+        "class-xyz123_sample",
+        "class-abcdef_sample"
+    ],
+    "non_matches": [
+        "class-examplesample_extr",
+        "test_sample_class-example",
+        "sample_class-example",
+        "class-123_",
+        "_sample_classample",
+        "class-xzsample"
+    ],
+    "note": null,
+    "id": 166,
+    "attemptRegex": "(?<=class-)[^_]+(?=_sample)"
+},{
+    "nl": "match the content between __(\"Look for content here\")",
+    "regex": "(?<=__\\(\").*?(?=\"\\))",
+    "matches": [
+        "__(\"Hello\")",
+        "__(\"This is a test.\")",
+        "__(\"Some text here.\")",
+        "__(\"12345\")",
+        "__(\"Special characters: @#$%^&*\")",
+        "__(\"Another example\")"
+    ],
+    "non_matches": [
+        "\"Incomplete text\")",
+        "This is not a valid format: __(\"Invalid)",
+        "__(\"Mismatched quotes')",
+        "__(\"Missing closing parenthesis",
+        "No starting quote",
+        "Another text __(\"Incomplete\" and more)"
+    ],
+    "note": null,
+    "id": 167,
+    "attemptRegex": "__\\(\"([^\"]*)\"\\)"
+},{
+    "nl": "capture when the arithmetic operators does not have space between them.",
+    "regex": "(?<![+\\s])[+](?![+\\s])",
+    "matches": [
+        "1+1",
+        "2+2",
+        "3+3+3",
+        "4+4+4",
+        "5+6",
+        "7+8"
+    ],
+    "non_matches": [
+        "++",
+        "+1",
+        "11+",
+        "12",
+        "+a",
+        "b"
+    ],
+    "note": "部分匹配",
+    "id": 168,
+    "attemptRegex": "\\d+\\+\\d+(?:\\+\\d+)*"
+},{
+    "nl": "capture where multi line comments are used in a file.",
+    "regex": "[/][*](?:[^*]|[*](?![/]))*[*][/]",
+    "matches": [
+        "/* This is a comment */",
+        "/* Comment with * inside */",
+        "/* Multi-line comment */",
+        "/* Comment with / inside */",
+        "/* Empty comment block */",
+        "/* Comment with * and / inside */"
+    ],
+    "non_matches": [
+        "// This is not a comment",
+        "/Unbalanced comment",
+        "*/ Unbalanced comment */",
+        "/omment with / and * inside */",
+        "/// Nested comment block with missing closing */",
+        "/* Unterminated comment block"
+    ],
+    "note": null,
+    "id": 169,
+    "attemptRegex": "/\\*[\\s\\S]*?\\*/"
+},{
+    "nl": "match any word with \"football\" in it(footballer, footballers, football), but exclude \"footballs\"",
+    "regex": "\\bfootball(?!s\\b)",
+    "matches": [
+        "football"
+    ],
+    "non_matches": [
+        "footballs",
+        "footbl's",
+        "footbller's",
+        "footbllers",
+        "footballs!",
+        "Ihavemanyfootballs."
+    ],
+    "note": null,
+    "id": 170,
+    "attemptRegex": "\\bfootball(?!s\\b)\\w*\\b"
+},{
+    "nl": "match the text between [ and ].",
+    "regex": "(?<=\\[)(.*)(?=\\])",
+    "matches": [
+        "[Hello]",
+        "[This is a test]",
+        "[Some text here]",
+        "[12345]",
+        "[Special characters: @#$%^&*]",
+        "[Another example]"
+    ],
+    "non_matches": [
+        "[Incomplete text",
+        "Unbalanced brackets]",
+        "[Incomplete text",
+        "[Multiple [Brackets",
+        "No starting bracket]",
+        "[Bracke in the middle"
+    ],
+    "note": "部分匹配",
+    "id": 171,
+    "attemptRegex": "\\[[^\\[\\]]*\\]"
+},{
+    "nl": "match the value after Defaut or Database=",
+    "regex": "(?<=Defaut|Database=)(.*)",
+    "matches": [
+        "DefautDatabase=example",
+        "Database=mydata",
+        "Defautmyvalue",
+        "Database=another_value",
+        "DefautDatabase=12345",
+        "Database=hello_world"
+    ],
+    "non_matches": [
+        "DefaultDatabasenotmatched",
+        "database=mydata",
+        "DatabasealueDefau",
+        "myvalueDatabase",
+        "Default",
+        "database=valu"
+    ],
+    "note": "部分匹配",
+    "id": 172,
+    "attemptRegex": "(?:Defaut|Database=)(.+)"
+},{
+    "nl": "match the text between class=\" and \"",
+    "regex": "(?<=class=\").*(?=\")",
+    "matches": [
+        "class=\"container\"",
+        "class=\"highlight\"",
+        "class=\"link\"",
+        "class=\"description\"",
+        "class=\"btn btn-primary\"",
+        "class=\"input-field\""
+    ],
+    "non_matches": [
+        "class=\"container",
+        "class=highlight",
+        "title=\"Text\"",
+        "<div class=\"link>",
+        "class description id=\"btn btn-primary\"",
+        "class=input-field disabled"
+    ],
+    "note": "部分匹配",
+    "id": 173,
+    "attemptRegex": "class=\"([^\"]*)\""
+},{
+    "nl": "match standalone single i.",
+    "regex": "(?<=\\W)i(?=\\W)",
+    "matches": [
+        "This is an i in a sentence.",
+        "The word \"in\" has an i.",
+        "The letter 'i' is in the word.",
+        "(i)",
+        "i",
+        "\"i\""
+    ],
+    "non_matches": [
+        "This is not",
+        "The word \"inside\" has an",
+        "I'm not sure.",
+        "It's raining.",
+        "The word \"I\" is not matched.",
+        "Ii"
+    ],
+    "note": "部分匹配",
+    "id": 174,
+    "attemptRegex": "\\bi\\b"
+},{
+    "nl": "match three digits before the word dollars",
+    "regex": "\\d{3}(?= dollars)",
+    "matches": [
+        "123 dollars",
+        "456 dollars",
+        "789 dollars",
+        "001 dollars",
+        "999 dollars",
+        "100 dollars"
+    ],
+    "non_matches": [
+        "12 dollars",
+        "45 dollars",
+        "0 dollars",
+        "dollars",
+        "dollars123",
+        "dollars456"
+    ],
+    "note": "部分匹配",
+    "id": 175,
+    "attemptRegex": "\\d{3} dollars"
+},{
+    "nl": "match the text between NAME and FISCAL. And there are several whitespace between the words.",
+    "regex": "NAME\\s+\\K\\S.*?(?=\\s+FISCAL\\b)",
+    "matches": [
+        "NAME John Doe FISCAL",
+        "NAME Jane Smith FISCAL",
+        "NAME Alice Johnson FISCAL",
+        "NAME Bob Johnson FISCAL",
+        "NAME Mark Smith FISCAL",
+        "NAME Emily Davis FISCAL"
+    ],
+    "non_matches": [
+        "NAME John Doe",
+        "NAME Jane Smith Fiscal",
+        "NAME Alice Johnson Fiscal",
+        "NAME Bob Johnson Fiscal",
+        "NAME Mark Smith Fiscal",
+        "NAME Emily Davis Fiscal"
+    ],
+    "note": "部分匹配",
+    "id": 176,
+    "attemptRegex": "NAME\\s+(.+?)\\s+FISCAL"
+},{
+    "nl": "match abc_..._ghi and ... can be any characters except xxx",
+    "regex": "abc_(?!xxx)..._ghi",
+    "matches": [
+        "abc_123_ghi",
+        "abc_456_ghi",
+        "abc_xyz_ghi",
+        "abc_abc_ghi",
+        "abc_def_ghi",
+        "abc_789_ghi"
+    ],
+    "non_matches": [
+        "abc_xxx_ghi",
+        "abc_xxxabc_ghi",
+        "abc_xxx_def_ghi",
+        "abc_ghi_xxx",
+        "abc_ghi_xxxabc",
+        "abc_ghi_def_xxx"
+    ],
+    "note": "部分匹配",
+    "id": 177,
+    "attemptRegex": "^abc_(?!.*xxx).*_ghi$"
+},{
+    "nl": "match abc_..._ghi and ... can be any characters except xxx and the length of it is arbitrary.",
+    "regex": "\\babc_(?!x+_)[^_]+_ghi\\b",
+    "matches": [
+        "abc_123_ghi",
+        "abc_456_ghi",
+        "abc_xyz_ghi",
+        "abc_abc_ghi",
+        "abc_def_ghi",
+        "abc_789_ghi"
+    ],
+    "non_matches": [
+        "abc_x_ghi",
+        "abc_x_ghi_def",
+        "abc_x_ghi_abc",
+        "abc_x_ghi_x",
+        "abc_x_ghi_x_abc",
+        "abc_x_ghi_x_def"
+    ],
+    "note": "部分匹配",
+    "id": 178,
+    "attemptRegex": "^abc_(?!.*xxx)[^_]*_ghi$"
+},{
+    "nl": "match 123_..._789 and ... can be any characters except 000",
+    "regex": "123_(?:(?!000)\\d){3}_789",
+    "matches": [
+        "123_123_789",
+        "123_456_789",
+        "123_789_789",
+        "123_999_789",
+        "123_100_789",
+        "123_001_789"
+    ],
+    "non_matches": [
+        "123_000_789",
+        "123_0001_789",
+        "123_000_7890",
+        "123_000_789_abc",
+        "123_0000_789",
+        "123_000_789_123"
+    ],
+    "note": "部分匹配",
+    "id": 179,
+    "attemptRegex": "^123_(?!000$)[0-9]{3}_789$"
+},{
+    "nl": "match the text between ( and )",
+    "regex": "(?<=\\()\\w+(?=\\))",
+    "matches": [
+        "(example)",
+        "(word)",
+        "(123)",
+        "(test123)",
+        "(abc_def)",
+        "(sampleWord)"
+    ],
+    "non_matches": [
+        "()",
+        "(",
+        "(abc def)",
+        "(123 456)",
+        "(word test)",
+        "(word$)"
+    ],
+    "note": "部分匹配",
+    "id": 180,
+    "attemptRegex": "\\([^\\s()]+\\)"
+},{
+    "nl": "match the digits in a passage, not succeeded by certain words(foo)",
+    "regex": "\\b[0-9]+(?!\\s*foo|[0-9])",
+    "matches": [
+        "123",
+        "456",
+        "789",
+        "1",
+        "99",
+        "1000"
+    ],
+    "non_matches": [
+        "123foo",
+        "456foo",
+        "789foo",
+        "1foo",
+        "9999",
+        "foo"
+    ],
+    "note": null,
+    "id": 181,
+    "attemptRegex": "\\d+(?!foo)"
+},{
+    "nl": "match the whitespace between two digits",
+    "regex": "(?<=\\d) (?=\\d)",
+    "matches": [
+        "1 2",
+        "3 4",
+        "5 6",
+        "7 8",
+        "0 9",
+        "123 456"
+    ],
+    "non_matches": [
+        "123",
+        "4567",
+        "89",
+        "1A 2B",
+        "3-4",
+        "5:6"
+    ],
+    "note": "部分匹配",
+    "id": 182,
+    "attemptRegex": "(?<=\\d)\\s+(?=\\d)"
+},{
+    "nl": "match the + between symbols(.,) or words and words",
+    "regex": "(?<=[\\w\\.,])\\+(?=[\\w])",
+    "matches": [
+        "a+b",
+        "1+2",
+        "x+y",
+        "123+456",
+        "A+B",
+        "0.5+0.2"
+    ],
+    "non_matches": [
+        "x+ y",
+        "123 +",
+        "A + B",
+        "0.5 + 0.2",
+        "7,8 + 9",
+        "foo.bar + baz"
+    ],
+    "note": "部分匹配",
+    "id": 183,
+    "attemptRegex": "[\\w.,]+\\+[\\w.,]+"
+},{
+    "nl": "match the + between symbols(.,+) or words and words",
+    "regex": "(?<=[\\w\\.,\\+])\\+(?=[\\w])",
+    "matches": [
+        "a+b",
+        "1+2",
+        "x+y",
+        "123+456",
+        "A+B",
+        "0.5+0.2"
+    ],
+    "non_matches": [
+        "x+ y",
+        "123 +",
+        "A + B",
+        "0.5 + 0.2",
+        "7,8 + 9",
+        "foo.bar + baz"
+    ],
+    "note": "部分匹配",
+    "id": 184,
+    "attemptRegex": "(?<=\\w|[.,])\\+(?=\\w)"
+},{
+    "nl": "match the + between symbols(.,) or words and words or +",
+    "regex": "(?<=[\\w\\.,])\\+(?=[\\w\\+])",
+    "matches": [
+        "a+b",
+        "1+2",
+        "x+y",
+        "123+456",
+        "A+B",
+        "0.5+0.2"
+    ],
+    "non_matches": [
+        "x+ y",
+        "123 +",
+        "A + B",
+        "0.5 + 0.2",
+        "7,8 + 9",
+        "foo.bar + baz"
+    ],
+    "note": "部分匹配",
+    "id": 185,
+    "attemptRegex": "\\S\\+\\S"
+},{
+    "nl": "capture the information from the date ( 01 Aug SA ) all the way to the beginning of the next date EG ( 31 Jul FR 0135 HKG MEL 33K 18:00 19:44 ) in the first instance and ( 01 Aug SA 06:40 07:10 11:10 ) in the next etc.",
+    "regex": "(?=\\d{2}\\s+[A-Z][a-z]{2}\\s+\\w{2})(.+?)(?:(?=\\d{2}\\s+[A-Z][a-z]{2}\\s+\\w{2})|$)",
+    "matches": [
+        "12 Abc De",
+        "34 Xyz Tu",
+        "56 Qwe Rf",
+        "78 Jkl Mn",
+        "90 Abc De",
+        "01 Xyz Tu"
+    ],
+    "non_matches": [
+        "Xyz Tu 34",
+        "56 Qw Rf",
+        "78 Jkl_Mn",
+        "01Xy z Tu",
+        "2 3 Qwe Rf",
+        "45-Jkl Mn"
+    ],
+    "note": null,
+    "id": 186,
+    "attemptRegex": "\\d{2}\\s+[A-Z][a-z]{2}\\s+[A-Z][a-z](?:.*?)(?=\\d{2}\\s+[A-Z][a-z]{2}\\s+[A-Z][a-z]|$)"
+},{
+    "nl": "match the color after \"Car: \"",
+    "regex": "(?<=Car: )\\w+",
+    "matches": [
+        "Car: red",
+        "Car: blue",
+        "I have a Car: blue sedan.",
+        "The Car: blue is parked outside.",
+        "This is a short text.",
+        "Bus: red and Car: blue are available."
+    ],
+    "non_matches": [
+        "Bus: green",
+        "Cr: re",
+        "This is a longer text that exceeds the character limit.",
+        "Bus: red",
+        "Ca: lue",
+        "This is a ar: blue vehicle.",
+        "Bus: red and green"
+    ],
+    "note": "部分匹配",
+    "id": 187,
+    "attemptRegex": "(?<=Car: )\\w+"
+},{
+    "nl": "The lookahead tries to match \\d+\\.\\d+ at the end of the line. If it succeeds, the overall match fails. Otherwise, the .*$ consumes the whole line so you can retrieve it with the Matcher's group() method.",
+    "regex": "^(?!.*\\d+\\.\\d+$).+$",
+    "matches": [
+        "This is a text without numbers.",
+        "No digits here.",
+        "12345",
+        "0",
+        "42abc",
+        "-42"
+    ],
+    "non_matches": [
+        "123.45",
+        "0.0",
+        "42.00",
+        "1.23",
+        "3.14159",
+        "-0.5"
+    ],
+    "note": null,
+    "id": 188,
+    "attemptRegex": "^(?!.*\\d+\\.\\d+$).*$"
+},{
+    "nl": "grab the start time for day 2.(Text: 8/9/2021 8:00 AM to 6:00 PM)\n",
+    "regex": "(?<=to [0-9]:[0-9]{2} [AP]M\\s)[0-9]{1,2}\\/[0-9]{1,2}\\/[0-9]{4} ([0-9]{1,2}:[0-9]{2} [AP]M)",
+    "matches": [
+        "to 1:30 PM 10/04/2023 2:45 AM",
+        "to 9:15 AM 12/25/2023 11:30 PM",
+        "to 5:00 PM 05/15/2023 9:00 AM",
+        "to 3:30 PM 07/01/2023 8:15 AM",
+        "to 4:45 PM 09/20/2023 10:00 AM",
+        "to 6:30 AM 06/06/2023 5:15 PM"
+    ],
+    "non_matches": [
+        "10/04/2023 2:45 AM",
+        "12/25/2023 11:30 PM",
+        "05/15/2023 9:00 AM",
+        "07/01/2023 8:15 AM",
+        "11/11/2023 12:30 PM",
+        "09/20/2023 10:00 AM"
+    ],
+    "note": "部分匹配",
+    "id": 189,
+    "attemptRegex": "to \\d{1,2}:\\d{2} [AP]M \\d{1,2}/\\d{1,2}/\\d{4} \\d{1,2}:\\d{2} [AP]M"
+}]

@@ -1,0 +1,98 @@
+lines that end with 'gh'	.*gh	.*gh	STRING_EQ
+lines that contain the text, 'New York'.	.*NewYork.*	.*NewYork.*	STRING_EQ
+lines that contain three letter words.	.*\b[A-Za-z]{3}\b.*	.*\b[A-Za-z]{3}\b.*	STRING_EQ
+lines that contain the word 'unifax' but not the word 'colorado'.	(.*\bunifax\b.*)&(~(.*\bcolorado\b.*))	(.*\bunifax\b.*)&(~(.*\bcolorado\b.*))	STRING_EQ
+lines ending in 'az'	.*az	.*az	STRING_EQ
+lines using words that begin with 'z'.	.*\bz[A-Za-z]*\b.*	.*\bz[A-Za-z]*\b.*	STRING_EQ
+lines having words starting with 'di'.	.*\bdi[A-Za-z]*\b.*	.*\bdi[A-Za-z]*\b.*	STRING_EQ
+lines that have a word of 3 letters	.*\b[A-Za-z]{3}\b.*	.*\b[A-Za-z]{3}\b.*	STRING_EQ
+lines containing 'a' before 'b'	.*a.*b.*	.*a.*b.*	STRING_EQ
+lines that contain a number.	.*[0-9].*	.*[0-9].*	STRING_EQ
+lines using the word 'day' followed by the letters 'abc'	.*\bday\b.*abc.*	.*\bday\b.*abc.*	STRING_EQ
+lines that contain words ending in 'ch'	.*\b[A-Za-z]*ch\b.*	.*\b[A-Za-z]*ch\b.*	STRING_EQ
+lines that use words ending with 'ot'.	.*\b[A-Za-z]*ot\b.*	.*\b[A-Za-z]*ot\b.*	STRING_EQ
+lines using a word	.*\b[A-Za-z]+\b.*	.*\b[A-Za-z]+\b.*	STRING_EQ
+lines with words that end in 'n'.	.*\b[A-Za-z]*n\b.*	.*\b[A-Za-z]*n\b.*	STRING_EQ
+lines containing words that start with 'th'	.*\bth[A-Za-z]*\b.*	.*\bth[A-Za-z]*\b.*	STRING_EQ
+lines which have the word 'egg'	.*\begg\b.*	.*\begg\b.*	STRING_EQ
+lines that have the numbers '12345' and '54321'.	(.*12345.*)&(.*54321.*)	(.*12345.*)&(.*54321.*)	STRING_EQ
+lines containing words ending in 're' 	.*\b[A-Za-z]*re\b.*	.*\b[A-Za-z]*re\b.*	STRING_EQ
+lines that have words ending in 'ing'	.*\b[A-Za-z]*ing\b.*	.*\b[A-Za-z]*ing\b.*	STRING_EQ
+lines that end in 'o'	.*o	.*o	STRING_EQ
+lines that have at least two words that start with 's'.	(.*\bs[A-Za-z]*\b.*){2}	(.*\bs[A-Za-z]*\b.*){2}	STRING_EQ
+lines that include words with 'ra'.	.*((\b[A-Za-z]+\b)&(.*ra.*)).*	.*((\b[A-Za-z]+\b)&(.*ra.*)).*	STRING_EQ
+lines using 'min' before 'imal'	.*min.*imal.*	.*min.*imal.*	STRING_EQ
+lines that contain the word 'null'	.*\bnull\b.*	.*\bnull\b.*	STRING_EQ
+lines that contain 'Beaker' but do not contain 'Bunsen'.	(.*Beaker.*)&(~(.*Bunsen.*))	(.*Beaker.*)&(~(.*Bunsen.*))	STRING_EQ
+lines that begin with the word 'once'.	once\b.*	once\b.*	STRING_EQ
+lines that contain at least one number.	.*[0-9].*	.*[0-9].*	STRING_EQ
+lines that do not contain any number	~(.*[0-9].*)	~(.*[0-9].*)	STRING_EQ
+lines using five letter words.	.*\b[A-Za-z]{5}\b.*	.*\b[A-Za-z]{5}\b.*	STRING_EQ
+lines that have 'eye'	.*eye.*	.*eye.*	STRING_EQ
+lines containg the number '9'.	.*9.*	.*9.*	STRING_EQ
+lines utilizing the number '1'.	.*1.*	.*1.*	STRING_EQ
+lines that have words containing 'ei'	.*\b[A-Za-z]*ei[A-Za-z]*\b.*	.*\b[A-Za-z]*ei[A-Za-z]*\b.*	STRING_EQ
+lines that contain at least one digit.	.*[0-9].*	.*[0-9].*	STRING_EQ
+lines containing a word using 'ause' 	.*\b[A-Za-z]*ause[A-Za-z]*\b.*	.*\b[A-Za-z]*ause[A-Za-z]*\b.*	STRING_EQ
+lines that use words starting with 's'.	.*\bs[A-Za-z]*\b.*	.*\bs[A-Za-z]*\b.*	STRING_EQ
+lines that contain three or more digits	(.*[0-9].*){3}	(.*[0-9].*){3}	STRING_EQ
+lines containing the word 'house'.	.*\bhouse\b.*	.*\bhouse\b.*	STRING_EQ
+lines that have any instance of 'ight'.	.*ight.*	.*ight.*	STRING_EQ
+lines using 'abc' after 'def'	.*def.*abc.*	.*def.*abc.*	STRING_EQ
+lines ending with 'xyz'	.*xyz	.*xyz	STRING_EQ
+lines that contain the word 'bar'	.*\bbar\b.*	.*\bbar\b.*	STRING_EQ
+lines that have the number '44'.	.*44.*	.*44.*	STRING_EQ
+lines using at least 4 'c'	(.*c.*){4,}	(.*c.*){4,}	STRING_EQ
+lines that contain either of 'y' or 'z'	.*(y|z).*	.*(y|z).*	STRING_EQ
+lines that utilize the number '7'.	.*7.*	.*7.*	STRING_EQ
+lines with 'bit' and not 'ch'.	(.*bit.*)&(~(.*ch.*))	(.*bit.*)&(~(.*ch.*))	STRING_EQ
+lines containing words that start with 'fa'	.*\bfa[A-Za-z]*\b.*	.*\bfa[A-Za-z]*\b.*	STRING_EQ
+lines that contain 'day' or 'to'	.*(day|to).*	.*(day|to).*	STRING_EQ
+lines that have 'efg' followed by the word 'car'	.*efg.*\bcar\b.*	.*efg.*\bcar\b.*	STRING_EQ
+lines that contain at least one numeric in it.	.*[0-9].*	.*[0-9].*	STRING_EQ
+lines that end with 'hey' 	.*hey	.*hey	STRING_EQ
+lines containing any number with an '8' in it.	.*8.*	.*8.*	STRING_EQ
+lines which contain 'I am mad'.	.*Iammad.*	.*Iammad.*	STRING_EQ
+lines that contain five vowels	(.*[AEIOUaeiou].*){5}	(.*[AEIOUaeiou].*){5}	STRING_EQ
+lines containing 'e', or 'f'	.*(e|f).*	.*(e|f).*	STRING_EQ
+lines that do not use the word 'the'	~(.*\bthe\b.*)	~(.*\bthe\b.*)	STRING_EQ
+lines that contain the letter 'V' and the number '33'.	(.*V.*)&(.*33.*)	(.*V.*)&(.*33.*)	STRING_EQ
+lines using at least 3 'b'	(.*b.*){3,}	(.*b.*){3,}	STRING_EQ
+lines using words beginning with the letter 'x'.	.*\bx[A-Za-z]*\b.*	.*\bx[A-Za-z]*\b.*	STRING_EQ
+lines using three letter words.	.*\b[A-Za-z]{3}\b.*	.*\b[A-Za-z]{3}\b.*	STRING_EQ
+lines which contain a word ending in 'ing'.	.*\b[A-Za-z]*ing\b.*	.*\b[A-Za-z]*ing\b.*	STRING_EQ
+lines containing the word 'revolution'.	.*\brevolution\b.*	.*\brevolution\b.*	STRING_EQ
+lines containing the word 'trade'.	.*\btrade\b.*	.*\btrade\b.*	STRING_EQ
+lines using the word 'clue'	.*\bclue\b.*	.*\bclue\b.*	STRING_EQ
+lines that have 'ser' after 'lin' or 'ku'.	.*(lin|ku).*ser.*	.*(lin|ku).*ser.*	STRING_EQ
+lines that do not have 'the' in them	~(.*the.*)	~(.*the.*)	STRING_EQ
+lines that have words with 're'.	.*\b[A-Za-z]*re[A-Za-z]*\b.*	.*\b[A-Za-z]*re[A-Za-z]*\b.*	STRING_EQ
+lines which contain both 'i' and 'e' but no instances of 'u'.	(.*i.*)&(.*e.*)&(~(.*u.*))	(.*i.*)&(.*e.*)&(~(.*u.*))	STRING_EQ
+lines using words which have a vowel.	.*\b[A-Za-z]*[aeiouAEIOU][A-Za-z]*\b.*	.*\b[A-Za-z]*[aeiouAEIOU][A-Za-z]*\b.*	STRING_EQ
+lines ending in 'fuzz'	.*fuzz	.*fuzz	STRING_EQ
+lines that start with the letter 'c'	c.*	c.*	STRING_EQ
+lines containing any mention of the word 'code'.	.*\bcode\b.*	.*\bcode\b.*	STRING_EQ
+lines having words with 'ro'.	.*\b[A-Za-z]*ro[A-Za-z]*\b.*	.*\b[A-Za-z]*ro[A-Za-z]*\b.*	STRING_EQ
+lines having the letter 'x'.	.*x.*	.*x.*	STRING_EQ
+lines using 'life' or 'lives'	.*(life|lives).*	.*(life|lives).*	STRING_EQ
+lines that contain words using the letters 'ant'	.*\b[A-Za-z]*ant[A-Za-z]*\b.*	.*\b[A-Za-z]*ant[A-Za-z]*\b.*	STRING_EQ
+lines that use words with 'ca'.	.*((\b[A-Za-z]+\b)&(.*ca.*)).*	.*((\b[A-Za-z]+\b)&(.*ca.*)).*	STRING_EQ
+lines that contain any numbers.	.*[0-9].*	.*[0-9].*	STRING_EQ
+lines containing only four words.	(([^A-Za-z])*\b[A-Za-z]+\b([^A-Za-z])*){4}	(([^A-Za-z])*\b[A-Za-z]+\b([^A-Za-z])*){4}	STRING_EQ
+lines that have words ending with 'ge'.	.*\b[A-Za-z]*ge\b.*	.*\b[A-Za-z]*ge\b.*	STRING_EQ
+lines using 'ick' 	.*ick.*	.*ick.*	STRING_EQ
+lines that contain at least 2 digits.	(.*[0-9].*){2,}	(.*[0-9].*){2,}	STRING_EQ
+lines beginning with 'begin'	begin.*	begin.*	STRING_EQ
+lines that begin with the phrase 'once upon a time'	onceuponatime.*	onceuponatime.*	STRING_EQ
+lines that use the word 'boom' followed by words starting with 'ka'	.*\bboom\b.*\bka[A-Za-z]*\b.*	.*\bboom\b.*\bka[A-Za-z]*\b.*	STRING_EQ
+lines which end with 'hula' 	.*hula	.*hula	STRING_EQ
+lines which start with a number.	[0-9].*	[0-9].*	STRING_EQ
+lines that use words starting with 'no'.	.*\bno[A-Za-z]*\b.*	.*\bno[A-Za-z]*\b.*	STRING_EQ
+lines containing 'tal' and containing 'tel' too	(.*tal.*)&(.*tel.*)	(.*tal.*)&(.*tel.*)	STRING_EQ
+lines using 'din' after 'e' or 'ky'.	.*(e|ky).*din.*	.*(e|ky).*din.*	STRING_EQ
+lines which have words beginning with 'H'.	.*\bH[A-Za-z]*\b.*	.*\bH[A-Za-z]*\b.*	STRING_EQ
+lines that contain words starting with 'gu'.	.*\bgu[A-Za-z]*\b.*	.*\bgu[A-Za-z]*\b.*	STRING_EQ
+lines that use 'native' and 'tribes'.	(.*native.*)&(.*tribes.*)	(.*native.*)&(.*tribes.*)	STRING_EQ
+lines containing a word using the letters 'tt'.	.*\b[A-Za-z]*tt[A-Za-z]*\b.*	.*\b[A-Za-z]*tt[A-Za-z]*\b.*	STRING_EQ
+lines that have 'car'	.*car.*	.*car.*	STRING_EQ
+lines that have the word 'Facebook'	.*\bFacebook\b.*	.*\bFacebook\b.*	STRING_EQ

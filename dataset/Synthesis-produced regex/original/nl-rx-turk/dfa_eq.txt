@@ -1,0 +1,455 @@
+lines containing a lower-case letter preceding a capital letter	\b[a-z].*[A-Z].*\b	([a-z]).*([A-Z]).*	DFA_EQ
+lines ending with words or without a vowel.	(.*)(\b([AEIOUaeiou])*\b)	(.*)(\b~([AEIOUaeiou])\b)	DFA_EQ
+lines with a number before string <M0> then letter	([0-9].*dog.*).*([A-Za-z]).*	([0-9]).*(dog.*[A-Za-z].*).*	DFA_EQ
+lines containing a letter followed by a lower-case letter, the <unk> or the string <M1>	((dog)|(truck)|([A-Za-z])).*([a-z]).*	([A-Za-z]).*(([a-z])|(truck)|(truck)).*	DFA_EQ
+lines ending capital letter after a vowel	((.*)([AEIOUaeiou])).*([A-Z]).*	(.*)([AEIOUaeiou].*[A-Z].*)	DFA_EQ
+lines starting with a character preceding a letter	(..*[A-Za-z].*)(.*)	((.)(.*)).*([A-Za-z]).*	DFA_EQ
+lines that end with a character followed by the string <M0> or the string <M1>	(.*)(((.).*(dog).*)|(truck))	(.*)((..*dog.*)|(truck))	DFA_EQ
+lines with a lower-case letter before a capital letter	([a-z]).*(([A-Z])&([A-Za-z])).*	([a-z]).*(([A-Z])+).*	DFA_EQ
+lines containing a capital letter, a vowel, and the string <M0>	\b([A-Z])&([AEIOUaeiou])&(dog)\b	.*([A-Z])&([AEIOUaeiou])&(dog).*	DFA_EQ
+lines with the string <M0> before <M1>	.*(dog.*truck.*)+.*	(.*dog.*).*((truck)+).*	DFA_EQ
+Items without a character, a vowel, or <M0>.	~((dog)|([AEIOUaeiou])|(.))	~((.)|([AEIOUaeiou])|(dog))	DFA_EQ
+Items with a letter or <M0> preceding <M1>.	(([a-z])|([A-Za-z])|(dog)).*(truck).*	(([A-Za-z])|(dog)).*(truck).*	DFA_EQ
+there must a vowel coming after a character in the lines	..*[AEIOUaeiou].*	(.).*([AEIOUaeiou]).*	DFA_EQ
+lines that have a vowel coming before a <M0> string, a letter, and a character	([AEIOUaeiou]).*((.)&(dog)&([A-Za-z])).*	([AEIOUaeiou]).*((dog)&([A-Za-z])&(.)).*	DFA_EQ
+lines with dog, a number and <unk>	((dog)&([0-9])).*(truck).*	.*(dog)&([0-9])&([0-9]).*	DFA_EQ
+lines with a letter before a lower-case letter	([A-Za-z]).*(.*[a-z].*).*	([A-Za-z]).*([a-z]).*	DFA_EQ
+Items with words containing a numeral, a vowel, or a character.	\b(.)|([0-9])|([AEIOUaeiou])\b	\b(.)|([AEIOUaeiou])|([0-9])\b	DFA_EQ
+lines which <unk> with a vowel, a number, a character or a capital letter	(((.)|([AEIOUaeiou])|([A-Z]))|([0-9]))(.*)	.*([AEIOUaeiou])|([0-9])|(.).*	DFA_EQ
+lines that do not contain a lower-case letter followed by a capital letter	\b~([a-z].*[A-Z].*)\b	~([a-z].*[A-Z].*)	DFA_EQ
+lines that conclude with a letter contained in them	(.*)(.*[A-Za-z].*)	.*(.*)([A-Za-z]).*	DFA_EQ
+lines with a number then the string <M0> that appears once or is repeated	([0-9].*dog.*)+	([0-9]).*((dog)+).*	DFA_EQ
+lines with a number, the string <M0>, and a capital letter	(([0-9])&(dog)).*([A-Z]).*	.*([0-9])&(dog)&([A-Z]).*	DFA_EQ
+lines ending with 4 or more characters	(.*)(\b(.){4,}\b)	(.*)((.){4,})	DFA_EQ
+Items with a character preceding a letter and <M0>.	(.).*((dog)&([A-Za-z])).*	(.).*(([A-Za-z])&(dog)).*	DFA_EQ
+Lines with words starting with a vowel or a capital letter	(([AEIOUaeiou])|([A-Z]))(.*)	\b(([AEIOUaeiou])|([A-Z]))(.*)\b	DFA_EQ
+Items with a vowel or <M0> preceding a small letter.	((dog)|([AEIOUaeiou])).*([a-z]).*	(([AEIOUaeiou])|(dog)).*([a-z]).*	DFA_EQ
+lines with words, a letter, and the string <M0> or a number	\b(([A-Za-z])&(dog))|([0-9])\b	\b([A-Za-z])&(dog)|([0-9])\b	DFA_EQ
+lines that have at least one combination of the word <M0> and a capital letter	(\b(dog)&([A-Z])\b)+	((dog)+)&(([A-Z])+)	DFA_EQ
+lines with a lower-case letter before non string <M0>	(([a-z])+).*(~(dog)).*	([a-z]).*(~(dog)).*	DFA_EQ
+lines with either a number, character, or a lower-case letter before a vowel	(([0-9])|([a-z])|(.)).*([AEIOUaeiou]).*	(([0-9])|(.)|([a-z])).*([AEIOUaeiou]).*	DFA_EQ
+lines starting with a character preceding a letter	(\b..*[A-Za-z].*\b)(.*)	((.)(.*)).*([A-Za-z]).*	DFA_EQ
+Items with an upper case letter preceding <M0> or a numeral, or a small letter.	([A-Z]).*((dog)|([a-z])|([0-9])).*	([A-Z]).*((dog)|([0-9])|([a-z])).*	DFA_EQ
+lines starting in a lower-case letter or number and letter	(([a-z])|(([0-9])&([A-Za-z])))(.*)	(([a-z])(.*))|(([0-9])&([A-Za-z]))	DFA_EQ
+lines starting in vowel or string <M0>	((([AEIOUaeiou])|(dog))+)(.*)	(([AEIOUaeiou])|(dog))(.*)	DFA_EQ
+lines containing a character or upper or lower case letter	\b(.)|([A-Za-z])|([a-z])\b	\b(.)|([A-Z])|([a-z])\b	DFA_EQ
+lines with the string <M0> or a character, before the string <M1>	\b((dog)|(.)).*(truck).*\b	((dog)|(.)).*(truck).*	DFA_EQ
+The lines starting with words that contain a number coming before the string <M0>	(\b([0-9]).*(dog).*\b)(.*)	(\b[0-9].*dog.*\b)(.*)	DFA_EQ
+lines with 7 times a letter	([A-Za-z]){7,}	(([A-Za-z])|([A-Za-z])){7,}	DFA_EQ
+lines that have the word <M0>, a capital letter, or a number preceding the word <M1>	((dog)|([0-9])|([A-Z])).*(truck).*	((dog)|([A-Z])|([0-9])).*(truck).*	DFA_EQ
+lines with a number not before a letter	([0-9]).*(~(.*[A-Za-z].*)).*	([0-9]).*(~([A-Za-z])).*	DFA_EQ
+lines without the string <M0> before <M1>	(~(dog)).*((truck)+).*	(~(dog)).*(truck).*	DFA_EQ
+lines containing a capital letter followed by a number	\b[A-Z].*[0-9].*\b	([A-Z]).*([0-9]).*	DFA_EQ
+lines with the strings <M0>, and string 'truck as well as a vowel before a lower-case letter	((dog)&([AEIOUaeiou])&(truck)).*([a-z]).*	((dog)&(truck)&([AEIOUaeiou])).*([a-z]).*	DFA_EQ
+Lines with a lower-case letter after a capital letter	\b[A-Z].*[a-z].*\b	([A-Z]).*([a-z]).*	DFA_EQ
+lines which are containing the string <M0> followed by the string <M1> before a character	.*(dog.*truck.*).*(.).*.*	(.*dog.*).*(truck.*..*).*	DFA_EQ
+lines with characters before a vowel then lower-case letter	(..*[AEIOUaeiou].*).*([a-z]).*	(.).*([AEIOUaeiou].*[a-z].*).*	DFA_EQ
+lines containing at least one lower-case letter	.*([a-z])+.*	(.*[a-z].*)+	DFA_EQ
+Items with a numeral preceding <M0> preceding a small letter.	([0-9]).*(dog.*[a-z].*).*	([0-9].*dog.*).*([a-z]).*	DFA_EQ
+lines with <M0> followed by capital letter, zero times	(\bdog.*[A-Z].*\b)*	(dog.*[A-Z].*)*	DFA_EQ
+lines containing a character followed by 5 or more of the string <M0>	\b(..*dog.*){5,}\b	(..*dog.*){5,}	DFA_EQ
+lines that do not have a number after a character	~(..*[0-9].*)	~((.).*([0-9]).*)	DFA_EQ
+lines with zero or more of the string <M0> and <M1> before <M2>	((dog)&(truck)).*((ring)*).*	((dog)*)&((truck).*(ring).*)	DFA_EQ
+lines with a character or the string <M0> at least 7 times	.*((.)|(dog)){7,}.*	((.)|(dog)){7,}	DFA_EQ
+lines containing a vowel, the string <M0>, or the string <M1>	\b.*([AEIOUaeiou])|(dog)|(truck).*\b	.*([AEIOUaeiou])|(dog)|(truck).*	DFA_EQ
+lines containing string <M0>, string <M1>, and string <M2>	.*(dog)&(truck)&(ring).*	.*((dog)&(truck)&(ring))&(ring).*	DFA_EQ
+lines containing both the string <M0> and the string <M1> with a character before a number	(.).*(([0-9])&(dog)&(truck)).*	((dog)&(truck)).*(.).*	DFA_EQ
+lines a vowel before a letter then capital letter	([AEIOUaeiou]).*([A-Za-z].*[A-Z].*).*	([AEIOUaeiou].*[A-Za-z].*).*([A-Z]).*	DFA_EQ
+lines not having lower-case letter or number, string <M0>, and string <M1>	(~([a-z]))|(([0-9])&(dog)&(truck))	~(([a-z])|(([0-9])&(dog)&(truck)))	DFA_EQ
+lines containing a vowel preceding a number	[AEIOUaeiou].*[0-9].*	([AEIOUaeiou]).*([0-9]).*	DFA_EQ
+lines with <M0> that start with a letter	((dog)*)&(([A-Za-z])(.*))	((dog)+)&(([A-Za-z])(.*))	DFA_EQ
+lines must have a number, an upper case and a lower case letter	.*([A-Z])&([a-z])&([0-9]).*	.*([0-9])&([A-Z])&([a-z]).*	DFA_EQ
+lines with words with only a capital letter	\b([A-Z])&([A-Za-z])\b	\b[A-Z]\b	DFA_EQ
+lines without a capital letter and or the string <M0>	~(([A-Z])&((dog)*))	~(([A-Z])&(dog))	DFA_EQ
+Items with a vowel preceding a small letter preceding <M0>.	([AEIOUaeiou]).*([a-z].*dog.*).*	([AEIOUaeiou].*[a-z].*).*(dog).*	DFA_EQ
+lines with the string "dog" and the string "truck" with a character before	(.).*((dog)&(truck)).*	((dog)&(truck)).*(.).*	DFA_EQ
+lines containing a number, a letter, and a lower-case letter	(([0-9])&([A-Za-z])).*([a-z]).*	.*([0-9])&([A-Za-z])&([a-z]).*	DFA_EQ
+Items with a numeral preceding <M0>.	[0-9].*dog.*	([0-9]).*(dog).*	DFA_EQ
+lines with words with a letter and string <M0> before string <M1>	\b([A-Za-z])&(dog.*truck.*)\b	\b([A-Za-z])&((dog).*(truck).*)\b	DFA_EQ
+lines that have words ending with a letter before a lower-case letter	\b(.*)([A-Za-z].*[a-z].*)\b	\b((.*)([A-Za-z])).*([a-z]).*\b	DFA_EQ
+lines without a lower-case letter before string <M0> without string <M1>	~(([a-z]).*((dog)&(truck)).*)	~((([a-z]).*(dog).*)&(truck))	DFA_EQ
+lines with the string <M0> or letter before a number	((dog)|([A-Za-z])|([a-z])).*([0-9]).*	((dog)|([A-Za-z])).*([0-9]).*	DFA_EQ
+lines with a vowel before ending with a letter in <unk>	([AEIOUaeiou]).*((.*)([A-Za-z])).*	([AEIOUaeiou]).*((.*)(([A-Za-z])+)).*	DFA_EQ
+Items beginning with a character.	(.)(.*)	((.)(.*))(.*)	DFA_EQ
+lines that contain <M0> or a character	\b(.*dog.*)|(.)\b	(.*dog.*)|(.)	DFA_EQ
+lines contains the string <M0>, a character, or a capital letter at least 6 times	(\b(dog)|(.)|([A-Z])\b){6,}	((dog)|(.)|([A-Z])){6,}	DFA_EQ
+Lines containing the string <M0>, a vowel, and a capital letter	\b(dog)&([AEIOUaeiou])&([A-Z])\b	.*(dog)&([AEIOUaeiou])&([A-Z]).*	DFA_EQ
+<M0> before a number, vowel, and capital letter	(dog).*(([0-9])&([A-Z])&([AEIOUaeiou])).*	(dog.*dog.*).*(([0-9])&([AEIOUaeiou])&([A-Z])).*	DFA_EQ
+A number <unk> the words, <unk> truck and another character	([0-9]).*((dog)&(truck)&(.)).*	\b([0-9])&((.)&(dog))\b	DFA_EQ
+lines with words and string <M0> before a letter and string <M1>	\b(dog.*[A-Za-z].*)&(truck)\b	\b((dog).*([A-Za-z]).*)&(truck)\b	DFA_EQ
+lines containing an upper-case leter preceding a character prior to the <M0> string	([A-Z]).*(..*dog.*).*	([A-Z].*..*).*(dog).*	DFA_EQ
+lines ending with a letter before a vowel	(.*)(([A-Za-z].*[AEIOUaeiou].*)+)	((.*)([A-Za-z])).*([AEIOUaeiou]).*	DFA_EQ
+Lines with a letter, or a character	\b([a-z])|(.)|([A-Za-z])\b	\b([A-Za-z])|(.)|([A-Za-z])\b	DFA_EQ
+lines containing a lower-case letter, a capital letter, the string <M0>, and the string <M1>	(([a-z])&([A-Z])&(dog)).*(truck).*	([a-z]).*(([a-z])&(dog)&(truck)).*	DFA_EQ
+lines with words and a letter before a lower-case letter or the string <M0>	\b([A-Za-z].*[a-z].*)|(dog)\b	\b(([A-Za-z]).*([a-z]).*)|(dog)\b	DFA_EQ
+lines having a number before a character and the strings <M0> and <M1>	((dog)&(truck)&([0-9])).*(.).*	([0-9].*..*)&((dog)&(truck))	DFA_EQ
+lines with a lower-case letter at least 4 times or a vowel before a capital letter	(([a-z]){4,})|([AEIOUaeiou].*[A-Z].*)	(([a-z]){4,})|(([AEIOUaeiou]).*([A-Z]).*)	DFA_EQ
+lines containing string <unk> <M0>, a number, a small letter before <M1>	((dog)&([0-9])&([a-z])).*(truck).*	((dog)&([0-9])).*(truck).*	DFA_EQ
+lines with the string <M0> before a lower-case letter then string <M1>	(dog.*[a-z].*).*((truck)+).*	(dog.*[a-z].*).*(truck).*	DFA_EQ
+lines starting with a letter at least zero times	(\b([A-Za-z])(.*)\b)*	(([A-Za-z])(.*))*	DFA_EQ
+lines containing either a number or a letter at least three times	(([A-Za-z])|([0-9])){3,}	(([0-9])|([A-Za-z])){3,}	DFA_EQ
+lines beginning with a letter followed by a lower case letter	(([A-Za-z])(.*)).*([a-z]).*	([A-Za-z].*[a-z].*)(.*)	DFA_EQ
+Lines do not have a lower-case letter and a letter	~((.*[a-z].*)&([A-Za-z]))	~(([a-z])&([A-Za-z]))	DFA_EQ
+<unk> the line starts with a vowel before the string <M0>	(([AEIOUaeiou])(.*)).*(dog).*	([AEIOUaeiou]).*((dog)(.*)).*	DFA_EQ
+lines where vowels come before letters	\b[AEIOUaeiou].*[A-Za-z].*\b	([AEIOUaeiou]).*([A-Za-z]).*	DFA_EQ
+<unk> the word <M0> at least once before a vowel	(dog).*(([AEIOUaeiou])+).*	((dog)+).*([AEIOUaeiou]).*	DFA_EQ
+A letter before a number and the string <M0> <unk> the lines	((dog)&([A-Za-z])).*([0-9]).*	([A-Za-z]).*(([0-9])&(dog)).*	DFA_EQ
+Lines containing a lower-case letter, a number, and a vowel	\b([a-z])&([0-9])&([AEIOUaeiou])\b	.*([a-z])&([0-9])&([AEIOUaeiou]).*	DFA_EQ
+lines with a lower-case letter after a number	\b([0-9]).*([a-z]).*\b	([0-9]).*([a-z]).*	DFA_EQ
+lines ending with a letter before number	(.*)(.*([A-Za-z]).*([0-9]).*.*)	((.*)([A-Za-z])).*([0-9]).*	DFA_EQ
+lines with a character after a capital letter	(([A-Z])&([A-Za-z])).*(.).*	([A-Z]).*(.).*	DFA_EQ
+lines that have <M0> and a capital letter with a letter in front of it	((dog)&([A-Za-z])).*([A-Z]).*	((dog)&([A-Z])).*([A-Za-z]).*	DFA_EQ
+lines not having string <M0> and not a vowel or capital letter	~(((dog)&([AEIOUaeiou]))|([A-Z]))	~((dog)&([AEIOUaeiou])|([A-Z]))	DFA_EQ
+lines with words with a character ending in letter	\b(.)&((.*)([A-Za-z]))\b	\b(.)&([A-Za-z])\b	DFA_EQ
+lines containing either a character, a letter, or a capital letter	\b([A-Za-z])|(.)|([A-Z])\b	\b(.)|([A-Za-z])|([A-Z])\b	DFA_EQ
+lines which are not ending with a character at least once	~((.*)((.)+))	~(((.*)(.))+)	DFA_EQ
+lines with words and 4 or more characters	\b(.*..*){4,}\b	\b(.){4,}\b	DFA_EQ
+Items with a numeral preceding <M0> and a letter.	([0-9]).*(([A-Za-z])&(dog)).*	([0-9]).*((dog)&([A-Za-z])).*	DFA_EQ
+lines with words and a letter or vowel	\b([A-Za-z])|([AEIOUaeiou])|([a-z])\b	\b([A-Za-z])|([AEIOUaeiou])\b	DFA_EQ
+lines with a number after a capital letter	[A-Z].*[0-9].*	([A-Z]).*([0-9]).*	DFA_EQ
+lines with words not containing only a vowel	\b~([AEIOUaeiou])\b	~([AEIOUaeiou])\b	DFA_EQ
+lines with the string <M0> followed by either a character or a letter	(dog).*((.)|([A-Za-z])|([AEIOUaeiou])).*	(dog).*((.)|([A-Za-z])).*	DFA_EQ
+Items with a vowel, a small letter, and a number.	.*([0-9])&([a-z])&([AEIOUaeiou]).*	.*([A-Z])&([a-z])&([0-9]).*	DFA_EQ
+lines without the string <M0> or a letter	~((dog)|([A-Za-z])|([A-Z]))	~((dog)|([A-Za-z]))	DFA_EQ
+lines starting in the string <M0> or a letter	(((dog)|([A-Za-z]))(.*))+	((dog)|([A-Za-z]))(.*)	DFA_EQ
+lines stating with the string <M0> or a number	((dog)|(([0-9])+))(.*)	((dog)|([0-9]))(.*)	DFA_EQ
+lines finishing with a letter as well as with the string <M0>	((.*)([A-Za-z]))&(.*dog.*)	(.*)(.*([A-Za-z])&(dog).*)	DFA_EQ
+lines with <M0> before <M1> or a number and <M2>	((dog).*(truck).*)|(([0-9])&(ring))	(dog).*((truck)|([0-9])&(ring)).*	DFA_EQ
+lines containing a letter or a character once	(.*([A-Za-z])|(.).*)+	(([A-Za-z])|(.))+	DFA_EQ
+A line that contains a capital letter, letter and a vowel.	.*([AEIOUaeiou])&([A-Z])&([A-Za-z]).*	\b([A-Z])&([A-Za-z])&([AEIOUaeiou])\b	DFA_EQ
+lines that contain the string <M0>, a lower-case letter, and a capital letter	.*([a-z])&(dog)&([A-Z]).*	.*(dog)&([a-z])&([A-Z]).*	DFA_EQ
+lines stating with words and a vowel before a letter	(\b[AEIOUaeiou].*[A-Za-z].*\b)(.*)	(\b([AEIOUaeiou]).*([A-Za-z]).*\b)(.*)	DFA_EQ
+lines with <M0> before a vowel	(dog).*((.*)([AEIOUaeiou])).*	(dog).*([AEIOUaeiou]).*	DFA_EQ
+lines containing lower-case letter or character at least once	(.*[a-z].*)|((.)+)	.*([a-z])|((.)+).*	DFA_EQ
+lines not having the string <M0> and not a capital letter, the string <M1>, or the string <M2> in them	~((dog)&(([A-Z])|(truck)|(ring)))	~((dog)&([A-Z])&(ring))	DFA_EQ
+zero or more lines with a letter	(([a-z])|([A-Za-z]))*	(([A-Za-z])|([A-Za-z]))*	DFA_EQ
+Lines with words with lower case letter, vowel, and the string <M0> at least once	(\b([a-z])&([AEIOUaeiou])&(dog)\b)+	\b(([a-z])&([AEIOUaeiou])&(dog))+\b	DFA_EQ
+lines that do no have a lower-case letter after a number	~(([0-9]).*([a-z]).*)	~([0-9].*[a-z].*)	DFA_EQ
+Items with <M0> preceding a vowel preceding a small letter.	(dog).*([AEIOUaeiou].*[a-z].*).*	(dog.*[AEIOUaeiou].*).*([a-z]).*	DFA_EQ
+lines that have a number followed by a vowel, which is then followed by the string <M0>	([0-9].*[AEIOUaeiou].*).*(dog).*	([0-9]).*([AEIOUaeiou].*dog.*).*	DFA_EQ
+The lines that start with the string <M0> that comes before a number	((dog)(.*)).*(.*[0-9].*).*	((dog)(.*)).*([0-9]).*	DFA_EQ
+lines starting with a capital letter following a number	([0-9].*[A-Z].*)(.*)	(([0-9])(.*)).*([A-Z]).*	DFA_EQ
+lines starting in a capital or lower-case letter	((([A-Z])|([a-z]))(.*))+	(([A-Z])|([a-z]))(.*)	DFA_EQ
+lines with the string <M0> after a character	((.)(.*)).*(dog).*	(.).*(dog).*	DFA_EQ
+lines that have a character, a vowel, and a number	\b(.)&([AEIOUaeiou])&([0-9])\b	.*(.)&([AEIOUaeiou])&([0-9]).*	DFA_EQ
+lines without a vowel, that don't contain the string "dog" nor "truck"	.*~(([AEIOUaeiou])&(dog)&(truck)).*	~(([AEIOUaeiou])&(dog)&(truck))	DFA_EQ
+Items with either <M0>, a numeral, or a character in front of a vowel.	((.)|(dog)|([0-9])).*([AEIOUaeiou]).*	(([AEIOUaeiou])|(dog)|(.)).*([AEIOUaeiou]).*	DFA_EQ
+Items with a vowel or numeral preceding a letter.	(([AEIOUaeiou])|([0-9])).*([A-Za-z]).*	(([0-9])|([AEIOUaeiou])).*([A-Za-z]).*	DFA_EQ
+lines with a lower-case letter before string <M0> ending in string <M1>	(([a-z]).*(dog).*)&((.*)(truck))	([a-z].*dog.*)&((.*)(truck))	DFA_EQ
+lines with lower-case letter followed by string <M0> or string <M1> before string <M2>	([a-z].*dog.*)|((truck).*(ring).*)	([a-z].*dog.*)|(truck.*ring.*)	DFA_EQ
+lines containing the <M0>, <unk> truck' and a capital letter before 'ring	(.*(dog)&(truck)&([A-Z]).*).*(ring).*	((dog)&([A-Z])&(truck)).*(ring).*	DFA_EQ
+Items with a character preceding a vowel preceding <M0>.	.*(..*[AEIOUaeiou].*).*(dog).*.*	(.).*([AEIOUaeiou].*dog.*).*	DFA_EQ
+Items with a terminating letter.	.*(.*)([A-Za-z]).*	(.*.*)([A-Za-z]).*	DFA_EQ
+lines with a character or lower-case letter	.*(.)|([a-z]).*	((.)|([a-z]))+	DFA_EQ
+lines with words that contain the string <M0> followed by a number	\b(dog).*([0-9]).*\b	\bdog.*[0-9].*\b	DFA_EQ
+Items without <M0>, upper case letter, or character.	~((dog)&(.)&([A-Z]))	~((.)&([A-Z])&(dog))	DFA_EQ
+lines with a character before lower-case letter then number	(..*[a-z].*).*([0-9]).*	(.).*([a-z].*[0-9].*).*	DFA_EQ
+lines starting in 5 or more of a capital letter before string <M0>	(([A-Z].*dog.*){5,})(.*)	(([A-Z].*dog.*)(.*)){5,}	DFA_EQ
+lines with words that do not contain a number, a character, or the string <M0>	\b~((dog)|([0-9])|(.))\b	\b~(([0-9])|(.)|(dog))\b	DFA_EQ
+Items with a letter preceding <M0>, an upper case letter, and a numeral.	([A-Za-z]).*((dog)&([0-9])&([A-Z])).*	([A-Za-z]).*((dog)&([A-Z])&([0-9])).*	DFA_EQ
+Lines including the words <M0>, <M1>, and at least 6 lower case letters	(.*(dog)&(truck)&([a-z]).*){6,}	(\b(dog)&(truck)\b){6,}	DFA_EQ
+lines with a lower-case letter before a number then a capital letter	([a-z]).*([0-9].*[A-Z].*).*	([a-z].*[0-9].*).*([A-Z]).*	DFA_EQ
+lines without the string <M0> or a lower-case letter	~(\b(dog)|([a-z])\b)	~((dog)|([a-z]))	DFA_EQ
+lines ending with lower-case letter or number at least once	(.*)((([a-z])|([0-9]))+)	((.*)(([a-z])|([0-9])))+	DFA_EQ
+lines with a vowel, the string <M0>, and a number	\b([AEIOUaeiou])&(dog)&([0-9])\b	.*([AEIOUaeiou])&(dog)&([0-9]).*	DFA_EQ
+lines containing the string <M0>, zero or more times before the string <M1> in them	.*((dog)*).*(truck).*.*	((dog)*).*(truck).*	DFA_EQ
+Items with a small letter preceding <M0> and a numeral.	([a-z]).*((dog)&([0-9])).*	([a-z]).*(([0-9])&(dog)).*	DFA_EQ
+Lines containing capital letter before the string <M0> and a letter	(.*[A-Z].*).*((dog)&([A-Za-z])).*	([A-Z]).*((dog)&([A-Za-z])).*	DFA_EQ
+lines ending in 5 or more of a character before a lower-case letter	(.*)((..*[a-z].*){5,})	((.*)(..*[a-z].*)){5,}	DFA_EQ
+lines with words with at least one character	\b((.)+)|([A-Za-z])\b	\b(.)+\b	DFA_EQ
+lines with 3 or more of the string <M0> with string <M1> or <M2> or a character	((dog){3,})&((truck)|(.)|(ring))	((dog){3,})&((truck)|(.))	DFA_EQ
+The lines which have a vowel or character followed by the string <M0>	(([AEIOUaeiou])|(.)).*(dog).*	((.)|([AEIOUaeiou])).*(dog).*	DFA_EQ
+lines with a capital letter and "dog" or at least one lower-case letter	((([A-Z])&(dog))|([a-z]))+	(([A-Z])&(dog))|(([a-z])+)	DFA_EQ
+lines containing a character before a lower case letter with is before the string <M0>	(..*[a-z].*).*(dog).*	(.).*([a-z].*dog.*).*	DFA_EQ
+lines containing <M0> and a capital and lower-case letter	((dog)&([A-Z])).*([a-z]).*	(.*dog.*)&(([A-Z])+)	DFA_EQ
+lines without a character, or the string <M0>	~((.)|(dog)|([0-9]))	~((.)|(dog))	DFA_EQ
+lines which begin with a lower-case letter followed by a vowel or the string <M0>	(([a-z].*[AEIOUaeiou].*)|(dog))(.*)	(([a-z])(.*)).*(([AEIOUaeiou])|(dog)).*	DFA_EQ
+lines containing a letter, a character, or a vowel in words	\b(.)|([A-Za-z])|([AEIOUaeiou])\b	\b([A-Za-z])|(.)|([AEIOUaeiou])\b	DFA_EQ
+lines containing a capital letter, a vowel, and a number	\b([0-9])&([AEIOUaeiou])&([A-Z])\b	(([A-Z])&([AEIOUaeiou])&([0-9])).*([0-9]).*	DFA_EQ
+lines that do not include a capital letter	~([A-Z])	~(([A-Z])&(.))	DFA_EQ
+lines with words, <M0>, a lower-case letter, and 'truck	.*\b(dog)&([a-z])&(truck)\b.*	\b(dog)&([a-z])&(truck)\b	DFA_EQ
+lines having either a letter or a number, followed by a vowel	(([a-z])|([A-Z])|([0-9])).*([AEIOUaeiou]).*	(([A-Za-z])|([0-9])).*([AEIOUaeiou]).*	DFA_EQ
+lines without the string <M0> before <M1> not being a vowel	~((dog).*((truck)&([AEIOUaeiou])).*)	~((dog.*truck.*)&([AEIOUaeiou]))	DFA_EQ
+lines with a character or letter before string <M0>	((.)|([A-Z])|([A-Za-z])).*(dog).*	((.)|([A-Za-z])).*(dog).*	DFA_EQ
+Items with <M0> preceding a letter or a vowel.	(dog).*(([AEIOUaeiou])|([A-Za-z])).*	(dog).*(([A-Za-z])|([A-Za-z])).*	DFA_EQ
+Items with a character preceding a vowel and upper case letter.	(.).*(([A-Z])&([AEIOUaeiou])).*	(.).*(([AEIOUaeiou])&([A-Z])).*	DFA_EQ
+lines that don't <M0> followed by a lower-case letter	\b~(dog.*[a-z].*)\b	~(dog.*[a-z].*)	DFA_EQ
+lines with <M0> and a number	\b((dog)*)&([0-9])\b	\b(dog)&([0-9])\b	DFA_EQ
+lines with a number before a character then string <M0>	([0-9].*..*).*(dog).*	([0-9]).*(..*dog.*).*	DFA_EQ
+lines with the string <M0> before a lower-case letter	((dog)+).*(.*[a-z].*).*	(dog).*([a-z]).*	DFA_EQ
+lines with a lower-case letter, a number, and a letter	\b([0-9])&([A-Za-z])&([a-z])\b	.*([a-z])&([0-9])&([A-Za-z]).*	DFA_EQ
+lines ending in zero or more characters	.*(.*)((.)*).*	((.*)(.))*	DFA_EQ
+lines containing a number or a capital letter at least 6 times	(([A-Z])|([0-9])){6,}	(([0-9])|([A-Z])){6,}	DFA_EQ
+Items with <M0>, an upper case letter, or a letter preceding a character.	((dog)|([A-Z])|([A-Za-z])).*(.).*	(([A-Z])|(dog)|([A-Za-z])).*(.).*	DFA_EQ
+lines containing words wherein the string <M0> precedes a letter	\b(dog).*([A-Za-z]).*\b	\bdog.*[A-Za-z].*\b	DFA_EQ
+lines with more than zero string <M0> and a letter before the string <M0>	((dog)&([A-Za-z])).*((truck)*).*	((dog)+)&([A-Za-z].*truck.*)	DFA_EQ
+lines with character before a number	(.).*(.*[0-9].*).*	(.).*([0-9]).*	DFA_EQ
+Items with a letter or a numeral.	\b([a-z])|([A-Za-z])|([0-9])\b	\b([0-9])|([0-9])|([A-Za-z])\b	DFA_EQ
+Items with a small letter, a vowel, or <M0> in front of <M1>.	((dog)|([AEIOUaeiou])|([a-z])).*(truck).*	(([a-z])|([AEIOUaeiou])|([AEIOUaeiou])).*(truck).*	DFA_EQ
+lines containing the string <M0> along with a character and a vowel	.*([AEIOUaeiou])&(.)&(dog).*	\b(dog)&(.)&([AEIOUaeiou])\b	DFA_EQ
+Items with an upper case letter, <M0>, or a vowel preceding a numeral.	((dog)|([A-Z])|([AEIOUaeiou])).*([0-9]).*	(([A-Z])|(dog)|([AEIOUaeiou])).*([0-9]).*	DFA_EQ
+lines with words that have a character followed by a lower-case letter	\b..*[a-z].*\b	\b(.).*([a-z]).*\b	DFA_EQ
+lines ending in a character without vowel	((.)(.*))&(~([AEIOUaeiou]))	((.*)(.))&(~([AEIOUaeiou]))	DFA_EQ
+lines with words that contain a vowel, zero or more times in them	(\b.*[AEIOUaeiou].*\b)*	\b(.*[AEIOUaeiou].*)*\b	DFA_EQ
+lines with a vowel or without a capital letter	(([AEIOUaeiou])|(~([A-Z])))+	(([AEIOUaeiou])|(~([A-Z])))*	DFA_EQ
+lines that have a lower case letter, vowel and letter	\b([a-z])&([AEIOUaeiou])&([A-Za-z])\b	.*([a-z])&([AEIOUaeiou])&([A-Za-z]).*	DFA_EQ
+lines ending in zero or more of a character or vowel	(((.*)(.))|([AEIOUaeiou]))*	((.*)((.)|([AEIOUaeiou])))*	DFA_EQ
+lines which begin with a character or vowel	(([AEIOUaeiou])|(.))(.*)	((.)|([AEIOUaeiou]))(.*)	DFA_EQ
+lines with words that contain the string <M0> followed by the strings <M1>, <M2>, and <M3>	\b(dog).*((truck)&(ring)&(lake)).*\b	\b((dog).*(truck)&(ring)&(lake)).*\b	DFA_EQ
+lines where no words start with a vowel	\b~(([AEIOUaeiou])(.*))\b	~(\b([AEIOUaeiou])(.*)\b)	DFA_EQ
+lines that must have the words <M0> and <M1> and a capital letter followed by a lower-case letter	((dog)&(truck)&([A-Z])).*([a-z]).*	((dog)&([A-Z])&(truck)).*([a-z]).*	DFA_EQ
+lines ending in the string <M0> before <M1>	.*((.*)(dog)).*(truck).*.*	((.*)(dog)).*((truck)+).*	DFA_EQ
+lines that end with end with the string <M0> preceded by a number	(.*)([0-9].*dog.*)	((.*)([0-9])).*(dog).*	DFA_EQ
+Items beginning with a character at least four times.	((.){4,})(.*)	((.)(.*)){4,}	DFA_EQ
+A vowel, number, and lines with the <unk> dog	((dog)&([0-9])).*([AEIOUaeiou]).*	(.*[AEIOUaeiou].*)&(([0-9])&(dog)&([A-Za-z]))	DFA_EQ
+lines with zero or more of the string <M0> and before capital letter	((dog)*)&(([0-9]).*([A-Z]).*)	((dog)*)&(.*[A-Z].*)	DFA_EQ
+lines with lower-case letter before not containing character	([a-z]).*(~(.*..*)).*	([a-z]).*(~(.)).*	DFA_EQ
+lines starting with a capital letter preceding a letter	([A-Z].*[A-Za-z].*)(.*)	(([A-Z])(.*)).*([A-Za-z]).*	DFA_EQ
+lines which do not contain words with the string <M0> before a lower-case letter	~(\b(dog).*([a-z]).*\b)	~(\bdog.*[a-z].*\b)	DFA_EQ
+Items with a numeral preceding a vowel at least once.	([0-9].*[AEIOUaeiou].*)+	([0-9]).*(([AEIOUaeiou])+).*	DFA_EQ
+lines stating with a letter	(([A-Za-z])|([A-Z]))(.*)	(([A-Za-z])(.*))+	DFA_EQ
+lines that have a number and a capital letter and a letter	.*([0-9])&([A-Z])&([A-Za-z]).*	(([0-9])&([A-Z]))&(([A-Z])+)	DFA_EQ
+lines that begin with a letter	([A-Za-z])(.*)	(([A-Za-z])(.*))+	DFA_EQ
+lines that have words and a character followed by a vowel	\b..*[AEIOUaeiou].*\b	\b(.).*([AEIOUaeiou]).*\b	DFA_EQ
+lines containing a lower-case letter, a character, and a letter	\b([A-Za-z])&(.)&([a-z])\b	.*([a-z])&(.)&([A-Za-z]).*	DFA_EQ
+lines not having string <M0> and number before string <M1>	(~(dog))&(([0-9]).*(truck).*)	(~(dog))&([0-9].*truck.*)	DFA_EQ
+lines containing lower-case letter or string <M0> before capital letter	.*(([a-z])|(dog)).*([A-Z]).*.*	(.*([a-z])|(dog).*).*([A-Z]).*	DFA_EQ
+lines containing a lower-case letter, the string <M0>, the string <M1>, and the string <M2>	([a-z]).*((dog)&(truck)&(ring)).*	(([a-z])&(dog)&(truck)).*(ring).*	DFA_EQ
+lines having any vowel, the word "dog", and any number	.*([AEIOUaeiou])&(dog)&([0-9]).*	(([AEIOUaeiou])&(dog)&([0-9])).*([0-9]).*	DFA_EQ
+lines with zero or more of a character before vowel or string <M0>	(((.).*([AEIOUaeiou]).*)|(dog))*	((.).*([AEIOUaeiou]).*)|((dog)*)	DFA_EQ
+lines containing lower-case letter, 2 or more times	.*(.*)(([a-z]){2,}).*	.*([a-z]){2,}.*	DFA_EQ
+lines containing a capital letter followed by a number which precedes the string <M0>	([A-Z]).*([0-9].*dog.*).*	([A-Z].*[0-9].*).*(dog).*	DFA_EQ
+lines ending with a lower-case letter before <M0>	((.*)(([a-z])+)).*(dog).*	((.*)([a-z])).*(dog).*	DFA_EQ
+lines with a number and capital letter before a lower-case letter	(([0-9])&([A-Z])&([A-Za-z])).*([a-z]).*	(([0-9])&([A-Z])).*([a-z]).*	DFA_EQ
+lines with a number before the string <M0> with a character after	([0-9]).*(dog.*..*).*	([0-9]).*((dog).*(.).*).*	DFA_EQ
+lines with a capital letter before non letter then lower-case letter	([A-Z]).*(~([A-Za-z].*[a-z].*)).*	([A-Z]).*(~([a-z])).*	DFA_EQ
+lines with a small letter followed by a character	[a-z].*..*	([a-z]).*(.).*	DFA_EQ
+Items with an upper case letter preceding either <M0>, a small letter, or a character.	([A-Z]).*((.)|([a-z])|(dog)).*	([A-Z]).*((dog)|([a-z])|(.)).*	DFA_EQ
+lines with <M0> before a vowel and a number	(([0-9])&(dog)).*([AEIOUaeiou]).*	(dog).*(([AEIOUaeiou])&([0-9])).*	DFA_EQ
+lines containing a character followed by string <M0>, 3 or more times	(.*..*dog.*.*){3,}	(..*dog.*){3,}	DFA_EQ
+lines with words, a capital letter, the 2 or more of the string <M0>	(\b([A-Z])&(dog)\b){2,}	(\b([A-Z]){2,}\b){2,}	DFA_EQ
+lines with a letter followed by <M0>	[A-Za-z].*dog.*	([A-Za-z]).*(dog).*	DFA_EQ
+lines having capital letters followed by a character	[A-Z].*..*	([A-Z]).*(.).*	DFA_EQ
+lines with the string <M0> and <M1> and a letter before a number	((dog)&(truck)&([A-Za-z])).*([0-9]).*	((dog)&([A-Za-z])&(truck)).*([0-9]).*	DFA_EQ
+lines beginning with words, the string <M0>, the string <M1>, and a letter	(\b(dog)&([A-Za-z])&(truck)\b)(.*)	(\b(dog)&(truck)&([A-Za-z])\b)(.*)	DFA_EQ
+lines that contain the string <M0> followed by a letter or the strings <M1> or <M2>	(dog).*((truck)|(ring)|([A-Za-z])).*	(dog).*(([A-Za-z])|(truck)|(ring)).*	DFA_EQ
+lines containing words with the string <M1>, a vowel, and the string <M0>,	\b(dog)&(truck)&([AEIOUaeiou])\b	\b(dog)&([AEIOUaeiou])&(truck)\b	DFA_EQ
+lines that start with at least one character before a vowel	(((.)+)(.*)).*([AEIOUaeiou]).*	((.)(.*)).*([AEIOUaeiou]).*	DFA_EQ
+lines with words and a letter and string <M0>	\b([A-Za-z])&([A-Z])&(dog)\b	\b([A-Za-z])&(dog)\b	DFA_EQ
+lines with with character 6 times	((.*)(.)){6,}	(.){6,}	DFA_EQ
+lines ending with lower-case letter at least once before letter	(((.*)([a-z]))+).*([A-Za-z]).*	((.*)(([a-z])+)).*([A-Za-z]).*	DFA_EQ
+lines ending with the string <M0> before a letter	(.*)(.*(dog).*([A-Za-z]).*.*)	((.*)(dog)).*([A-Za-z]).*	DFA_EQ
+Items without a numeral, an upper case letter, or <M0>.	~(([A-Z])|([0-9])|(dog))	~((dog)|([A-Z])|([0-9]))	DFA_EQ
+lines with a letter then a vowel then a capital	([A-Za-z]).*([AEIOUaeiou].*[A-Z].*).*	([A-Za-z].*[AEIOUaeiou].*).*([A-Z]).*	DFA_EQ
+Line with vowel or characters before number	(([AEIOUaeiou])|(.)).*([0-9]).*	((.)|([AEIOUaeiou])|(.)).*([0-9]).*	DFA_EQ
+lines that have the word "dog" or a lower-case letter followed by a character	(([a-z])|(dog)).*(.).*	(dog)|([a-z].*..*).*	DFA_EQ
+lines with words without a character	(\b~(.)\b)+	\b~(.)\b	DFA_EQ
+lines starting in a character or ending in string <M0>	((.)|((.*)(dog)))(.*)	((.)(.*))|((.*)(dog))	DFA_EQ
+lines with a lower-case letter ending with a vowel 1 or more times	(([a-z])+).*((.*)([AEIOUaeiou])).*	([a-z]).*(((.*)([AEIOUaeiou]))+).*	DFA_EQ
+Lines with a letter after a capital letter.	[A-Z].*[A-Za-z].*	([A-Z]).*([A-Za-z]).*	DFA_EQ
+lines with a capital before <M0> zero times	([A-Z]).*((.*dog.*)*).*	([A-Z]).*((dog)*).*	DFA_EQ
+Items with a letter preceding a vowel, a character, or a numeral.	([A-Za-z]).*(([0-9])|(.)|([AEIOUaeiou])).*	([A-Za-z]).*(([AEIOUaeiou])|(.)|([AEIOUaeiou])).*	DFA_EQ
+lines with words and the string <M0> before a lower-case letter	\b(dog.*[a-z].*)+\b	\b(dog).*([a-z]).*\b	DFA_EQ
+lines end with the string <M0> or a vowel	(.*)((dog)|([AEIOUaeiou]))	(.*)(([AEIOUaeiou])|(dog))	DFA_EQ
+Lines <unk> a <unk> and a dog.	\b(.)&(dog)\b	.*([A-Za-z])&(dog)&(truck).*	DFA_EQ
+Items with <M0>, a letter, and a character preceding <M1>.	(([A-Za-z])&(dog)&(.)).*(truck).*	((dog)&([A-Za-z])&(.)).*(truck).*	DFA_EQ
+lines with a vowel before a capital letter at least zero times	([AEIOUaeiou]).*(.*([A-Z])*.*).*	([AEIOUaeiou]).*(([A-Z])*).*	DFA_EQ
+Items with words containing any letter and numeral.	\b([A-Z])&([a-z])&([0-9])\b	\b([0-9])&([A-Za-z])&([0-9])\b	DFA_EQ
+lines containing <M0> or a character	.*(.)|(dog).*	.*(dog)|(.).*	DFA_EQ
+lines having a capital letter preceding by a lower-case letter, vowel, and <M0>	(([a-z])&([AEIOUaeiou])&(dog)).*([A-Z]).*	([A-Z]).*(([a-z])&([AEIOUaeiou])&(dog)).*	DFA_EQ
+Items with a letter at least one time.	(([A-Z])|([A-Za-z]))+	(([A-Za-z])|([A-Za-z]))+	DFA_EQ
+lines with a character before a letter	((.)+).*([A-Za-z]).*	(.).*([A-Za-z]).*	DFA_EQ
+lines with the string <M0> or <M1> or lower-case letter before a vowel	((dog)|([a-z])|(truck)).*([AEIOUaeiou]).*	((dog)|(truck)|([a-z])).*([AEIOUaeiou]).*	DFA_EQ
+lines with a lower-case and capital letters before a vowel	(([a-z])&([A-Z])).*([AEIOUaeiou]).*	(([a-z])&([A-Z])&([A-Za-z])).*([AEIOUaeiou]).*	DFA_EQ
+lines with the string <M0> followed by a letter	(dog).*((.*)([A-Za-z])).*	(dog).*([A-Za-z]).*	DFA_EQ
+lines containing the string <M0>, a letter, and the string <M1>	(.*)(.*(dog)&([A-Za-z])&(truck).*)	(dog).*(([A-Za-z])&(truck)).*	DFA_EQ
+lines ending with a lower-case letter or the string <M0> and the string <M1> in them	(.*)(([a-z])|((dog)&(truck)))	((.*)([a-z]))|((dog)&(truck))	DFA_EQ
+lines with words with a capital letter before string <M0> then letter	\b([A-Z].*dog.*).*([A-Za-z]).*\b	\b([A-Z]).*(dog.*[A-Za-z].*).*\b	DFA_EQ
+lines with only 7 or more characters	(.*..*){7,}	(.){7,}	DFA_EQ
+lines ending in string <M0> before <M1>	((.*)(dog)).*(.*truck.*).*	((.*)(dog)).*((truck)+).*	DFA_EQ
+lines with a capital letter and string <M0> before character	(([A-Z])&(dog)).*(.).*	(([A-Z])&([A-Z])&(dog)).*(.).*	DFA_EQ
+lines ending with string <M0> at least once before number	(((.*)(dog))+).*([0-9]).*	((.*)((dog)+)).*([0-9]).*	DFA_EQ
+Items with a vowel preceding an upper case letter.	\b[AEIOUaeiou].*[A-Z].*\b	([AEIOUaeiou]).*(([A-Z])&([A-Z])).*	DFA_EQ
+lines starting in a number or vowel	((([0-9])+)|([AEIOUaeiou]))(.*)	(([0-9])|([AEIOUaeiou]))(.*)	DFA_EQ
+lines not having <M0>, a capital letter	~((dog)&([A-Z])&([A-Za-z]))	~((dog)&([A-Z]))	DFA_EQ
+Items with a vowel preceding a letter preceding a small letter.	([AEIOUaeiou]).*([A-Za-z].*[a-z].*).*	([AEIOUaeiou].*[A-Za-z].*).*([a-z]).*	DFA_EQ
+Lines with a two or more lower case letters	([a-z]){2,}	(([a-z])|([a-z])){2,}	DFA_EQ
+lines with words with which are ending with a character or a lower-case letter	\b(.*)((.)|([a-z]))\b	\b((.*)(.))|([a-z])\b	DFA_EQ
+lines that contain the word <M0> and ends with the word <M1> one or more times	(dog).*(((.*)(truck))+).*	(dog).*((.*)((truck)+)).*	DFA_EQ
+lines containing a character, lower-case, and capital letter	.*([a-z])&(.)&([A-Z]).*	.*(.)&([a-z])&([A-Z]).*	DFA_EQ
+Items with a small letter preceding an upper case letter, <M0>, and <M1>.	([a-z]).*((dog)&([A-Z])&(truck)).*	([a-z]).*(([A-Z])&(dog)&(truck)).*	DFA_EQ
+lines which have a character, the string <M0>, and vowel	.*(.)&([AEIOUaeiou])&(dog).*	.*(.)&(dog)&([AEIOUaeiou]).*	DFA_EQ
+Items without an upper case letter, a vowel, or a numeral.	~(([AEIOUaeiou])|([0-9])|([A-Z]))	~(([A-Z])|([AEIOUaeiou])|([0-9]))	DFA_EQ
+lines ending with words with a capital before string <M0>	(.*)(\b([A-Z]).*(dog).*\b)	(.*)(\b[A-Z].*dog.*\b)	DFA_EQ
+lines that contain words with a vowel preceded by a lower-case letter	\b[a-z].*[AEIOUaeiou].*\b	\b([a-z]).*([AEIOUaeiou]).*\b	DFA_EQ
+lines that do not have an uppercase letter	~([A-Z])	~(([A-Z])&([A-Z]))	DFA_EQ
+Items with words containing small letter preceding a character.	\b([a-z]).*(.).*\b	\b[a-z].*..*\b	DFA_EQ
+lines with capital letter followed by character before containing string <M0>	([A-Z].*..*).*(.*dog.*).*	([A-Z].*..*).*(dog).*	DFA_EQ
+lines with the string <M0> and lower-case letter before number	((dog)&([a-z])).*(([0-9])+).*	((dog)&([a-z])).*([0-9]).*	DFA_EQ
+lines with a character or capital letter before string <M0>	.*((.)|([A-Z])).*(dog).*.*	((.)|([A-Z])).*(dog).*	DFA_EQ
+lines that have words with either the string <M1>, a capital letter, or the string <M0>	\b(dog)|(truck)|([A-Z])\b	\b([A-Z])|(dog)|(truck)\b	DFA_EQ
+lines with a lower-case letter and string <M0> before a capital letter	(([a-z])&(dog)).*([A-Z]).*	(([a-z])&([A-Z])&(dog)).*([A-Z]).*	DFA_EQ
+lines containing the string <M1> or a character and containing the string <M0> at least 3 times	((dog){3,})&((truck)|(.))	((dog)|(.))&((truck){3,})	DFA_EQ
+lines that have <M1> after <M0>, a capital letter and a number	((dog)&([A-Z])&([0-9])).*(truck).*	(([A-Z])&([A-Z])&(dog)).*(truck).*	DFA_EQ
+lines with a number or character	(.*([0-9])|(.).*)+	(([0-9])|(.))+	DFA_EQ
+Words with a letter appears before the string <M0> zero or more times in the lines	(\b([A-Za-z]).*(dog).*\b)*	(\b[A-Za-z].*dog.*\b)*	DFA_EQ
+lines with 6 or more lower-case letters or the string <M0>	(([a-z])|(dog)){6,}	((dog)|([a-z])){6,}	DFA_EQ
+lines containing a vowel before a number preceding the string <M0>	([AEIOUaeiou]).*([0-9].*dog.*).*	([AEIOUaeiou].*[0-9].*).*(dog).*	DFA_EQ
+lines containing the strings <M1> and <M0> before a letter and a capital letter	(([A-Z])&(dog)&(truck)).*([A-Za-z]).*	((dog)&(truck)).*(([A-Za-z])&([A-Z])).*	DFA_EQ
+lines that end with words that have a number followed by a character	(.*)(\b([0-9]).*(.).*\b)	(.*)(\b[0-9].*..*\b)	DFA_EQ
+lines that begin with at least one instance of the string <M0>	((dog)+)(.*)	((dog)(.*))+	DFA_EQ
+lines with a letter or the strings <M0> before <M1>	(([A-Za-z])|([A-Z])|(dog)).*(truck).*	(([A-Za-z])|(dog)).*(truck).*	DFA_EQ
+Items with <M0>, a character, or a vowel before <M1>.	(([AEIOUaeiou])|(dog)|(.)).*(truck).*	(([AEIOUaeiou])|(.)|(dog)).*(truck).*	DFA_EQ
+lines with the string <M0>, the string <M1>, and a lower-case letter	.*(dog)&(truck)&([a-z]).*	(.*dog.*)&((truck)&([a-z]))	DFA_EQ
+lines with words that have a letter, a capital letter, and a lower-case letter	.*\b([A-Za-z])&([A-Z])&([a-z])\b.*	\b([A-Za-z])&([A-Z])&([a-z])\b	DFA_EQ
+Items with an uppercase letter at least five times.	([A-Z]){5,}	(([A-Z])|([A-Z])){5,}	DFA_EQ
+lines that contain only <M0> followed by <M1>	.*(dog).*(truck).*.*	(.*)(dog.*truck.*)	DFA_EQ
+lines containing the string <M0> and <unk> capital letter and the string <M2>	(.*dog.*)&((truck)&([A-Z])&(ring))	.*(dog)&(([A-Z])&(truck)).*	DFA_EQ
+lines containing a number after a character	.*(.).*([0-9]).*.*	\b(.).*([0-9]).*\b	DFA_EQ
+lines containing the string <M0> followed by the string <M1> or a capital letter preceding a character	(dog.*truck.*)|(([A-Z]).*(.).*)	(dog.*truck.*)|([A-Z].*..*)	DFA_EQ
+lines that start with a character 7 times	((.){7,})(.*)	((.)(.*)){7,}	DFA_EQ
+lines ending in lower-case letter or the string <M0> and a character	(.*)(([a-z])|((dog)&(.)))	((.*)([a-z]))|((dog)&(.))	DFA_EQ
+lines without a vowel or letter	~(([AEIOUaeiou])|([A-Z])|([A-Za-z]))	~(([AEIOUaeiou])|([A-Za-z]))	DFA_EQ
+lines with the string <M0> not being before <M1> or <M2> or a character	(dog).*(~((truck)|(ring)|(.))).*	(dog).*(~((truck)|(ring))).*	DFA_EQ
+lines with the string <M0> ending with string <M1>	(dog).*((.*)(.*truck.*)).*	(dog).*((.*)(truck)).*	DFA_EQ
+Lines containing a letter or a character at least 2 times	(([A-Za-z])|(.)){2,}	((.)|([A-Za-z])){2,}	DFA_EQ
+Lines containing words ending a with vowel followed by a lower case letter	\b(.*)([AEIOUaeiou].*[a-z].*)\b	\b((.*)([AEIOUaeiou])).*([a-z]).*\b	DFA_EQ
+lines ending in either a vowel or a lower-case letter.	(.*)(([a-z])|([AEIOUaeiou]))	(.*)(([AEIOUaeiou])|([a-z]))	DFA_EQ
+lines with a lower-case letter and the strings <M0> and <M1>	.*([a-z])&(dog)&(truck).*	(([a-z])&(dog)&(truck)).*([A-Za-z]).*	DFA_EQ
+lines with 3 or more of the string <M0> with string <M1> before a character	((dog){3,})&(truck.*..*)	((dog){3,})&((truck).*(.).*)	DFA_EQ
+lines without words with capital letter before string <M0>	~(\b[A-Z].*dog.*\b)	~(\b([A-Z]).*(dog).*\b)	DFA_EQ
+lines with a letter before a capital letter	((([A-Za-z])+)(.*)).*([A-Z]).*	([A-Za-z]).*(([A-Z])+).*	DFA_EQ
+lines must have a capital letter followed by <M0> in it	[A-Z].*dog.*	([A-Z]).*(dog).*	DFA_EQ
+lower-case letter before 'dog or a vowel	([a-z]).*((dog)|([AEIOUaeiou])).*	([a-z]).*(([AEIOUaeiou])|(dog)).*	DFA_EQ
+lines with words including <M0>, a number and a vowel	\b(dog)&([AEIOUaeiou])&([0-9])\b	\b(dog)&([0-9])&([AEIOUaeiou])\b	DFA_EQ
+lines with string <M0> before ending with vowel at least once	(dog).*((.*)(([AEIOUaeiou])+)).*	(dog).*(((.*)([AEIOUaeiou]))+).*	DFA_EQ
+Items without a character preceding a vowel.	~(..*[AEIOUaeiou].*)	~((.).*([AEIOUaeiou]).*)	DFA_EQ
+lines containing a number and 0 or more of the string <M0>	\b([0-9])&((dog)*)\b	(.*[0-9].*)&((dog)*)	DFA_EQ
+Lines not having a letter	~(([A-Z])|([a-z])|([A-Za-z]))	~(([A-Za-z])|([A-Za-z]))	DFA_EQ
+lines with the string <M0> before a number	((dog)+).*(.*[0-9].*).*	(dog).*([0-9]).*	DFA_EQ
+Items with a small letter, <M0>, and small letter preceding <M1>.	(([0-9])&([a-z])&(dog)).*(truck).*	(([a-z])&([a-z])&(dog)).*(truck).*	DFA_EQ
+lines without the string <M0> with string <M1> and <M2> and a letter	(~(dog))&((truck)&([A-Za-z])&(ring))	(~(dog))&((truck)&([A-Za-z]))	DFA_EQ
+Items with 'dog	((dog)*)&(.*truck.*)	(dog).*((dog)&([AEIOUaeiou])).*	DFA_EQ
+lines that contain <M0> before a number that is followed by a lower-case letter	(dog.*[0-9].*).*([a-z]).*	(dog).*([0-9].*[a-z].*).*	DFA_EQ
+lines with a number before lower-case letter before a character	([0-9]).*([a-z].*..*).*	([0-9].*[a-z].*).*(.).*	DFA_EQ
+lines starting with a number before the string <M0>	((([0-9])(.*))+).*(dog).*	(([0-9])(.*)).*(dog).*	DFA_EQ
+lines with the string <M0> before string <M1> or <M2> or a letter	(dog).*((truck)|([A-Za-z])|(ring)).*	(dog).*((truck)|(ring)|([A-Za-z])).*	DFA_EQ
+lines with words that contain an vowel	\b.*(.*)([AEIOUaeiou]).*\b	\b.*[AEIOUaeiou].*\b	DFA_EQ
+either start with string <M0> or end with any number	((.*)([0-9]))|((dog)(.*))	((dog)(.*))|((.*)([0-9]))	DFA_EQ
+lines where a vowel and the strings <M0> and <M1> appear before a number	((dog)&([AEIOUaeiou])&(truck)).*([0-9]).*	(([AEIOUaeiou])&(dog)&(truck)).*([0-9]).*	DFA_EQ
+lines without a number not being a letter	.*~(([0-9])&([A-Za-z])).*	~(([0-9])&([A-Za-z]))	DFA_EQ
+lines with zero or more lower-case letters before a number	(([a-z])*).*(.*[0-9].*).*	(([a-z])*).*([0-9]).*	DFA_EQ
+lines with 7 or more letters, or a character before the string <M0>	(([A-Za-z]){7,})|((.).*(dog).*)	(([A-Za-z]){7,})|(..*dog.*)	DFA_EQ
+lines with words with a capital before vowel, 3 or more times	(\b([A-Z]).*([AEIOUaeiou]).*\b){3,}	(\b[A-Z].*[AEIOUaeiou].*\b){3,}	DFA_EQ
+lines that have a character in front of the <M0> string and the number	(.).*((dog)&([0-9])).*	(.).*((dog)&(truck)).*	DFA_EQ
+Items beginning with a vowel preceding a small letter.	([AEIOUaeiou].*[a-z].*)(.*)	(([AEIOUaeiou])(.*)).*([a-z]).*	DFA_EQ
+lines with a capital letter and the string <M0> followed by a vowel	.*(([A-Z])&(dog)).*([AEIOUaeiou]).*.*	(([A-Z])&(dog)).*([AEIOUaeiou]).*	DFA_EQ
+lines which begin with vowels	([AEIOUaeiou])(.*)	(([AEIOUaeiou])(.*)).*	DFA_EQ
+lines with capital letter before the string <M0> or a number	(([A-Za-z])&([A-Z])).*((dog)|([0-9])).*	([A-Z]).*((dog)|([0-9])).*	DFA_EQ
+lines with letter before not containing string <M0>	([A-Za-z]).*(~(.*dog.*)).*	([A-Za-z]).*(~(dog)).*	DFA_EQ
+lines with a vowel at the end	(.*)([AEIOUaeiou])	(.*)(([AEIOUaeiou])+)	DFA_EQ
+lines that have either a lower-case letter, a <M1> string, or the string <M0> appearing before a character	((dog)|([a-z])|(truck)).*(.).*	(([a-z])|(dog)|(truck)).*(.).*	DFA_EQ
+lines containing the string <M0>, a lower-case letter, and the string <M1> after a number	([0-9]).*((dog)&([a-z])&(truck)).*	((dog)&([a-z])&(truck)).*(truck).*	DFA_EQ
+Items with <M0>, a character, and a vowel preceding a small letter.	(([AEIOUaeiou])&(.)&(dog)).*([a-z]).*	((dog)&(.)&([AEIOUaeiou])).*([a-z]).*	DFA_EQ
+Items with <M0>, <M1>, or an upper case letter preceding a numeral.	(([A-Z])|(dog)|(truck)).*([0-9]).*	((dog)|(truck)|([A-Z])).*([0-9]).*	DFA_EQ
+lines ending with a letter before a character one or more times	(.*)(([A-Za-z].*..*)+)	((.*)([A-Za-z])).*((.)+).*	DFA_EQ
+lines with the string <M0> before a letter or without string <M1>	(dog.*[A-Za-z].*)|(~(truck))	((dog).*([A-Za-z]).*)|(~(truck))	DFA_EQ
+lines with the string <M0> at least once	((dog)+)&(~(.))	((dog)+)+	DFA_EQ
+lines ending in vowel or letter	(.*)((([AEIOUaeiou])+)|([A-Za-z]))	(.*)((([AEIOUaeiou])|([A-Za-z]))|([A-Za-z]))	DFA_EQ
+lines with words with string <M0> before lower-case letter, 3 or more times	(\b(dog).*([a-z]).*\b){3,}	(\bdog.*[a-z].*\b){3,}	DFA_EQ
+lines with words and a number before vowel	\b([0-9]).*([AEIOUaeiou]).*\b	\b[0-9].*[AEIOUaeiou].*\b	DFA_EQ
+lines starting with words with string <M0> before a character	(\b(dog).*(.).*\b)(.*)	(\bdog.*..*\b)(.*)	DFA_EQ
+lines with words having dog or a vowel	\b(dog)|([AEIOUaeiou])\b	\b([AEIOUaeiou])|(dog)\b	DFA_EQ
+lines ending in the string <M0> or string <M1> and 'ring and a number	((.*)(dog))|((truck)&([0-9])&(ring))	((.*)(dog))|((truck)&(ring)&([0-9]))	DFA_EQ
+lines with a character before either a lower-case letter, string <M0>, or string <M1>	(.).*(.*([a-z])|(dog)|(truck).*).*	(.).*(([a-z])|(dog)|(truck)).*	DFA_EQ
+Items with an upper class letter preceding <M1>, <M0>, or a letter.	([A-Z]).*((dog)|(truck)|([A-Za-z])).*	([A-Z]).*((dog)|([A-Za-z])|(truck)).*	DFA_EQ
+lines containing words ending with the string <M0> preceding the string <M1>	\b(.*)(dog.*truck.*)\b	\b((.*)(dog)).*(truck).*\b	DFA_EQ
+lines with a lower-case letter followed by the string <M0> at least once before the string <M1> in them	(([a-z].*dog.*)+).*(truck).*	([a-z].*dog.*).*(truck).*	DFA_EQ
+lines with a number before letter	(([0-9])(.*)).*(([A-Za-z])+).*	([0-9]).*([A-Za-z]).*	DFA_EQ
+lines with a capital letter before a lower-case letter	([A-Z]).*(.*[a-z].*).*	([A-Z]).*([a-z]).*	DFA_EQ
+lines containing <M0> before <M1>, a character, and <M2>	(dog).*((truck)&(.)&(ring)).*	(.*dog.*).*((truck)&(.)&(ring)).*	DFA_EQ
+lines ending in and with only the string <M0>	.*(.*)(dog).*	(.*)(.*dog.*)	DFA_EQ
+lines with the string <M0> or the string <M1> and <M2> and a number	((dog)+)|((truck)&([0-9])&(ring))	((dog)+)|((truck)&(ring)&([0-9]))	DFA_EQ
+Lines with capital letters after a lower case letter.	(([a-z])(.*)).*([A-Z]).*	([a-z]).*([A-Z]).*	DFA_EQ
+lines that end with a combination of the word <M0>, a character and a vowel	(.*)(.*(dog)&([AEIOUaeiou])&(.).*)	(.*)(.*(dog)&(.)&([AEIOUaeiou]).*)	DFA_EQ
+ends with a capital letter after a character	((.*)(.)).*([A-Z]).*	(.*)(..*[A-Z].*)	DFA_EQ
+lines that have a character, a lower-case letter, and the string <M0>, all before a capital letter	((.)&(dog)&([a-z])).*([A-Z]).*	((.)&([a-z])&(dog)).*([A-Z]).*	DFA_EQ
+lines containing the string <M1> preceded by the string <M0>	dog.*truck.*	(dog).*(truck).*	DFA_EQ
+lines with string <M0> before a character then a capital letter	(dog.*..*).*([A-Z]).*	(dog).*(..*[A-Z].*).*	DFA_EQ
+Lines with a letter or character	\b((.)|([A-Za-z]))+\b	(([A-Za-z])|(.))+	DFA_EQ
+lines with lower-case letter before a number	([a-z]).*(.*[0-9].*).*	([a-z]).*([0-9]).*	DFA_EQ
+Items terminating with vowel preceding a numeral.	(.*)([AEIOUaeiou].*[0-9].*)	((.*)([AEIOUaeiou])).*([0-9]).*	DFA_EQ
+lines with a character before string <M0>	.*(.).*((dog)+).*.*	(.).*(dog).*	DFA_EQ
+lines ending in a character before number	(.*)(.*(.).*([0-9]).*.*)	((.*)(.)).*([0-9]).*	DFA_EQ
+Items with a small letter preceding <M0> preceding a character.	([a-z]).*(dog.*..*).*	([a-z].*dog.*).*(.).*	DFA_EQ
+Items terminating with an upper case letter or a character.	(.*)((.)|([A-Z]))	(.*)(([A-Z])|(.))	DFA_EQ
+lines ending with a character, 4 or more times	(.*)(.*(.){4,}.*)	(.*)((.){4,})	DFA_EQ
+lines with a character before a letter	(..*[A-Za-z].*)+	(.).*([A-Za-z]).*	DFA_EQ
+lines with words that include a letter, the string <M0>, or a lower-case letter	\b(dog)|([a-z])|([A-Za-z])\b	\b([A-Za-z])|(dog)|([a-z])\b	DFA_EQ
+lines with a number before a capital letter	([0-9].*[A-Z].*)+	([0-9]).*(([A-Z])+).*	DFA_EQ
+lines containing either a character, a number, or 'dog, 5 times or more	(.*(.)|([0-9])|(dog).*){5,}	((.)|([0-9])|(dog)){5,}	DFA_EQ
+lines which are containing the string <M0> followed by the string <M1>, 4 or more times	(.*dog.*truck.*.*){4,}	.*(dog.*truck.*){4,}.*	DFA_EQ
+lines with 2 capitol letters or the string <M0> twice	((dog)|([A-Z])){2,}	(([A-Z])|(dog)){2,}	DFA_EQ
+lines with either a capital letter, a letter, or a character	.*([A-Za-z])|([A-Z])|(.).*	.*([A-Z])|([A-Za-z])|(.).*	DFA_EQ
+Items with <M1>, a small letter, and a numeral following <M0>.	(dog).*(([0-9])&([a-z])&(truck)).*	(([a-z])&([a-z])&(dog)).*(truck).*	DFA_EQ
+lines with a letter and strings <M0> before <M1>	(([A-Za-z])&(dog)).*(.*truck.*).*	(([A-Za-z])&(dog)).*(truck).*	DFA_EQ
+Items with a small letter and vowel preceding a character.	(([AEIOUaeiou])&([a-z])).*(.).*	(([a-z])&([AEIOUaeiou])).*(.).*	DFA_EQ
+Items with <M0> preceding a letter and <M1>.	(dog).*(([A-Za-z])&(truck)).*	(dog).*(([A-Za-z])&(truck)&(truck)).*	DFA_EQ
+lines ending with 2 or more lower-case letters or characters	((.*)(([a-z])|(.))){2,}	(.*)((([a-z])|(.)){2,})	DFA_EQ
+lines with words with string <M0> and a number	\b(.*dog.*)&([0-9])\b	\b(dog)&([0-9])\b	DFA_EQ
+lines that start with the string <M0> before a capital letter	((dog)(.*)).*(([A-Z])+).*	((dog)(.*)).*([A-Z]).*	DFA_EQ
+Lines need to have either a lower-case letter, a number, or a letter before the string <M0>	(([0-9])|([a-z])|([A-Za-z])).*(dog).*	(([a-z])|([0-9])|([A-Za-z])).*(dog).*	DFA_EQ
+Items with a small letter or character at least one time.	(([a-z])|(.))+	((.)|([a-z]))+	DFA_EQ
+Lines containing a vowel before capital and lower case letter	(([A-Z])&([a-z])&([A-Za-z])).*([AEIOUaeiou]).*	([AEIOUaeiou]).*(([A-Z])&([a-z])).*	DFA_EQ
+Lines with a vowel, a lower-case letter, and a character before a capital letter.	(([a-z])&([AEIOUaeiou])&(.)).*([A-Z]).*	(([AEIOUaeiou])&([a-z])&(.)).*([A-Z]).*	DFA_EQ
+lines with words ending in string <M0> before lower-case letter	\b(.*)(dog.*[a-z].*)\b	\b((.*)(dog)).*([a-z]).*\b	DFA_EQ
+lines that begin with a character which precedes a number	(..*[0-9].*)(.*)	((.)(.*)).*([0-9]).*	DFA_EQ
+lines containing a vowel, a letter, and the string <M0> followed by the string <M1>	(dog).*((truck)&([AEIOUaeiou])&([A-Za-z])).*	(([AEIOUaeiou])&([A-Za-z])&(dog)).*(truck).*	DFA_EQ
+Lines that have a capital letter before a lower case letter.	(([A-Z])+).*(.*[a-z].*).*	([A-Z]).*([a-z]).*	DFA_EQ
+lines with words and the strings <M0> and <M1> and a number	\b(dog)&([0-9])&(truck)\b	\b((dog)&(truck)&([0-9]))&([0-9])\b	DFA_EQ
+lines starting in a lower-case letter or with a letter	(([a-z])|(.*[A-Za-z].*))(.*)	(([a-z])(.*))|(.*[A-Za-z].*)	DFA_EQ
+lines containing a vowel before the string <M0> which precedes a lower-case letter	([AEIOUaeiou].*dog.*).*([a-z]).*	([AEIOUaeiou]).*(dog.*[a-z].*).*	DFA_EQ
+lines that contain a character, letter, or 0 or more instances of the string <M0>	(.*(.)|([A-Za-z])|(dog).*)*	((.)|([A-Za-z]))*	DFA_EQ
+Items with an upper case letter preceding <M0>.	([A-Z]).*((.*)(dog)).*	([A-Z]).*(dog).*	DFA_EQ
+lines that have a capital letter, a number, and a vowel before the string <M0>	(([AEIOUaeiou])&([A-Z])&([0-9])).*(dog).*	(([A-Z])&([0-9])&([AEIOUaeiou])).*(dog).*	DFA_EQ
+lines with the string dog, truck, and <unk> before a letter	(dog).*(([A-Za-z])&(truck)&(ring)).*	((dog)&(truck)&(ring)).*([A-Za-z]).*	DFA_EQ
+lines not beginning with the string <M0> as well as a vowel	~(((dog)(.*))&([AEIOUaeiou]))	~(((dog)&([AEIOUaeiou]))(.*))	DFA_EQ
+lines ending in a letter before string <M0> or lower-case letter	(.*)((([A-Za-z]).*(dog).*)|([a-z]))	(.*)(([A-Za-z].*dog.*)|([a-z]))	DFA_EQ
+lines with a character or the string <M0>, after a lower-case letter	(([a-z].*..*)|(dog))+	([a-z]).*((dog)|(.)).*	DFA_EQ
+lines ending with a number before a lower-case letter	(.*)([0-9].*[a-z].*)	((.*)([0-9])).*([a-z]).*	DFA_EQ
+lines that have 4 or more characters	.*(.){4,}.*	(.){4,}	DFA_EQ
+lines with <M0>, a number, and a letter	\b(dog)&([0-9])&([A-Za-z])\b	.*(dog)&([0-9])&([A-Za-z]).*	DFA_EQ
+lines which have either the string <M0> a vowel or a character.	.*(dog)|([AEIOUaeiou])|(.).*	.*([AEIOUaeiou])|(.).*	DFA_EQ
+lines with a character 7 times	(.*)((.){7,})	(.){7,}	DFA_EQ
+Items with a small letter, a character, and a numeral preceding <M0>.	(([a-z])&([0-9])&(.)).*(dog).*	(([a-z])&(.)&([0-9])).*(dog).*	DFA_EQ
+lines with words with a letter followed by string <M0> at least once	\b([A-Za-z].*dog.*)+\b	(\b[A-Za-z].*dog.*\b)+	DFA_EQ
+lines with a character followed by 3 or more of the string <M0>	(.*)((..*dog.*){3,})	(..*dog.*){3,}	DFA_EQ
+lines with at least one number or the string <M0>	(([0-9])|(dog))+	((dog)|([0-9]))+	DFA_EQ
+lines not having a character followed by a capital	~(..*[A-Z].*)	~((.).*([A-Z]).*)	DFA_EQ
+Items with a small letter or letter at least twice.	(([a-z])|([A-Za-z])){2,}	(([A-Za-z])|([A-Za-z])){2,}	DFA_EQ
+Items without <M0>, a character, or a small letter.	~((dog)|([a-z])|(.))	~(([a-z])|(.)|(dog))	DFA_EQ
+lines stating with words, the string <M0>, and a letter	(\b(dog)&([A-Za-z])\b)(.*)	(\b(dog)&([A-Za-z])&([A-Za-z])\b)(.*)	DFA_EQ
+lines with a character at least zero times	.*\b(.)*\b.*	(.)*	DFA_EQ
+lines that must have a vowel and the words <M0> and <M1>	.*([AEIOUaeiou])&(dog)&(truck).*	(([AEIOUaeiou])&(dog)&(truck)).*([A-Z]).*	DFA_EQ
+lines with a characters or a lower-case letter before the string 'dog;	((.)|([a-z])).*((.*)(dog)).*	((.)|([a-z])).*(dog).*	DFA_EQ
+Items with a vowel, or <M0>, or a upper case letter preceding <M1>.	(([A-Z])|(dog)|([AEIOUaeiou])).*(truck).*	(([AEIOUaeiou])|(dog)|([A-Z])).*(truck).*	DFA_EQ
+lines which start with the string <M0> followed by a lower-case letter	((dog)(.*)).*([a-z]).*	(dog.*[a-z].*)(.*)	DFA_EQ
+Items with <M0> preceding <M1>, <M2>, or a vowel.	(dog).*(([AEIOUaeiou])|(truck)|(ring)).*	(dog).*((truck)|(ring)|([AEIOUaeiou])).*	DFA_EQ
+Items with an upper case letter preceding a vowel.	([A-Z]).*(.*[AEIOUaeiou].*).*	([A-Z]).*([AEIOUaeiou]).*	DFA_EQ
+lines ending with a letter after a character	((.*)(.)).*([A-Za-z]).*	(.*)(..*[A-Za-z].*)	DFA_EQ
+lines ending with string <M0> at least once before string <M1>	(((.*)(dog))+).*(truck).*	((.*)((dog)+)).*(truck).*	DFA_EQ
+Items with words that contain a numeral preceding <M0> at least one times.	\b([0-9].*dog.*)+\b	(\b[0-9].*dog.*\b)+	DFA_EQ
+lines with a character followed by string <M0> or string <M1> at least once	((..*dog.*)|(truck))+	(..*dog.*)|((truck)+)	DFA_EQ
+lines with a lower-case letter before letter then character	([a-z].*[A-Za-z].*).*(.).*	([a-z]).*([A-Za-z].*..*).*	DFA_EQ
+lines ending with a capital letter coming before a lower-case letter	((.*)([A-Z])).*([a-z]).*	(.*)([A-Z].*[a-z].*)	DFA_EQ
+lines with a letter before the string <M0> and <M1> and a character	([A-Za-z]).*((dog)&(.)&(truck)).*	([A-Za-z]).*((dog)&(truck)&(.)).*	DFA_EQ
+Items with any letter and <M0>	.*([a-z])&([A-Z])&(dog).*	.*([A-Z])&([A-Za-z])&(dog).*	DFA_EQ
+lines with 4 or more of a vowel before string <M0> or <M1>	([AEIOUaeiou].*dog.*)|((truck){4,})	(([AEIOUaeiou]).*(dog).*)|((truck){4,})	DFA_EQ
+lines with either the word "dog," a capital letter or a lower-case letter preceding a vowel.	((dog)|([A-Z])|([a-z])).*([AEIOUaeiou]).*	(([A-Z])|([a-z])).*([AEIOUaeiou]).*	DFA_EQ
+Items with an upper case letter and a numeral preceding a small letter.	(([0-9])&([A-Z])).*([a-z]).*	(([A-Z])&([0-9])).*([a-z]).*	DFA_EQ
+lines that have letters preceding any numbers	([A-Za-z]).*(.*[0-9].*).*	([A-Za-z]).*(([0-9])&([0-9])).*	DFA_EQ
+lines without a character and not starting in string <M0>	~((.)&((dog)(.*)))	~((.)&(dog))(.*)	DFA_EQ
+lines have vowel after capital letter	(([A-Z])+).*([AEIOUaeiou]).*	[A-Z].*[AEIOUaeiou].*	DFA_EQ
+lines with words ending in a vowel	(\b(.*)([AEIOUaeiou])\b)+	\b(.*)([AEIOUaeiou])\b	DFA_EQ
+lines that contain either the string <M0> or a character	((.)|(dog))+	.*(dog)|(.).*	DFA_EQ
+lines containing a number, a capital letter, and a lower-case letter	\b([0-9])&([A-Z])&([a-z])\b	([0-9]).*(([0-9])&([a-z])).*	DFA_EQ

@@ -1,0 +1,41 @@
+lines using 4 or more words	(.*\b[A-Za-z]+\b.*){4,}	(.*\b[A-Za-z]+\b.*){7,}	DFA_NEQ
+lines which contain the letter 'z' twice.	(.*z.*){2,}	.*(z|<M1>).*	DFA_NEQ
+lines that have more than 6 numbers.	(.*[0-9].*){7,}	(.*[0-9].*){6,}	DFA_NEQ
+lines that have six letter words ending in 'th'.	.*\b[A-Za-z]{4}th\b.*	.*\b[A-Za-z]*th\b.*	DFA_NEQ
+lines that contain 6 letter words beginning with the letter 'y'.	.*\by[A-Za-z]{5}\b.*	.*\by[A-Za-z]{4}\b.*	DFA_NEQ
+lines where there are three characters between instances of 'ABC' and 'WEX'	.*ABC.*.{3}.*WEX.*|.*WEX.*.{3}.*ABC.*	.*(.*[0-9].*){3}.*	DFA_NEQ
+lines that have 3 characters after the first vowel	.*[AEIOUaeiou].*(.{3}).*	.*(<M0>|<M1>).*	DFA_NEQ
+lines using at least 5 characters	.*.{5}.*	.*.{6,}.*	DFA_NEQ
+lines that contain a word using at most 6 letters	.*\b[A-Za-z]{1,6}\b.*	.*\b[A-Za-z]{6,}\b.*	DFA_NEQ
+lines using 3 instances of 'sw'	.*(.*sw.*){3}.*	.*sw.*	DFA_NEQ
+lines that begin with a number and end with 'street' or 'avenue'.	[0-9].*(street|avenue)	[0-9].*street	DFA_NEQ
+lines using more than 1 character	.*.{2,}.*	.*[A-Z].*	DFA_NEQ
+lines which contain only lowercase letters.	[a-z]*	[A-Z]*	DFA_NEQ
+lines that are composed of 4 or more words.	(.*\b[A-Za-z]+\b.*){4,}	(.*\b[A-Za-z]+\b.*){7}	DFA_NEQ
+lines that end with vowels.	.*[AEIOUaeiou]	.*[]	DFA_NEQ
+lines that use 'a' or 'b' before words ending with 'er'.	.*(a|b).*\b[A-Za-z]*er\b.*	.*((|b).*\ba\b.*)	DFA_NEQ
+lines containing only a letter	[A-Za-z]	[A-Za-z]*	DFA_NEQ
+lines with capital letters	.*[A-Z].*	.*[AEIOUaeioui].*	DFA_NEQ
+lines that include one word using at least 2 letters	.*\b[A-Za-z]{2,}\b.*	.*((\b[A-Za-z][A-Za-z]*\b.*){2}.*)	DFA_NEQ
+lines that use words that are only four letters long.	.*\b[A-Za-z]{4}\b.*	.*\b[A-Za-z]{7}\b.*	DFA_NEQ
+lines that contain 4 letter words ending in 's'	.*\b[A-Za-z]{3}s\b.*	.*\b[A-Za-z]*s\b.*	DFA_NEQ
+lines that contain the symbol '-'.	.*-.*	.*\b-\b.*	DFA_NEQ
+lines that contain 5 or more letters	.*(.*[A-Za-z].*){5,}.*	.*(.*[A-Za-z]{5}.*)	DFA_NEQ
+lines which contain only the number '3'.	3	3.*3	DFA_NEQ
+lines with a word ending in 'aought' that contain only one word	([^A-Za-z])*\b[A-Za-z]*aought\b([^A-Za-z])*	.*\b[A-Za-z]*aought\b.*\b[A-Za-z]*\b.*	DFA_NEQ
+lines that contain the 'staphyloccus aureus.'	.*staphyloccusaureus.*	.*staphyloccusaureus..*	DFA_NEQ
+lines which contain 'qu' at the start	qu.*	.*(qu.*).*	DFA_NEQ
+lines using more than 3 characters	.*.{4,}.*	.*.{3}.*	DFA_NEQ
+lines that have more than 5 words ending with a 'c.'	(.*\b[A-Za-z]*c\b.*){6,}	.*(.*\b[A-Za-z]*c.\b.*){2}.*	DFA_NEQ
+lines using 4 instances of 'ug'	.*(.*ug.*){4}.*	.*ug.*	DFA_NEQ
+lines containing words that end with s.	.*\b[A-Za-z]*s\b.*	.*\b[A-Za-z]*<M0>\b.*	DFA_NEQ
+lines where there is only one word.	[^A-Za-z]*\b[A-Za-z]+\b[^A-Za-z]*	([^b])*\b[A-Za-z]+\b([^A-Za-z])*	DFA_NEQ
+lines using 3 instances of 'b'	.*(.*b.*){3}.*	.*b.*	DFA_NEQ
+lines that contain more than five words.	(.*\b[A-Za-z]+\b.*){6,}	.*\b[A-Za-z]*s\b.*	DFA_NEQ
+lines using a word of 5 letters or less.	.*\b[A-Za-z]{1,5}\b.*	.*\b[A-Za-z]{5,}\b.*	DFA_NEQ
+lines ending in 'z' preceded by a word that ends in 'nt'	.*\b[A-Za-z]*nt\b.*z	.*z.*\b[A-Za-z]*nt\b.*	DFA_NEQ
+lines using 7 'f'	(.*f.*){7}	.*f.*	DFA_NEQ
+lines using more than 4 characters	.*.{5,}.*	.*.{4}.*	DFA_NEQ
+lines that contain the phrase 'Booyah'.	.*Booyah.*	.*(.*\bBooyah\b.*).*	DFA_NEQ
+lines which contain multiple quoted words.	(.*\'[A-Za-z]+\'.*){2,}	.*(.*\b[A-Za-z]+\b.*){4}.*	DFA_NEQ
+lines using 'd' in the middle of a word.	.*\b[A-Za-z]+d[A-Za-z]+\b.*	.*(\b[A-Za-z]+d[A-Za-z]*\b.*){2}	DFA_NEQ

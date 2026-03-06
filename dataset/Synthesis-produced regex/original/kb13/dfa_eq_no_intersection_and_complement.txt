@@ -1,0 +1,12 @@
+lines that begin with the word 'the'	\bthe\b.*	the\b.*	DFA_EQ
+lines that have 2 words using 4 letters	(.*\b[A-Za-z]{4}\b.*){2}	(.*\b[A-Za-z]{4}\b.*){2,}	DFA_EQ
+lines using at least 6 characters	.*.{6}.*	.*.{6,}.*	DFA_EQ
+lines using the word 'An' at least once.	.*\bAn\b.*	.*(.*\bAn\b.*).*	DFA_EQ
+lines that start with 'the'.	(the.*).*	the.*	DFA_EQ
+lines that contain 'mix' or 'shake'.	.*mix.*|.*shake.*	.*(mix|shake).*	DFA_EQ
+lines that have three words comprised of 4 characters each.	.*(.*\b[A-Za-z]{4}\b.*){3}.*	(.*\b[A-Za-z]{4}\b.*){3}	DFA_EQ
+lines using 2 instances of 'irl'	.*(.*irl.*){2}.*	(.*irl.*){2,}	DFA_EQ
+lines using a 3 letter sequence starting with 'n'	.*n[A-Za-z]{2}.*	.*(n[A-Za-z]{2}).*	DFA_EQ
+lines that contain at least five words.	(.*\b[A-Za-z][A-Za-z]*\b.*){5,}	(.*\b[A-Za-z]+\b.*){5}	DFA_EQ
+lines which start with the word 'The'	\bThe\b.*	The\b.*	DFA_EQ
+lines using 6 instances of 'fu'	.*(.*fu.*){6}.*	(.*fu.*){6}	DFA_EQ

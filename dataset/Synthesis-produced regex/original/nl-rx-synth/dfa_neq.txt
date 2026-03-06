@@ -1,0 +1,199 @@
+lines ending with a letter or a capital letter, 3 or more times	(.*)(([A-Za-z])|(([A-Z]){3,}))	((.*)(([A-Za-z])|([A-Z]))){3,}	DFA_NEQ
+lines ending with a number, 2 or more times	(.*)(([0-9]){2,})	((.*)([0-9])){2,}	DFA_NEQ
+lines starting with a vowel, 2 or more times	(([AEIOUaeiou]){2,})(.*)	(([AEIOUaeiou])(.*)){2,}	DFA_NEQ
+lines ending with a capital letter or a number, zero or more times	(.*)((([A-Z])|([0-9]))*)	((.*)(([A-Z])|([0-9])))*	DFA_NEQ
+lines not having a number or containing a character	~(([0-9])|(.*..*))	(~([0-9]))|(.*..*)	DFA_NEQ
+lines starting with the string <M0> or a lower-case letter, zero or more times	(((dog)(.*))|([a-z]))*	(((dog)|([a-z]))*)(.*)	DFA_NEQ
+lines starting with a number, 2 or more times	(([0-9]){2,})(.*)	(([0-9])(.*)){2,}	DFA_NEQ
+lines with words with the string <M0> or the string <M1> and a letter	\b(dog)|((truck)&([A-Za-z]))\b	\b((dog)|(truck))&([A-Za-z])\b	DFA_NEQ
+lines ending with the string <M0> and a vowel or a character	(.*)(((dog)&([AEIOUaeiou]))|(.))	((.*)(dog))&(([AEIOUaeiou])|(.))	DFA_NEQ
+lines with words with ending with a number, 3 or more times	\b(.*)(([0-9]){3,})\b	(\b(.*)([0-9])\b){3,}	DFA_NEQ
+lines containing a vowel before a lower-case letter and the string <M0>	(.*[AEIOUaeiou].*).*(([a-z])&(dog)).*	.*(([AEIOUaeiou]).*([a-z]).*)&(dog).*	DFA_NEQ
+lines with words that contain only a vowel before a character	(\b[AEIOUaeiou]\b).*(.).*	\b([AEIOUaeiou]).*(.).*\b	DFA_NEQ
+lines not having the string <M0> or a lower-case letter at least once	~(((dog)|([a-z]))+)	(~(dog))|(([a-z])+)	DFA_NEQ
+lines containing a letter or the string <M0> at least once	(.*([A-Za-z])|(dog).*)+	((.*[A-Za-z].*)|(dog))+	DFA_NEQ
+lines with words that contain only a letter, 4 or more times	\b([A-Za-z]){4,}\b	(\b[A-Za-z]\b){4,}	DFA_NEQ
+lines ending with a vowel, a number, and a capital letter or the string <M0>	(.*)((([AEIOUaeiou])&([0-9])&([A-Z]))|(dog))	((.*)(([AEIOUaeiou])&([0-9])&([A-Z]))|(dog))	DFA_NEQ
+lines not having the string <M0> or containing a character	~((dog)|(.*..*))	(~(dog))|(.*..*)	DFA_NEQ
+lines with words with a number and the string <M0>, zero or more times	\b([0-9])&((dog)*)\b	(\b([0-9])&(dog)\b)*	DFA_NEQ
+lines with words with ending with a vowel or a number	\b(.*)(([AEIOUaeiou])|([0-9]))\b	\b((.*)([AEIOUaeiou]))|([0-9])\b	DFA_NEQ
+lines not ending with the string <M0>, 3 or more times	~((.*)((dog){3,}))	~(((.*)(dog)){3,})	DFA_NEQ
+lines with words with a character before a letter, zero or more times	\b(.).*(([A-Za-z])*).*\b	(\b(.).*([A-Za-z]).*\b)*	DFA_NEQ
+lines ending with the string <M0> or a vowel, 3 or more times	((.*)(dog))|(([AEIOUaeiou]){3,})	((.*)((dog)|([AEIOUaeiou]))){3,}	DFA_NEQ
+lines not having a vowel or a letter, 7 or more times	((~([AEIOUaeiou]))|([A-Za-z])){7,}	(~([AEIOUaeiou]))|(([A-Za-z]){7,})	DFA_NEQ
+lines with words with the string <M0> or a number at least once	\b(dog)|(([0-9])+)\b	(\b(dog)|([0-9])\b)+	DFA_NEQ
+lines with the string <M0> before a vowel or the string <M1> at least once	(dog).*((([AEIOUaeiou])|(truck))+).*	(((dog).*([AEIOUaeiou]).*)|(truck))+	DFA_NEQ
+lines starting with a capital letter or a number, zero or more times	((([A-Z])(.*))|([0-9]))*	((([A-Z])|([0-9]))(.*))*	DFA_NEQ
+lines not having the string <M0> or the string <M1> at least once	~(((dog)|(truck))+)	(~(dog))|((truck)+)	DFA_NEQ
+lines starting with the string <M0> or a capital letter, zero or more times	((dog)(.*))|(([A-Z])*)	(((dog)|([A-Z]))*)(.*)	DFA_NEQ
+lines with words with ending with a letter, 3 or more times	\b((.*)([A-Za-z])){3,}\b	(\b(.*)([A-Za-z])\b){3,}	DFA_NEQ
+lines starting with a capital letter, 2 or more times	(([A-Z]){2,})(.*)	(([A-Z])(.*)){2,}	DFA_NEQ
+lines ending with containing only a letter, 2 or more times	(.*)(([A-Za-z]){2,})	((.*)([A-Za-z])){2,}	DFA_NEQ
+lines with a letter followed by the string <M0> or the string <M1>, 7 or more times	(([A-Za-z].*dog.*)|(truck)){7,}	([A-Za-z].*dog.*)|((truck){7,})	DFA_NEQ
+lines with words with starting with a capital letter or the string <M0>	\b(([A-Z])|(dog))(.*)\b	\b(([A-Z])(.*))|(dog)\b	DFA_NEQ
+lines with words with a lower-case letter followed by the string <M0>, 2 or more times	\b([a-z].*dog.*){2,}\b	(\b[a-z].*dog.*\b){2,}	DFA_NEQ
+lines ending with a number or the string <M0>, zero or more times	(.*)((([0-9])|(dog))*)	((.*)(([0-9])|(dog)))*	DFA_NEQ
+lines with words that don't have a capital letter, 5 or more times	\b~(([A-Z]){5,})\b	(\b~([A-Z])\b){5,}	DFA_NEQ
+lines starting with a vowel or a character, 6 or more times	(([AEIOUaeiou])(.*))|((.){6,})	((([AEIOUaeiou])|(.)){6,})(.*)	DFA_NEQ
+lines with words with the string <M0> and a character, zero or more times	\b(dog)&((.)*)\b	(\b(dog)&(.)\b)*	DFA_NEQ
+lines containing the string <M0> or the string <M1>, 4 or more times	(.*dog.*)|((truck){4,})	(.*(dog)|(truck).*){4,}	DFA_NEQ
+lines ending with a number, 3 or more times	(.*)(([0-9]){3,})	((.*)([0-9])){3,}	DFA_NEQ
+lines containing the string <M0> before a capital letter, 6 or more times	(.*dog.*).*(([A-Z]){6,}).*	(.*(dog).*([A-Z]).*.*){6,}	DFA_NEQ
+lines containing a capital letter, 5 or more times	(.*[A-Z].*){5,}	.*([A-Z]){5,}.*	DFA_NEQ
+lines with words with the string <M0> followed by the string <M1> before the string <M2>	(\bdog.*truck.*\b).*(ring).*	\b(dog.*truck.*).*(ring).*\b	DFA_NEQ
+lines ending with a letter, 5 or more times	(.*)(([A-Za-z]){5,})	((.*)([A-Za-z])){5,}	DFA_NEQ
+lines containing a lower-case letter and not the string <M0>	(.*[a-z].*)&(~(dog))	.*([a-z])&(~(dog)).*	DFA_NEQ
+lines starting with the string <M0> or a vowel at least once	(((dog)(.*))|([AEIOUaeiou]))+	(((dog)|([AEIOUaeiou]))+)(.*)	DFA_NEQ
+lines ending with a lower-case letter or a letter at least once	((.*)([a-z]))|(([A-Za-z])+)	((.*)(([a-z])|([A-Za-z])))+	DFA_NEQ
+lines containing a capital letter, 2 or more times	.*([A-Z]){2,}.*	(.*[A-Z].*){2,}	DFA_NEQ
+lines with words with a character followed by a capital letter, 5 or more times	\b(..*[A-Z].*){5,}\b	(\b..*[A-Z].*\b){5,}	DFA_NEQ
+lines starting with a letter, 7 or more times before a capital letter	((([A-Za-z])(.*)){7,}).*([A-Z]).*	((([A-Za-z]){7,}){7,}).*([A-Z]).*	DFA_NEQ
+lines not having the string <M0> or a character, 6 or more times	((~(dog))|(.)){6,}	(~(dog))|((.){6,})	DFA_NEQ
+lines containing a letter before the string <M0> or a number	.*(([A-Za-z]).*(dog).*)|([0-9]).*	(.*[A-Za-z].*).*((dog)|([0-9])).*	DFA_NEQ
+lines with words with a number and not the string <M0>	\b([0-9])&(~(dog))\b	\b([0-9])&(dog)\b	DFA_NEQ
+lines with words that contain the string <M0>, 3 or more times	\b(.*dog.*){3,}\b	\b.*(dog){3,}.*\b	DFA_NEQ
+lines containing the string <M0> and ending with a number	.*(dog)&((.*)([0-9])).*	(.*dog.*)&((.*)([0-9]))	DFA_NEQ
+lines not containing the string <M0> at least once	.*~((dog)+).*	~(.*(dog)+.*)	DFA_NEQ
+lines ending with a capital letter, 3 or more times	(.*)(([A-Z]){3,})	((.*)([A-Z])){3,}	DFA_NEQ
+lines with words with starting with a number, 2 or more times	\b(([0-9]){2,})(.*)\b	(\b([0-9])(.*)\b){2,}	DFA_NEQ
+lines not containing a number, 2 or more times	~((.*[0-9].*){2,})	~(.*([0-9]){2,}.*)	DFA_NEQ
+lines with words with a letter or the string <M0>, 6 or more times	\b(([A-Za-z])|(dog)){6,}\b	(\b([A-Za-z])|(dog)\b){6,}	DFA_NEQ
+lines containing the string <M0> and a letter before the string <M1>	(.*(dog)&([A-Za-z]).*).*(truck).*	.*((dog)&([A-Za-z])).*(truck).*.*	DFA_NEQ
+lines containing the string <M0> or the string <M1>, 7 or more times	((.*dog.*)|(truck)){7,}	(.*(dog)|(truck).*){7,}	DFA_NEQ
+lines containing containing only the string <M0>, 5 or more times	.*(dog){5,}.*	(.*dog.*){5,}	DFA_NEQ
+lines not containing a letter or a lower-case letter	.*~(([A-Za-z])|([a-z])).*	~((.*[A-Za-z].*)|([a-z]))	DFA_NEQ
+lines not containing a lower-case letter, zero or more times	.*~(([a-z])*).*	~(.*([a-z])*.*)	DFA_NEQ
+lines with words with starting with a lower-case letter, zero or more times	\b(([a-z])*)(.*)\b	(\b([a-z])(.*)\b)*	DFA_NEQ
+lines with words with ending with a letter, 6 or more times	\b(.*)(([A-Za-z]){6,})\b	(\b(.*)([A-Za-z])\b){6,}	DFA_NEQ
+lines not having a character or a capital letter at least once	~((.)|(([A-Z])+))	(~(.))|(([A-Z])+)	DFA_NEQ
+lines containing a capital letter or a vowel, 4 or more times	((.*[A-Z].*)|([AEIOUaeiou])){4,}	(.*([A-Z])|([AEIOUaeiou]).*){4,}	DFA_NEQ
+lines not having a number before a letter	(~([0-9])).*([A-Za-z]).*	~(([0-9]).*([A-Za-z]).*)	DFA_NEQ
+lines not having a letter before a lower-case letter followed by the string <M0>	~(([A-Za-z]).*([a-z].*dog.*).*)	(~([A-Za-z])).*([a-z].*dog.*).*	DFA_NEQ
+lines not having a vowel or a letter at least once	~((([AEIOUaeiou])|([A-Za-z]))+)	(~([AEIOUaeiou]))|(([A-Za-z])+)	DFA_NEQ
+lines containing a lower-case letter before a capital letter, 2 or more times	(.*[a-z].*).*(([A-Z]){2,}).*	(.*([a-z]).*([A-Z]).*.*){2,}	DFA_NEQ
+lines containing ending with the string <M0>, 5 or more times	.*(.*)((dog){5,}).*	.*((.*)(dog)){5,}.*	DFA_NEQ
+lines ending with containing only the string <M0>, zero or more times	(.*)((dog)*)	((.*)(dog))*	DFA_NEQ
+lines with a vowel followed by the string <M0> or the string <M1>, zero or more times	([AEIOUaeiou].*dog.*)|((truck)*)	(([AEIOUaeiou].*dog.*)|(truck))*	DFA_NEQ
+lines not having a lower-case letter or the string <M0>, 6 or more times	~(([a-z])|((dog){6,}))	(~([a-z]))|((dog){6,})	DFA_NEQ
+lines with words with the string <M0> and the string <M1> or a lower-case letter	\b(dog)&((truck)|([a-z]))\b	\b((dog)&(truck))|([a-z])\b	DFA_NEQ
+lines not having the string <M0> before a vowel	~((dog).*([AEIOUaeiou]).*)	(~(dog)).*([AEIOUaeiou]).*	DFA_NEQ
+lines ending with a lower-case letter before the string <M0> or a vowel	(.*)((([a-z]).*(dog).*)|([AEIOUaeiou]))	((.*)([a-z])).*((dog)|([AEIOUaeiou])).*	DFA_NEQ
+lines containing a lower-case letter or the string <M0> before a capital letter	.*(([a-z])|(dog)).*([A-Z]).*.*	(.*[a-z].*)|((dog).*([A-Z]).*)	DFA_NEQ
+lines with words with ending with the string <M0>, 4 or more times	\b(.*)((dog){4,})\b	(\b(.*)(dog)\b){4,}	DFA_NEQ
+lines not containing only the string <M0> before a number	(~(dog)).*([0-9]).*	~((dog).*([0-9]).*)	DFA_NEQ
+lines not containing only the string <M0> before a vowel	(~(dog)).*([AEIOUaeiou]).*	~((dog).*([AEIOUaeiou]).*)	DFA_NEQ
+lines containing a capital letter or the string <M0> and a number	.*([A-Z])|((dog)&([0-9])).*	.*(([A-Z])|(dog))&([0-9]).*	DFA_NEQ
+lines not containing the string <M0>	~(.*dog.*)	.*~(dog).*	DFA_NEQ
+lines starting with a capital letter or the string <M0>, 4 or more times	(([A-Z])|((dog){4,}))(.*)	((([A-Z])|(dog))(.*)){4,}	DFA_NEQ
+lines with words with a vowel or a number, 2 or more times	\b(([AEIOUaeiou])|([0-9])){2,}\b	(\b([AEIOUaeiou])|([0-9])\b){2,}	DFA_NEQ
+lines ending with containing only the string <M0>, 6 or more times	(.*)((dog){6,})	((.*)(dog)){6,}	DFA_NEQ
+lines with words that don't have a letter or a capital letter	\b~(([A-Za-z])|([A-Z]))\b	\b(~([A-Za-z]))|([A-Z])\b	DFA_NEQ
+lines with words with starting with the string <M0> before a number	(\b(dog)(.*)\b).*([0-9]).*	\b((dog)(.*)).*([0-9]).*\b	DFA_NEQ
+lines starting with a vowel, zero or more times	(([AEIOUaeiou])(.*))*	(([AEIOUaeiou])*)(.*)	DFA_NEQ
+lines starting with the string <M0>, 7 or more times	((dog){7,})(.*)	((dog)(.*)){7,}	DFA_NEQ
+lines with words that don't the string <M0> before a number	\b~((dog).*([0-9]).*)\b	\b(~(dog)).*([0-9]).*\b	DFA_NEQ
+lines containing the string <M0> or a lower-case letter, 4 or more times	(.*dog.*)|(([a-z]){4,})	((.*dog.*)|([a-z])){4,}	DFA_NEQ
+lines containing the string <M0>, 6 or more times	(.*dog.*){6,}	.*(dog){6,}.*	DFA_NEQ
+lines not having a capital letter or a number before a lower-case letter	(~(([A-Z])|([0-9]))).*([a-z]).*	(~([A-Z]))|(([0-9]).*([a-z]).*)	DFA_NEQ
+lines containing a number before the string <M0> and a character	(.*[0-9].*).*((dog)&(.)).*	.*(([0-9]).*(dog).*)&(.).*	DFA_NEQ
+lines ending with a letter and a vowel or the string <M0>	(.*)((([A-Za-z])&([AEIOUaeiou]))|(dog))	((.*)([A-Za-z]))&(([AEIOUaeiou])|(dog))	DFA_NEQ
+lines not having the string <M0> and not a character before a capital letter	~(((dog)&(.)).*([A-Z]).*)	(~(dog))&((.).*([A-Z]).*)	DFA_NEQ
+lines with a vowel before the string <M0> or a character, zero or more times	([AEIOUaeiou]).*(((dog)|(.))*).*	(([AEIOUaeiou]).*(dog).*)|((.)*)	DFA_NEQ
+lines not having a vowel before a lower-case letter	(~([AEIOUaeiou])).*([a-z]).*	~(([AEIOUaeiou]).*([a-z]).*)	DFA_NEQ
+lines not having a capital letter before a character followed by a vowel	~(([A-Z]).*(..*[AEIOUaeiou].*).*)	(~([A-Z])).*(..*[AEIOUaeiou].*).*	DFA_NEQ
+lines not having the string <M0> or a character at least once	~(((dog)|(.))+)	(~(dog))|((.)+)	DFA_NEQ
+lines with words that contain a letter or the string <M0>	\b.*([A-Za-z])|(dog).*\b	\b(.*[A-Za-z].*)|(dog)\b	DFA_NEQ
+lines ending with a lower-case letter before a character or a number	(.*)((([a-z]).*(.).*)|([0-9]))	((.*)([a-z])).*((.)|([0-9])).*	DFA_NEQ
+lines not containing a capital letter or a lower-case letter	~(.*([A-Z])|([a-z]).*)	~((.*[A-Z].*)|([a-z]))	DFA_NEQ
+lines with words with the string <M0> before a character or a capital letter	\b(dog).*((.)|([A-Z])).*\b	\b((dog).*(.).*)|([A-Z])\b	DFA_NEQ
+lines with words that contain a number, zero or more times	\b.*([0-9])*.*\b	(\b.*[0-9].*\b)*	DFA_NEQ
+lines with words with the string <M0> or the string <M1> at least once	\b((dog)|(truck))+\b	(\b(dog)|(truck)\b)+	DFA_NEQ
+lines with words with starting with a number, 6 or more times	(\b([0-9])(.*)\b){6,}	\b(([0-9])(.*)){6,}\b	DFA_NEQ
+lines ending with containing a lower-case letter, zero or more times	((.*)(.*[a-z].*))*	(.*)((.*[a-z].*)*)	DFA_NEQ
+lines containing a character and a number, 4 or more times	(.*(.)&([0-9]).*){4,}	(.*..*)&(([0-9]){4,})	DFA_NEQ
+lines with words with the string <M0>, 7 or more times before the string <M1>	(\b(dog){7,}\b).*(truck).*	\b((dog){7,}).*(truck).*\b	DFA_NEQ
+lines containing the string <M0> before the string <M1> or the string <M2>	.*((dog).*(truck).*)|(ring).*	(.*dog.*).*((truck)|(ring)).*	DFA_NEQ
+lines ending with a lower-case letter, 5 or more times	(.*)(([a-z]){5,})	((.*)([a-z])){5,}	DFA_NEQ
+lines not having a capital letter and not a character before a letter	~((([A-Z])&(.)).*([A-Za-z]).*)	(~([A-Z]))&((.).*([A-Za-z]).*)	DFA_NEQ
+lines with words with starting with a number before a letter	(\b([0-9])(.*)\b).*([A-Za-z]).*	\b(([0-9])(.*)).*([A-Za-z]).*\b	DFA_NEQ
+lines containing the string <M0> or a number, 3 or more times	(.*dog.*)|(([0-9]){3,})	(.*(dog)|([0-9]).*){3,}	DFA_NEQ
+lines with a vowel before the string <M0> or a capital letter at least once	((([AEIOUaeiou]).*(dog).*)|([A-Z]))+	(([AEIOUaeiou]).*(dog).*)|(([A-Z])+)	DFA_NEQ
+lines not containing a letter at least once	.*~(([A-Za-z])+).*	~(.*([A-Za-z])+.*)	DFA_NEQ
+lines containing a letter, 4 or more times before the string <M0>	((.*[A-Za-z].*){4,}).*(dog).*	.*(([A-Za-z]){4,}).*(dog).*.*	DFA_NEQ
+lines with a character or the string <M0> before a lower-case letter at least once	((.)|(dog)).*(([a-z])+).*	((.)|((dog).*([a-z]).*))+	DFA_NEQ
+lines containing a number or the string <M0> before the string <M1>	(.*([0-9])|(dog).*).*(truck).*	(.*[0-9].*)|((dog).*(truck).*)	DFA_NEQ
+lines containing the string <M0> or the string <M1> at least once	(.*(dog)|(truck).*)+	((.*dog.*)|(truck))+	DFA_NEQ
+lines not containing a vowel before the string <M0>	.*(~([AEIOUaeiou])).*(dog).*.*	.*~(([AEIOUaeiou]).*(dog).*).*	DFA_NEQ
+lines with words with ending with the string <M0>, 6 or more times	\b((.*)(dog)){6,}\b	(\b(.*)(dog)\b){6,}	DFA_NEQ
+lines not containing a number, 5 or more times	~((.*[0-9].*){5,})	~(.*([0-9]){5,}.*)	DFA_NEQ
+lines with a lower-case letter before a character or the string <M0>, 7 or more times	((([a-z]).*(.).*)|(dog)){7,}	(([a-z]).*(.).*)|((dog){7,})	DFA_NEQ
+lines containing the string <M0>, zero or more times	.*(dog)*.*	(.*dog.*)*	DFA_NEQ
+lines not having a letter and not the string <M0> or the string <M1>	~(([A-Za-z])&((dog)|(truck)))	~((([A-Za-z])&(dog))|(truck))	DFA_NEQ
+lines not having a number before a vowel	~(([0-9]).*([AEIOUaeiou]).*)	(~([0-9])).*([AEIOUaeiou]).*	DFA_NEQ
+lines with words that don't have a lower-case letter or a vowel	\b~(([a-z])|([AEIOUaeiou]))\b	\b(~([a-z]))|([AEIOUaeiou])\b	DFA_NEQ
+lines ending with a character before a capital letter or a letter	(.*)(((.).*([A-Z]).*)|([A-Za-z]))	((.*)(.)).*(([A-Z])|([A-Za-z])).*	DFA_NEQ
+lines containing the string <M0>, 4 or more times before a number	((.*dog.*){4,}).*([0-9]).*	.*((dog){4,}).*([0-9]).*.*	DFA_NEQ
+lines containing a letter before a number or a character	.*([A-Za-z]).*(([0-9])|(.)).*.*	.*(([A-Za-z]).*([0-9]).*)|(.).*	DFA_NEQ
+lines containing containing only a capital letter, zero or more times	.*([A-Z])*.*	(.*[A-Z].*)*	DFA_NEQ
+lines not starting with the string <M0>, 4 or more times	~(((dog){4,})(.*))	~(((dog)(.*)){4,})	DFA_NEQ
+lines with words that don't the string <M0> or the string <M1>	\b~((dog)|(truck))\b	\b(~(dog))|(truck)\b	DFA_NEQ
+lines with words that don't the string <M0> before a character	\b~((dog).*(.).*)\b	\b(~(dog)).*(.).*\b	DFA_NEQ
+lines not having a capital letter or a vowel at least once	~((([A-Z])|([AEIOUaeiou]))+)	(~([A-Z]))|(([AEIOUaeiou])+)	DFA_NEQ
+lines not having a capital letter and not a number followed by the string <M0>	~(([A-Z])&([0-9].*dog.*))	(~([A-Z]))&([0-9].*dog.*)	DFA_NEQ
+lines not containing a lower-case letter, 2 or more times	(.*~([a-z]).*){2,}	~(.*([a-z]){2,}.*)	DFA_NEQ
+lines with words with a number or a capital letter at least once	\b([0-9])|(([A-Z])+)\b	(\b([0-9])|([A-Z])\b)+	DFA_NEQ
+lines containing a lower-case letter and a character, 6 or more times	(.*[a-z].*)&((.){6,})	(.*([a-z])&(.).*){6,}	DFA_NEQ
+lines with words with a lower-case letter, 4 or more times before the string <M0>	(\b([a-z]){4,}\b).*(dog).*	\b(([a-z]){4,}).*(dog).*\b	DFA_NEQ
+lines not having the string <M0> before a capital letter or a lower-case letter	~(((dog).*([A-Z]).*)|([a-z]))	(~(dog)).*(([A-Z])|([a-z])).*	DFA_NEQ
+lines with words with a letter at least once before the string <M0>	(\b([A-Za-z])+\b).*(dog).*	\b(([A-Za-z])+).*(dog).*\b	DFA_NEQ
+lines containing a lower-case letter or a vowel at least once	((.*[a-z].*)|([AEIOUaeiou]))+	(.*([a-z])|([AEIOUaeiou]).*)+	DFA_NEQ
+lines containing a lower-case letter and a number, zero or more times	(.*[a-z].*)&(([0-9])*)	(.*([a-z])&([0-9]).*)*	DFA_NEQ
+lines with words that contain only a lower-case letter, zero or more times	\b([a-z])*\b	(\b[a-z]\b)*	DFA_NEQ
+lines not having a letter before the string <M0>, 7 or more times	~(([A-Za-z]).*((dog){7,}).*)	(~([A-Za-z])).*((dog){7,}).*	DFA_NEQ
+lines ending with a capital letter followed by a lower-case letter, zero or more times	(.*)(([A-Z].*[a-z].*)*)	((.*)([A-Z].*[a-z].*))*	DFA_NEQ
+lines ending with a vowel, 5 or more times before a character	(((.*)([AEIOUaeiou])){5,}).*(.).*	((.*)(([AEIOUaeiou]){5,})).*(.).*	DFA_NEQ
+lines not containing the string <M0>, a vowel, or a capital letter	.*~((dog)|([AEIOUaeiou])|([A-Z])).*	~(.*(dog)|([AEIOUaeiou])|([A-Z]).*)	DFA_NEQ
+lines not having a character before a number	(~(.)).*([0-9]).*	~((.).*([0-9]).*)	DFA_NEQ
+lines not having the string <M0> or the string <M1>, zero or more times	~(((dog)|(truck))*)	(~(dog))|((truck)*)	DFA_NEQ
+lines with words with starting with a letter, 4 or more times	(\b([A-Za-z])(.*)\b){4,}	\b(([A-Za-z])(.*)){4,}\b	DFA_NEQ
+lines starting with the string <M0> followed by a letter, zero or more times	((dog.*[A-Za-z].*)(.*))*	((dog.*[A-Za-z].*)*)(.*)	DFA_NEQ
+lines with words with a capital letter followed by the string <M0> before the string <M1>	(\b[A-Z].*dog.*\b).*(truck).*	\b([A-Z].*dog.*).*(truck).*\b	DFA_NEQ
+lines not having a vowel or a lower-case letter, 7 or more times	~((([AEIOUaeiou])|([a-z])){7,})	(~([AEIOUaeiou]))|(([a-z]){7,})	DFA_NEQ
+lines with the string <M0> before a lower-case letter or the string <M1> at least once	((dog).*([a-z]).*)|((truck)+)	(((dog).*([a-z]).*)|(truck))+	DFA_NEQ
+lines not containing a vowel or a lower-case letter	.*(~([AEIOUaeiou]))|([a-z]).*	~((.*[AEIOUaeiou].*)|([a-z]))	DFA_NEQ
+lines not containing a capital letter and not the string <M0>	.*~(([A-Z])&(dog)).*	~(.*([A-Z])&(dog).*)	DFA_NEQ
+lines containing a vowel or a number, 7 or more times	.*(([AEIOUaeiou])|([0-9])){7,}.*	(.*([AEIOUaeiou])|([0-9]).*){7,}	DFA_NEQ
+lines containing the string <M0> or ending with the string <M1>	.*(dog)|((.*)(truck)).*	(.*dog.*)|((.*)(truck))	DFA_NEQ
+lines with words with the string <M0> or the string <M1>, 3 or more times	\b((dog)|(truck)){3,}\b	(\b(dog)|(truck)\b){3,}	DFA_NEQ
+lines ending with containing the string <M0>, 3 or more times	(.*)(.*(dog){3,}.*)	(.*)((.*dog.*){3,})	DFA_NEQ
+lines ending with a lower-case letter, 4 or more times	(.*)(([a-z]){4,})	((.*)([a-z])){4,}	DFA_NEQ
+lines not having a lower-case letter before the string <M0>, a capital letter, or a character	~(([a-z]).*((dog)|([A-Z])|(.)).*)	(~([a-z])).*((dog)|([A-Z])|(.)).*	DFA_NEQ
+lines ending with the string <M0> or the string <M1>, 3 or more times	(.*)(((dog)|(truck)){3,})	((.*)((dog)|(truck))){3,}	DFA_NEQ
+lines not containing a capital letter or a number	.*~(([A-Z])|([0-9])).*	~((.*[A-Z].*)|([0-9]))	DFA_NEQ
+lines containing the string <M0> before a character, zero or more times	.*(dog).*((.)*).*.*	(.*(dog).*(.).*.*)*	DFA_NEQ
+lines with words with the string <M0> or a character at least once	\b((dog)|(.))+\b	(\b(dog)|(.)\b)+	DFA_NEQ
+lines with words that contain the string <M0> and a letter	\b.*(dog)&([A-Za-z]).*\b	\b(.*dog.*)&([A-Za-z])\b	DFA_NEQ
+lines not ending with the string <M0>, zero or more times	~((.*)((dog)*))	~(((.*)(dog))*)	DFA_NEQ
+lines with words that contain a lower-case letter or a character	\b.*([a-z])|(.).*\b	\b(.*[a-z].*)|(.)\b	DFA_NEQ
+lines not having the string <M0> or a letter before a character	~(((dog)|([A-Za-z])).*(.).*)	(~(dog))|(([A-Za-z]).*(.).*)	DFA_NEQ
+lines containing the string <M0> and a capital letter, 7 or more times	(.*dog.*)&(([A-Z]){7,})	(.*(dog)&([A-Z]).*){7,}	DFA_NEQ
+lines with a letter before ending with a vowel, 4 or more times	([A-Za-z]).*((.*)(([AEIOUaeiou]){4,})).*	([A-Za-z]).*(((.*)([AEIOUaeiou])){4,}).*	DFA_NEQ
+lines not having a lower-case letter or the string <M0> before a capital letter	~(([a-z])|((dog).*([A-Z]).*))	(~([a-z]))|((dog).*([A-Z]).*)	DFA_NEQ
+lines starting with the string <M0> or a number, 2 or more times	((dog)(.*))|(([0-9]){2,})	(((dog)|([0-9])){2,})(.*)	DFA_NEQ
+lines not having the string <M0> before containing a lower-case letter	~((dog).*(.*[a-z].*).*)	(~(dog)).*(.*[a-z].*).*	DFA_NEQ
+lines not having the string <M0> before a capital letter at least once	~((dog).*(([A-Z])+).*)	(~(dog)).*(([A-Z])+).*	DFA_NEQ
+lines containing the string <M0> or the string <M1>, zero or more times	(.*(dog)|(truck).*)*	((.*dog.*)|(truck))*	DFA_NEQ
+lines containing a character before the string <M0>, zero or more times	(.*..*).*((dog)*).*	(.*(.).*(dog).*.*)*	DFA_NEQ
+lines with words with a character and the string <M0> or the string <M1>	\b(.)&((dog)|(truck))\b	\b((.)&(dog))|(truck)\b	DFA_NEQ
+lines with words that contain the string <M0>, 5 or more times	(\b.*dog.*\b){5,}	\b.*(dog){5,}.*\b	DFA_NEQ
+lines starting with a capital letter, 6 or more times	(([A-Z]){6,})(.*)	(([A-Z])(.*)){6,}	DFA_NEQ
+lines containing the string <M0> followed by a lower-case letter, zero or more times	.*(dog.*[a-z].*)*.*	(.*dog.*[a-z].*.*)*	DFA_NEQ
+lines with words with a number before a vowel, zero or more times	\b([0-9]).*(([AEIOUaeiou])*).*\b	(\b([0-9]).*([AEIOUaeiou]).*\b)*	DFA_NEQ
+lines containing the string <M0> or a vowel, 4 or more times	(.*(dog)|([AEIOUaeiou]).*){4,}	((.*dog.*)|([AEIOUaeiou])){4,}	DFA_NEQ
+lines with words with starting with a capital letter before the string <M0>	(\b([A-Z])(.*)\b).*(dog).*	\b(([A-Z])(.*)).*(dog).*\b	DFA_NEQ
+lines ending with a letter or the string <M0> before a character	((.*)(([A-Za-z])|(dog))).*(.).*	((.*)([A-Za-z]))|((dog).*(.).*)	DFA_NEQ
+lines containing a vowel and a character, zero or more times	(.*[AEIOUaeiou].*)&((.)*)	(.*([AEIOUaeiou])&(.).*)*	DFA_NEQ
+lines not having the string <M0> or a letter at least once	~(((dog)|([A-Za-z]))+)	(~(dog))|(([A-Za-z])+)	DFA_NEQ
+lines not having a number, not the string <M0>, and not a lower-case letter and not the string <M1>	~((([0-9])&(dog)&([a-z]))&(truck))	~(([0-9])&(dog)&(truck))&(truck)	DFA_NEQ
+lines ending with the string <M0> or a vowel, 6 or more times	(.*)((dog)|(([AEIOUaeiou]){6,}))	((.*)((dog)|([AEIOUaeiou]))){6,}	DFA_NEQ
+lines with words that contain a capital letter, 2 or more times	\b(.*[A-Z].*){2,}\b	\b.*([A-Z]){2,}.*\b	DFA_NEQ
